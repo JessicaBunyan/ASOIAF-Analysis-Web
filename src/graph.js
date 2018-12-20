@@ -23,9 +23,10 @@ class Graph extends Component{
               </div>
 
           );
-      }
+      } 
       createBarChart(){
 
+        var data = this.props.data;
         var canvas = document.querySelector("canvas"),
         context = canvas.getContext("2d");
     
@@ -40,19 +41,13 @@ class Graph extends Component{
         var y = d3.scaleLinear()
             .rangeRound([height, 0]);
     
-              
-        var chapters = (this.props.data);
-        var refsByPov = _.countBy(chapters, c =>c.pov);
+             
+        var keys = Object.keys(data);    
+        keys = _.sortBy(keys, k => 99999- data[k]);
+        var max = _.max(data);
     
-        var refsByPovKeys = Object.keys(refsByPov);
-        var numberOfBars = refsByPovKeys.length;
-    
-        refsByPovKeys = _.sortBy(refsByPovKeys, k => 99999- refsByPov[k]);
-    
-        var max = _.max(refsByPov);
-    
-    
-        x.domain(refsByPovKeys);
+        
+        x.domain(keys);
         y.domain([0, max]);
     
         var yTickCount = Math.ceil( max / 10.0),
@@ -71,9 +66,9 @@ class Graph extends Component{
 
         // Bars
         context.fillStyle = "steelblue";
-        Object.keys(refsByPov).forEach(function(d) {
-          console.log(d + refsByPov[d]);
-            context.fillRect(x(d) + leftMargin, y(refsByPov[d]), x.bandwidth(), height - y(refsByPov[d]));
+        Object.keys(data).forEach(function(d) {
+          console.log(d + data[d]);
+            context.fillRect(x(d) + leftMargin, y(data[d]), x.bandwidth(), height - y(data[d]));
         });
 
     }    
@@ -136,10 +131,6 @@ class Graph extends Component{
         yTicks.forEach(function(d) {
             context.fillText(d, leftMargin-10, y(d));
         });
-    }
-
-    drawBars(){
-        
     }
 }
 

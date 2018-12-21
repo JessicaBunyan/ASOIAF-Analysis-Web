@@ -13,7 +13,7 @@ class App extends Component {
         this.state = {
             word: "ice",
             filterByChar: "",
-            filterByBook: "A Game of Thrones",
+            filterByBook: "",
             sortBy: "pov"
         }
     }
@@ -42,8 +42,8 @@ class App extends Component {
     console.log("filtered");
     console.log(refs);
 
-    var refsByPov = _.countBy(refs, this.state.sortBy);
-    return refsByPov
+    var groupedRefs = _.countBy(refs, this.state.sortBy);
+    return groupedRefs
   }
 
 }

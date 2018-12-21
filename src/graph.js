@@ -4,6 +4,7 @@ import * as _ from "underscore";
 
 
     const leftMargin = 30;
+    const topMargin = 10;
 
 class Graph extends Component{
 
@@ -50,9 +51,12 @@ class Graph extends Component{
         x.domain(keys);
         y.domain([0, max]);
     
-        var yTickCount = Math.ceil( max / 10.0),
-            yTicks = y.ticks(yTickCount),
-            yTickFormat = y.tickFormat(yTickCount);
+        var yTickCount = this.getYTickCount(max);
+
+
+        console.log("Y TICK COUNT: " + yTickCount);
+        // Math.ceil( max / 10.0);
+        var yTicks = y.ticks(yTickCount);
     
 
         this.drawXAxisTicks(context, x, height);
@@ -68,18 +72,29 @@ class Graph extends Component{
         context.fillStyle = "steelblue";
         Object.keys(data).forEach(function(d) {
           console.log(d + data[d]);
-            context.fillRect(x(d) + leftMargin, y(data[d]), x.bandwidth(), height - y(data[d]));
+            context.fillRect(x(d) + leftMargin, y(data[d]) + topMargin, x.bandwidth(), height - y(data[d]));
         });
 
     }    
+    
+    getYTickCount(max){
+        var yTickCount;
+        yTickCount = max < 10 ? max : 
+            max < 20 ? max / 2 :
+                max < 40 ? max / 5 : max /10 ;
+                    // max < 80 ? max /10 : max/5
+
+        return yTickCount;
+    }
 
     drawXAxisTicks(context, x, height){
+
 
         // X-axis "ticks"
         context.beginPath();
         x.domain().forEach(function(d) {
-            context.moveTo(leftMargin + x(d) + x.bandwidth() / 2, height);
-            context.lineTo(leftMargin + x(d) + x.bandwidth() / 2, height + 6);
+            context.moveTo(leftMargin + x(d) + x.bandwidth() / 2, height + topMargin);
+            context.lineTo(leftMargin + x(d) + x.bandwidth() / 2, height + 6 + topMargin);
         });
         context.strokeStyle = "black";
         context.stroke();
@@ -87,8 +102,8 @@ class Graph extends Component{
     drawXAxisLine(context, height){
 
         context.beginPath();
-        context.moveTo(leftMargin, height); 
-        context.lineTo(910, height);
+        context.moveTo(leftMargin, height + topMargin); 
+        context.lineTo(910, height + topMargin);
         context.strokeStyle = "black";
         context.stroke();
     }
@@ -101,7 +116,7 @@ class Graph extends Component{
         x.domain().forEach(function(d) {
             i++;
             var offset = i % 2 === 0 ? 10 : 0 
-            context.fillText(d, leftMargin + x(d) + x.bandwidth() / 2, height + 6 + offset);
+            context.fillText(d, leftMargin + x(d) + x.bandwidth() / 2, height + 6 + offset + topMargin);
         });
     }
 
@@ -109,8 +124,8 @@ class Graph extends Component{
         // y-axis "ticks" delineating axis
         context.beginPath();
         yTicks.forEach(function(d) {
-            context.moveTo(leftMargin, y(d) + 0.5);
-            context.lineTo(leftMargin - 5, y(d) + 0.5);
+            context.moveTo(leftMargin, y(d) + 0.5 + topMargin);
+            context.lineTo(leftMargin - 5, y(d) + 0.5 + topMargin);
         });
         context.strokeStyle = "black";
         context.stroke();
@@ -119,8 +134,8 @@ class Graph extends Component{
     drawYAxisLine(context, height){
         // Vertical Axis (line)
         context.beginPath();
-        context.moveTo(leftMargin, 0); 
-        context.lineTo(leftMargin, height);
+        context.moveTo(leftMargin, topMargin); 
+        context.lineTo(leftMargin, height+topMargin);
         context.strokeStyle = "black";
         context.stroke();
     }
@@ -129,7 +144,7 @@ class Graph extends Component{
         context.textAlign = "right";
         context.textBaseline = "middle";
         yTicks.forEach(function(d) {
-            context.fillText(d, leftMargin-10, y(d));
+            context.fillText(d, leftMargin-10, y(d) + topMargin);
         });
     }
 }

@@ -6,9 +6,10 @@ import * as d3 from "d3";
 import * as _ from "underscore";
 import Graph from "./graph";
 import ResetButton from "./ResetButton";
+import WordChoice from "./WordChoice";
 
 const initialState = {
-    word: "ice",
+    word: "",
     filterByChar: "",
     filterByBook: "",
     groupBy: "pov"
@@ -18,7 +19,7 @@ class App extends Component {
     constructor(props){
         super(props);
         this.state = {
-            word: "ice",
+            word: "",
             filterByChar: "",
             filterByBook: "",
             groupBy: "pov",
@@ -26,27 +27,52 @@ class App extends Component {
     }
 
   render() {
-    return (
-      <div className="App">
-        <ResetButton reset={() => this.setState(initialState)} />
 
-        <Graph 
-            word="ice" 
-            data={this.getData()}
-            onClickCallback={this.getOnClickCallback()}    
-            />
-      </div>
-    );
+    if (this.state.word){
+        return this.renderGraph();
+    } else{
+        return this.renderWordSelection();
+    }
+    
+  }
+  renderWordSelection(){
+
+    console.log(json["default"]);
+    console.log();
+
+    var words = Object.keys(json["default"]);
+
+     return (
+         <div className="word-list">
+            {words.map(e => {
+                return (<WordChoice word={e} onClick={(w) => this.setState({word: w})}/>)
+            })}
+         </div>
+     )
+  }
+
+  renderGraph(){
+    return (
+        <div className="App">
+          <ResetButton reset={() => this.setState(initialState)} />
+  
+          <Graph 
+              word="ice" 
+              data={this.getData()}
+              onClickCallback={this.getOnClickCallback()}    
+              />
+        </div>
+      );
   }
 
   getOnClickCallback(){
       if (this.state.groupBy == "pov"){
             return (c => this.setState({filterByChar: c, groupBy: "chapter"}))
-        
         } else {
             return console.log;
         }
     }
+
   getData(){
     var refs = json["default"][this.state.word];
 

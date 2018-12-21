@@ -12,6 +12,8 @@ class App extends Component {
         super(props);
         this.state = {
             word: "ice",
+            filterByChar: "",
+            filterByBook: "A Game of Thrones",
             sortBy: "pov"
         }
     }
@@ -27,6 +29,18 @@ class App extends Component {
 
   getData(){
     var refs = json["default"][this.state.word];
+
+    console.log(refs);
+    console.log(this.state.filterByChar);
+    if (this.state.filterByChar){
+        refs = _.where(refs, {pov: this.state.filterByChar})
+    }
+
+    if (this.state.filterByBook){
+        refs = _.where(refs, {book: this.state.filterByBook})
+    }
+    console.log("filtered");
+    console.log(refs);
 
     var refsByPov = _.countBy(refs, this.state.sortBy);
     return refsByPov

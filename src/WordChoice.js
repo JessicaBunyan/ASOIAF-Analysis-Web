@@ -10,7 +10,7 @@ class WordChoice extends Component{
 
       render(){
         return (
-        <div onClick={() => this.props.onClick(this.props.word)}>
+        <div className="word-choice" onClick={() => this.props.onClick(this.props.word)}>
             {this.props.word}
         </div>
         )  

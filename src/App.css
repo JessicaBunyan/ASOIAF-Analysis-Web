@@ -8,8 +8,13 @@
   text-align: center;
 }
 
-.App canvas {
-  margin-top: 50px;
+.graph {
+  margin: 0 auto;
+  width: 1000px;
+}
+
+.graph h3 {
+  text-align: center;
 }
 
 .reset-button {

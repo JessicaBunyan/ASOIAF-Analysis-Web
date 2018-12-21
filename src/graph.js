@@ -105,12 +105,14 @@ class Graph extends Component{
         context.fillStyle = "steelblue";
         Object.keys(data).forEach(function(d) {
           console.log(d + data[d]);
+
+          
           var el = 
             {
                 char: d,
                 left: x(d) + leftMargin,
                 top: y(data[d]) + topMargin,
-                width: x.bandwidth(),
+                width: x.bandwidth(), // can do Math.min(x.bandwidth, 80)) to limit but then we need to adjust left position to account
                 height: height- y(data[d])
             };
             elements.push(el);

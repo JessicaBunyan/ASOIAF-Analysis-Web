@@ -1,0 +1,11 @@
+Need to sort out how to filter by chapter+book
+
+atm filter by chapter groups Jon I ADWD with Jon I AGOT etc. Maybe we put chapterIDs into the JSON
+
+
+need to decide UI: 
+Filter options:
+By PoV, By Book, By chapter
+Which of these can be used in combination?
+
+

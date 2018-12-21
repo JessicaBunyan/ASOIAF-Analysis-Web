@@ -8,22 +8,27 @@
   text-align: center;
 }
 
-.App canvas{
+.App canvas {
   margin-top: 50px;
 }
 
+.reset-button {
+  font-size: 100px;
+  opacity: 0.8;
+  color: #ddd;
+  padding-left: 20px;
+}
 
-.word-panel{
+.word-panel {
   padding-top: 200px;
   text-align: center;
   margin: 0 auto;
   height: 200px;
   width: 1000px;
-
 }
 
-.word-choice{
-  background-color: #DDD;
+.word-choice {
+  background-color: #ddd;
   font-size: 32px;
   display: inline-block;
   padding: 4px 20px 4px 20px;

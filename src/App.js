@@ -25,13 +25,21 @@ class App extends Component {
         <Graph 
             word="ice" 
             data={this.getData()}
-            setFilterByChar={(c => this.setState({filterByChar: c, groupBy: "chapter"}))}    
+            onClickCallback={this.getOnClickCallback()}    
             >
         </Graph>
       </div>
     );
   }
 
+  getOnClickCallback(){
+      if (this.state.groupBy == "pov"){
+            return (c => this.setState({filterByChar: c, groupBy: "chapter"}))
+        
+        } else {
+            return console.log;
+        }
+    }
   getData(){
     var refs = json["default"][this.state.word];
 

@@ -43,7 +43,7 @@ class Graph extends Component{
         elements.forEach((element) => {
         if (y > element.top && y < element.top + element.height 
             && x > element.left && x < element.left + element.width) {
-            this.props.setFilterByChar(element.char);
+            this.props.onClickCallback(element.char);
         }
     });
       }

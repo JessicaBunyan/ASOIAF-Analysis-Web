@@ -33,7 +33,7 @@ class App extends Component {
     } else{
         var words = Object.keys(json["default"]);
 
-        return (    <WordPanel words={words} onClick={(w) => this.setState({word: w})} />);
+        return (<WordPanel words={words} onClick={(w) => this.setState({word: w})} />);
     }
     
   }
@@ -44,7 +44,7 @@ class App extends Component {
           <ResetButton reset={() => this.setState(initialState)} />
   
           <Graph 
-              word="ice" 
+              word={this.state.word} 
               data={this.getData()}
               onClickCallback={this.getOnClickCallback()}    
               />

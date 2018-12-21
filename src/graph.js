@@ -94,6 +94,7 @@ class Graph extends Component{
         var yTicks = y.ticks(yTickCount);
     
 
+        context.fillStyle = "black";
         this.drawXAxisTicks(context, x, height);
         this.drawXAxisLine(context, height);
         this.drawXAxisLabels(context, x, height);

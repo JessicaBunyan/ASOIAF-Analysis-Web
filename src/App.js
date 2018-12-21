@@ -5,7 +5,14 @@ import * as json from "./iceRefs.json";
 import * as d3 from "d3";
 import * as _ from "underscore";
 import Graph from "./graph";
+import ResetButton from "./ResetButton";
 
+const initialState = {
+    word: "ice",
+    filterByChar: "",
+    filterByBook: "",
+    groupBy: "pov"
+}
 
 class App extends Component {
     constructor(props){
@@ -14,20 +21,20 @@ class App extends Component {
             word: "ice",
             filterByChar: "",
             filterByBook: "",
-            groupBy: "pov"
+            groupBy: "pov",
         }
     }
 
   render() {
     return (
       <div className="App">
+        <ResetButton reset={() => this.setState(initialState)} />
 
         <Graph 
             word="ice" 
             data={this.getData()}
             onClickCallback={this.getOnClickCallback()}    
-            >
-        </Graph>
+            />
       </div>
     );
   }

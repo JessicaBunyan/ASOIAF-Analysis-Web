@@ -5,6 +5,7 @@ import * as _ from "underscore";
 
     const leftMargin = 30;
     const topMargin = 10;
+    var elements = [];
 
 class Graph extends Component{
 
@@ -25,11 +26,31 @@ class Graph extends Component{
 
           );
       } 
+
+      onChartClick(e){
+
+        var canvas = document.querySelector("canvas");
+        var elemLeft = canvas.offsetLeft;
+        var elemTop = canvas.offsetTop;
+        
+        var x = e.pageX - elemLeft,
+        y = e.pageY - elemTop;
+
+        // Collision detection between clicked offset and element.
+        elements.forEach(function(element) {
+        if (y > element.top && y < element.top + element.height 
+            && x > element.left && x < element.left + element.width) {
+            alert('clicked an element' + element.char);
+        }
+    });
+      }
       createBarChart(){
 
         var data = this.props.data;
         var canvas = document.querySelector("canvas"),
         context = canvas.getContext("2d");
+
+        canvas.addEventListener("click", (e) => this.onChartClick(e));
     
         var margin = {top: 20, right: 20, bottom: 30, left: 60},
             width = canvas.width - margin.left - margin.right,
@@ -68,11 +89,23 @@ class Graph extends Component{
         this.drawYAxisLabels(context, yTicks, y);
 
 
+        elements = [];
         // Bars
         context.fillStyle = "steelblue";
         Object.keys(data).forEach(function(d) {
           console.log(d + data[d]);
-            context.fillRect(x(d) + leftMargin, y(data[d]) + topMargin, x.bandwidth(), height - y(data[d]));
+          var el = 
+            {
+                char: d,
+                left: x(d) + leftMargin,
+                top: y(data[d]) + topMargin,
+                width: x.bandwidth(),
+                height: height- y(data[d])
+            };
+            elements.push(el);
+
+            context.fillRect(el.left, el.top, el.width, el.height);
+
         });
 
     }    

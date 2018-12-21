@@ -1940,5 +1940,12 @@
         "chapter": "Epilogue",
         "pov": "Kevan Lannister"
       }
+    ],
+    "fire": [
+      {
+        "book": "A Game of Thrones",
+        "chapter": "TESTDATA",
+        "pov": "TESTDATA"
+      }
     ]
   }

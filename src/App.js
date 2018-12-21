@@ -6,7 +6,7 @@ import * as d3 from "d3";
 import * as _ from "underscore";
 import Graph from "./graph";
 import ResetButton from "./ResetButton";
-import WordChoice from "./WordChoice";
+import WordPanel from "./WordPanel";
 
 const initialState = {
     word: "",
@@ -31,24 +31,11 @@ class App extends Component {
     if (this.state.word){
         return this.renderGraph();
     } else{
-        return this.renderWordSelection();
+        var words = Object.keys(json["default"]);
+
+        return (    <WordPanel words={words} onClick={(w) => this.setState({word: w})} />);
     }
     
-  }
-  renderWordSelection(){
-
-    console.log(json["default"]);
-    console.log();
-
-    var words = Object.keys(json["default"]);
-
-     return (
-         <div className="word-list">
-            {words.map(e => {
-                return (<WordChoice word={e} onClick={(w) => this.setState({word: w})}/>)
-            })}
-         </div>
-     )
   }
 
   renderGraph(){

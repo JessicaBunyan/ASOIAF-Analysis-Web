@@ -14,4 +14,6 @@ I don't think filter by book alone is ever very interesting
 filter by char, then by chapter
 or filter by book/by chapter
 
-We need to include empty chapters I think. For example Ice => Jaime looks very odd(only jaime 3,7,9) plus really fat bars
+We need to include empty chapters I think. For example Ice => Jaime looks very odd(only jaime 3,7,9)
+
+we don't want to vary the height of the x axis labels if there's enough room

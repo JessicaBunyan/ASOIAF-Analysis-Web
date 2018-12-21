@@ -5,7 +5,10 @@ import * as _ from "underscore";
 
     const leftMargin = 30;
     const topMargin = 10;
+    const MaxBarWidth = 80;
+    
     var elements = [];
+
 
 class Graph extends Component{
 
@@ -106,13 +109,18 @@ class Graph extends Component{
         Object.keys(data).forEach(function(d) {
           console.log(d + data[d]);
 
-          
+          var width = x.bandwidth();
+          var diff = 0;
+          if (width > MaxBarWidth){ // if we're limiting the bar width we need to adjust the left position to account for the difference
+              diff = width - MaxBarWidth; 
+              width = MaxBarWidth;
+          }
           var el = 
             {
                 char: d,
-                left: x(d) + leftMargin,
+                left: x(d) + leftMargin + (diff/2),
                 top: y(data[d]) + topMargin,
-                width: x.bandwidth(), // can do Math.min(x.bandwidth, 80)) to limit but then we need to adjust left position to account
+                width: width,
                 height: height- y(data[d])
             };
             elements.push(el);

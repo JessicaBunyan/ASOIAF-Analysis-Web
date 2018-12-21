@@ -10,10 +10,11 @@ import * as _ from "underscore";
 class Graph extends Component{
 
     
-    componentDidMount() {
+     componentDidMount() {
         this.createBarChart();
       }
       componentDidUpdate(){
+        this.clearCanvas();
         this.createBarChart();
       }
 
@@ -29,6 +30,8 @@ class Graph extends Component{
 
       onChartClick(e){
 
+        console.log("THIS");
+        console.log(this);
         var canvas = document.querySelector("canvas");
         var elemLeft = canvas.offsetLeft;
         var elemTop = canvas.offsetTop;
@@ -37,12 +40,19 @@ class Graph extends Component{
         y = e.pageY - elemTop;
 
         // Collision detection between clicked offset and element.
-        elements.forEach(function(element) {
+        elements.forEach((element) => {
         if (y > element.top && y < element.top + element.height 
             && x > element.left && x < element.left + element.width) {
-            alert('clicked an element' + element.char);
+            this.props.setFilterByChar(element.char);
         }
     });
+      }
+
+      clearCanvas(){
+        var canvas = document.querySelector("canvas");
+        var context = canvas.getContext("2d");
+        context.clearRect(0,0, 10000, 10000);
+
       }
       createBarChart(){
 
@@ -50,6 +60,7 @@ class Graph extends Component{
         var canvas = document.querySelector("canvas"),
         context = canvas.getContext("2d");
 
+        this.onChartClick.bind(this);
         canvas.addEventListener("click", (e) => this.onChartClick(e));
     
         var margin = {top: 20, right: 20, bottom: 30, left: 60},

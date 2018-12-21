@@ -9,3 +9,7 @@ By PoV, By Book, By chapter
 Which of these can be used in combination?
 
 
+I don't think filter by book alone is ever very interesting
+
+filter by char, then by chapter
+or filter by book/by chapter

@@ -14,7 +14,7 @@ class App extends Component {
             word: "ice",
             filterByChar: "",
             filterByBook: "",
-            sortBy: "pov"
+            groupBy: "pov"
         }
     }
 
@@ -22,7 +22,12 @@ class App extends Component {
     return (
       <div className="App">
 
-        <Graph word="ice" data={this.getData()}></Graph>
+        <Graph 
+            word="ice" 
+            data={this.getData()}
+            setFilterByChar={(c => this.setState({filterByChar: c, groupBy: "chapter"}))}    
+            >
+        </Graph>
       </div>
     );
   }
@@ -42,7 +47,7 @@ class App extends Component {
     console.log("filtered");
     console.log(refs);
 
-    var groupedRefs = _.countBy(refs, this.state.sortBy);
+    var groupedRefs = _.countBy(refs, this.state.groupBy);
     return groupedRefs
   }
 

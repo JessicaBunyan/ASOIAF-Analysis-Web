@@ -11,7 +11,7 @@ import WordPanel from "./WordPanel";
 import GraphContainer from "./GraphContainer";
 
 const initialState = {
-  word: "",
+  word: "ice",
   filterByChar: "",
   filterByBook: "",
   groupBy: "pov"
@@ -20,12 +20,7 @@ const initialState = {
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      word: "",
-      filterByChar: "",
-      filterByBook: "",
-      groupBy: "pov"
-    };
+    this.state = initialState;
   }
 
   render() {

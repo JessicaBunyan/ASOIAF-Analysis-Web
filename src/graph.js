@@ -3,9 +3,10 @@ import * as d3 from "d3";
 import * as _ from "underscore";
 
 const leftMargin = 60;
-const topMargin = 10;
+const topMargin = 100;
 const MaxBarWidth = 80;
 const canvasWidth = 1200;
+const axisLabelFontSize = 18;
 
 var elements = [];
 
@@ -22,7 +23,7 @@ class Graph extends Component {
     return (
       <div className="graph">
         <h3 className="selected-word got-font">{this.props.word}</h3>
-        <canvas width={canvasWidth} height="500" />
+        <canvas width={canvasWidth} height="700" />
       </div>
     );
   }
@@ -63,7 +64,7 @@ class Graph extends Component {
     this.onChartClick.bind(this);
     canvas.addEventListener("click", e => this.onChartClick(e));
 
-    var margin = { top: 20, right: 20, bottom: 30, left: 60 },
+    var margin = { top: 20, right: 20, bottom: 200, left: 60 },
       width = canvas.width - margin.left - margin.right,
       height = canvas.height - margin.top - margin.bottom;
 
@@ -137,15 +138,12 @@ class Graph extends Component {
   drawXAxisTicks(context, x, height) {
     // X-axis "ticks"
 
-    var i = 0;
     context.beginPath();
     x.domain().forEach(function(d) {
-      i++;
-      var offset = i % 2 === 0 ? 20 : 0;
       context.moveTo(leftMargin + x(d) + x.bandwidth() / 2, height + topMargin);
       context.lineTo(
         leftMargin + x(d) + x.bandwidth() / 2,
-        height + 6 + topMargin + offset
+        height + 6 + topMargin
       );
     });
     context.strokeStyle = "black";
@@ -159,21 +157,29 @@ class Graph extends Component {
     context.stroke();
   }
   drawXAxisLabels(context, x, height) {
+    console.log("doing x axis labesl");
+    console.log(context);
     // X-axis labels (character/chapter names)
-    context.textAlign = "center";
+    context.textAlign = "left";
     context.textBaseline = "top";
-    context.font = "18px Arial";
+    context.font = axisLabelFontSize + "px Arial";
     var i = 0;
     console.log("drawing x axis label");
     x.domain().forEach(d => {
-      console.log(d);
-      i++;
-      var offset = i % 2 === 0 ? 20 : 0;
+      context.translate(0, 0);
+      context.save();
+      // context.translate(
+      //   leftMargin + x(d) + x.bandwidth() / 2,
+      //   height + 6 + offset + topMargin
+      // );
+      context.rotate(Math.PI / 2);
+      // console.log(d);
       context.fillText(
         this.props.lookupXAxisLabel(d),
-        leftMargin + x(d) + x.bandwidth() / 2,
-        height + 6 + offset + topMargin
+        height + topMargin + 8,
+        -(leftMargin + x(d) + axisLabelFontSize / 2 + x.bandwidth() / 2)
       );
+      context.restore();
     });
   }
 
@@ -201,7 +207,7 @@ class Graph extends Component {
     // y-axis scale labels
     context.textAlign = "right";
     context.textBaseline = "middle";
-    context.font = "18px Arial";
+    context.font = axisLabelFontSize + "px Arial";
     yTicks.forEach(function(d) {
       context.fillText(d, leftMargin - 10, y(d) + topMargin);
     });

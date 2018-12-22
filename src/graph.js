@@ -77,13 +77,13 @@ class Graph extends Component {
     keys = _.sortBy(keys, k => 99999 - data[k]);
     var max = _.max(data);
 
+    var yAxisLimit = this.getYAxisLimit(max);
     x.domain(keys);
-    y.domain([0, max]);
+    y.domain([0, yAxisLimit]);
 
     var yTickCount = this.getYTickCount(max);
 
     console.log("Y TICK COUNT: " + yTickCount);
-    // Math.ceil( max / 10.0);
     var yTicks = y.ticks(yTickCount);
 
     context.fillStyle = "black";
@@ -121,10 +121,20 @@ class Graph extends Component {
     });
   }
 
+  getYAxisLimit(max) {
+    var roundToNearest = max < 10 ? max : max < 20 ? 2 : max < 40 ? 5 : 10;
+    var yAxisLimit = Math.ceil(max / roundToNearest) * roundToNearest;
+    //   max > 100 ? Math.ceil(max / 10) * 10 : Math.ceil(max / 5) * 5; // round to nearest 10
+    return yAxisLimit;
+  }
+
   getYTickCount(max) {
     var yTickCount;
-    yTickCount =
-      max < 10 ? max : max < 20 ? max / 2 : max < 40 ? max / 5 : max / 10;
+    yTickCount = Math.ceil(
+      max < 10 ? max : max < 20 ? max / 2 : max < 40 ? max / 5 : max / 10
+    );
+
+    console.log("Y TICK COUNT:  " + yTickCount);
     // max < 80 ? max /10 : max/5
 
     return yTickCount;
@@ -169,6 +179,8 @@ class Graph extends Component {
   drawYAxisTicks(context, yTicks, y) {
     // y-axis "ticks" delineating axis
     context.beginPath();
+    console.log("y ticks");
+    console.log(yTicks);
     yTicks.forEach(function(d) {
       context.moveTo(leftMargin, y(d) + 0.5 + topMargin);
       context.lineTo(leftMargin - 5, y(d) + 0.5 + topMargin);

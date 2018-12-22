@@ -1,5 +1,12 @@
+@font-face {
+  font-family: "GameOfThrones";
+  src: url("./GameofThrones.ttf");
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: #bbb;
+  position: relative;
 }
 
 header h1 {
@@ -16,18 +23,12 @@ header {
   border-bottom: solid 4px #000;
 }
 
-@font-face {
-  font-family: "GameOfThrones";
-  src: url("./GameofThrones.ttf");
+main {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
 }
-@font-face {
-  font-family: "Cinzel";
-  font-style: normal;
-  font-weight: 400;
-  src: url(https://fonts.gstatic.com/s/cinzel/v7/8vIJ7ww63mVu7gt7-GT7LEc.woff2);
-  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
-    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
+
 .got-font {
   font-family: "GameOfThrones";
   /* font-family: "Cinzel, Arial, sans-serif"; */
@@ -85,4 +86,18 @@ header {
 h3.selected-word {
   text-transform: capitalize;
   font-size: 36px;
+}
+
+img.stark-sigil {
+  position: absolute;
+  left: -500px;
+  opacity: 0.3;
+  top: 200px;
+}
+
+img.targ-sigil {
+  opacity: 0.3;
+  position: absolute;
+  bottom: -300px;
+  left: calc(100% - 600px);
 }

@@ -75,7 +75,6 @@ class Graph extends Component {
     var y = d3.scaleLinear().rangeRound([height, 0]);
 
     var keys = Object.keys(data);
-    keys = _.sortBy(keys, k => 99999 - data[k]);
     var max = _.max(data);
 
     var yAxisLimit = this.getYAxisLimit(max);
@@ -100,8 +99,6 @@ class Graph extends Component {
     // Bars
     context.fillStyle = "steelblue";
     Object.keys(data).forEach(function(d) {
-      console.log(d + data[d]);
-
       var width = x.bandwidth();
       var diff = 0;
       if (width > MaxBarWidth) {
@@ -167,11 +164,13 @@ class Graph extends Component {
     context.textBaseline = "top";
     context.font = "18px Arial";
     var i = 0;
-    x.domain().forEach(function(d) {
+    console.log("drawing x axis label");
+    x.domain().forEach(d => {
+      console.log(d);
       i++;
       var offset = i % 2 === 0 ? 20 : 0;
       context.fillText(
-        d,
+        this.props.lookupXAxisLabel(d),
         leftMargin + x(d) + x.bandwidth() / 2,
         height + 6 + offset + topMargin
       );

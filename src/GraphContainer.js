@@ -14,6 +14,7 @@ class GraphContainer extends Component {
         <Graph
           word={this.props.word}
           data={this.props.data}
+          lookupXAxisLabel={this.props.lookupXAxisLabel}
           onClickCallback={this.props.onClickCallback}
         />
       </div>

@@ -24987,27 +24987,5 @@
         "cid": 340,
         "pov": "Jon"
       }
-    ],
-  
-  "blood": [
-    {
-      "book": "A Game of Thrones",
-      "chapter": "TESTDATA",
-      "pov": "TESTDATA"
-    }
-  ],
-  "dragon": [
-    {
-      "book": "A Game of Thrones",
-      "chapter": "TESTDATA",
-      "pov": "TESTDATA"
-    }
-  ],
-  "fire": [
-    {
-      "book": "A Game of Thrones",
-      "chapter": "TESTDATA",
-      "pov": "TESTDATA"
-    }
-  ]
+    ]
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
-import * as json from "./iceRefs.json";
+import * as json from "./data.json";
 import * as chapterData from "./chapters.json";
 import * as d3 from "d3";
 import * as _ from "underscore";

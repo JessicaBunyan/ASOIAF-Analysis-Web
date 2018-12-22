@@ -121,7 +121,8 @@ class Graph extends Component {
   }
 
   getYAxisLimit(max) {
-    var roundToNearest = max < 10 ? max : max < 20 ? 2 : max < 40 ? 5 : 10;
+    var roundToNearest =
+      max < 10 ? max : max < 20 ? 2 : max < 40 ? 5 : max < 200 ? 10 : 25;
     var yAxisLimit = Math.ceil(max / roundToNearest) * roundToNearest;
     return yAxisLimit;
   }
@@ -129,7 +130,15 @@ class Graph extends Component {
   getYTickCount(max) {
     var yTickCount;
     yTickCount = Math.ceil(
-      max < 10 ? max : max < 20 ? max / 2 : max < 40 ? max / 5 : max / 10
+      max < 10
+        ? max
+        : max < 20
+        ? max / 2
+        : max < 40
+        ? max / 5
+        : max < 200
+        ? max / 10
+        : max / 25
     );
 
     return yTickCount;

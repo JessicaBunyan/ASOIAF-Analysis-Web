@@ -11,7 +11,7 @@ import WordPanel from "./WordPanel";
 import GraphContainer from "./GraphContainer";
 
 const initialState = {
-  word: "ice",
+  word: "",
   filterByChar: "",
   filterByBook: "",
   groupBy: "pov"

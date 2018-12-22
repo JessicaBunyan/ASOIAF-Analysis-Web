@@ -157,27 +157,21 @@ class Graph extends Component {
     context.stroke();
   }
   drawXAxisLabels(context, x, height) {
-    console.log("doing x axis labesl");
-    console.log(context);
     // X-axis labels (character/chapter names)
     context.textAlign = "left";
     context.textBaseline = "top";
     context.font = axisLabelFontSize + "px Arial";
-    var i = 0;
+
     console.log("drawing x axis label");
     x.domain().forEach(d => {
-      context.translate(0, 0);
+      context.translate(0, 0); // make sure we're back here before rotating
       context.save();
-      // context.translate(
-      //   leftMargin + x(d) + x.bandwidth() / 2,
-      //   height + 6 + offset + topMargin
-      // );
-      context.rotate(Math.PI / 2);
-      // console.log(d);
+
+      context.rotate(Math.PI / 2); // turn the paper anticlockwise
       context.fillText(
         this.props.lookupXAxisLabel(d),
-        height + topMargin + 8,
-        -(leftMargin + x(d) + axisLabelFontSize / 2 + x.bandwidth() / 2)
+        height + topMargin + 8, // our y value for the location we want is now "x" here (will match up when we rotate paper backwards)
+        -(leftMargin + x(d) + axisLabelFontSize / 2 + x.bandwidth() / 2) // the negative of our x value is now our "y"
       );
       context.restore();
     });

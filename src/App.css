@@ -55,6 +55,10 @@ main {
 .graph h3 {
   text-align: center;
 }
+.graph h4 {
+  font-size: 24px;
+  text-align: center;
+}
 
 .reset-button {
   font-size: 100px;

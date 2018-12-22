@@ -9,6 +9,7 @@ import Graph from "./graph";
 import ResetButton from "./ResetButton";
 import WordPanel from "./WordPanel";
 import GraphContainer from "./GraphContainer";
+import capitalise from "./utils";
 
 const initialState = {
   word: "",
@@ -29,6 +30,7 @@ class App extends Component {
         <GraphContainer
           reset={() => this.setState(initialState)}
           word={this.state.word}
+          breakdown={this.getBreakdown()}
           data={this.getData()}
           lookupXAxisLabel={this.getXAxisLabelFunction()}
           onClickCallback={this.getOnClickCallback()}
@@ -41,6 +43,13 @@ class App extends Component {
         <WordPanel words={words} onClick={w => this.setState({ word: w })} />
       );
     }
+  }
+
+  getBreakdown() {
+    if (this.state.filterByChar) {
+      return "By " + " Chapter - " + capitalise(this.state.filterByChar);
+    }
+    return "By PoV Character";
   }
 
   getOnClickCallback() {

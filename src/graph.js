@@ -23,6 +23,7 @@ class Graph extends Component {
     return (
       <div className="graph">
         <h3 className="selected-word got-font">{this.props.word}</h3>
+        <h4 className="breakdown ">{this.props.breakdown}</h4>
         <canvas width={canvasWidth} height="700" />
       </div>
     );

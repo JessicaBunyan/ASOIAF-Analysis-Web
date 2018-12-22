@@ -13,6 +13,7 @@ class GraphContainer extends Component {
 
         <Graph
           word={this.props.word}
+          breakdown={this.props.breakdown}
           data={this.props.data}
           lookupXAxisLabel={this.props.lookupXAxisLabel}
           onClickCallback={this.props.onClickCallback}

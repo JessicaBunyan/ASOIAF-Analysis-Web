@@ -71,6 +71,8 @@ main {
   margin: 0 auto;
   height: 200px;
   width: 1000px;
+}
+.word-choice {
   text-transform: capitalize;
 }
 

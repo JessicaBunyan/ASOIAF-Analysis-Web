@@ -7,7 +7,7 @@ class WordPanel extends Component {
   render() {
     return (
       <div className="word-panel clearfix">
-        <h4>Choose a word or phrase</h4>
+        <h2>Choose a word or phrase</h2>
         {this.props.words.map(e => {
           return <WordChoice word={e} onClick={w => this.props.onClick(w)} />;
         })}

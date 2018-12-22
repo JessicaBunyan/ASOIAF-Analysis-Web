@@ -24,7 +24,7 @@ class Graph extends Component {
       <div className="graph">
         <h3 className="selected-word got-font">{this.props.word}</h3>
         <h4 className="breakdown ">{this.props.breakdown}</h4>
-        <canvas width={canvasWidth} height="700" />
+        <canvas width={canvasWidth} height="800" />
       </div>
     );
   }
@@ -65,7 +65,7 @@ class Graph extends Component {
     this.onChartClick.bind(this);
     canvas.addEventListener("click", e => this.onChartClick(e));
 
-    var margin = { top: 20, right: 20, bottom: 200, left: 60 },
+    var margin = { top: 20, right: 20, bottom: 300, left: 60 },
       width = canvas.width - margin.left - margin.right,
       height = canvas.height - margin.top - margin.bottom;
 

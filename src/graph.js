@@ -20,7 +20,7 @@ class Graph extends Component {
   render() {
     return (
       <div className="graph">
-        <h3>{this.props.word}</h3>
+        <h3 className="selected-word got-font">{this.props.word}</h3>
         <canvas width="960" height="500" />
       </div>
     );

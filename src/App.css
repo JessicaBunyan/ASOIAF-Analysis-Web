@@ -1,3 +1,40 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header h1 {
+  width: 100%;
+  text-align: center;
+  font-size: 70px;
+  margin: 20px;
+  color: black;
+}
+
+header {
+  background: #8d8d8d;
+  overflow: hidden;
+  border-bottom: solid 4px #000;
+}
+
+@font-face {
+  font-family: "GameOfThrones";
+  src: url("./GameofThrones.ttf");
+}
+@font-face {
+  font-family: "Cinzel";
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/cinzel/v7/8vIJ7ww63mVu7gt7-GT7LEc.woff2);
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB,
+    U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+.got-font {
+  font-family: "GameOfThrones";
+  /* font-family: "Cinzel, Arial, sans-serif"; */
+  font-weight: normal;
+  font-style: normal;
+}
+
 .clearfix::after {
   content: "";
   clear: both;
@@ -21,7 +58,9 @@
   font-size: 100px;
   opacity: 0.8;
   color: #ddd;
-  padding-left: 20px;
+  position: absolute;
+  top: 0px;
+  left: 20px;
 }
 
 .word-panel {
@@ -30,6 +69,7 @@
   margin: 0 auto;
   height: 200px;
   width: 1000px;
+  text-transform: capitalize;
 }
 
 .word-choice {
@@ -40,4 +80,9 @@
   margin: 2px;
   text-align: center;
   /* float: left; */
+}
+
+h3.selected-word {
+  text-transform: capitalize;
+  font-size: 36px;
 }

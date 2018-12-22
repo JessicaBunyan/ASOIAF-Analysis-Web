@@ -33,8 +33,8 @@ class Graph extends Component {
     var elemLeft = canvas.offsetLeft;
     var elemTop = canvas.offsetTop;
 
-    var x = e.pageX - elemLeft,
-      y = e.pageY - elemTop;
+    var x = e.offsetX,
+      y = e.offsetY;
 
     // Collision detection between clicked offset and element.
     elements.forEach(element => {

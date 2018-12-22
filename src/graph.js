@@ -124,7 +124,6 @@ class Graph extends Component {
   getYAxisLimit(max) {
     var roundToNearest = max < 10 ? max : max < 20 ? 2 : max < 40 ? 5 : 10;
     var yAxisLimit = Math.ceil(max / roundToNearest) * roundToNearest;
-    //   max > 100 ? Math.ceil(max / 10) * 10 : Math.ceil(max / 5) * 5; // round to nearest 10
     return yAxisLimit;
   }
 
@@ -133,9 +132,6 @@ class Graph extends Component {
     yTickCount = Math.ceil(
       max < 10 ? max : max < 20 ? max / 2 : max < 40 ? max / 5 : max / 10
     );
-
-    console.log("Y TICK COUNT:  " + yTickCount);
-    // max < 80 ? max /10 : max/5
 
     return yTickCount;
   }

@@ -6,7 +6,7 @@ const leftMargin = 60;
 const topMargin = 100;
 const MaxBarWidth = 80;
 const canvasWidth = 1200;
-const axisLabelFontSize = 18;
+const axisLabelFontSize = 20;
 
 var elements = [];
 

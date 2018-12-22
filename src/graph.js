@@ -2,9 +2,10 @@ import React, { Component } from "react";
 import * as d3 from "d3";
 import * as _ from "underscore";
 
-const leftMargin = 30;
+const leftMargin = 60;
 const topMargin = 10;
 const MaxBarWidth = 80;
+const canvasWidth = 1200;
 
 var elements = [];
 
@@ -21,7 +22,7 @@ class Graph extends Component {
     return (
       <div className="graph">
         <h3 className="selected-word got-font">{this.props.word}</h3>
-        <canvas width="960" height="500" />
+        <canvas width={canvasWidth} height="500" />
       </div>
     );
   }
@@ -39,10 +40,10 @@ class Graph extends Component {
     // Collision detection between clicked offset and element.
     elements.forEach(element => {
       if (
-        y > element.top &&
-        y < element.top + element.height &&
-        x > element.left &&
-        x < element.left + element.width
+        y >= element.top &&
+        y <= element.top + element.height &&
+        x >= element.left &&
+        x <= element.left + element.width
       ) {
         this.props.onClickCallback(element.char);
       }
@@ -138,12 +139,16 @@ class Graph extends Component {
 
   drawXAxisTicks(context, x, height) {
     // X-axis "ticks"
+
+    var i = 0;
     context.beginPath();
     x.domain().forEach(function(d) {
+      i++;
+      var offset = i % 2 === 0 ? 20 : 0;
       context.moveTo(leftMargin + x(d) + x.bandwidth() / 2, height + topMargin);
       context.lineTo(
         leftMargin + x(d) + x.bandwidth() / 2,
-        height + 6 + topMargin
+        height + 6 + topMargin + offset
       );
     });
     context.strokeStyle = "black";
@@ -152,7 +157,7 @@ class Graph extends Component {
   drawXAxisLine(context, height) {
     context.beginPath();
     context.moveTo(leftMargin, height + topMargin);
-    context.lineTo(910, height + topMargin);
+    context.lineTo(canvasWidth, height + topMargin);
     context.strokeStyle = "black";
     context.stroke();
   }
@@ -160,10 +165,11 @@ class Graph extends Component {
     // X-axis labels (character/chapter names)
     context.textAlign = "center";
     context.textBaseline = "top";
+    context.font = "18px Arial";
     var i = 0;
     x.domain().forEach(function(d) {
       i++;
-      var offset = i % 2 === 0 ? 10 : 0;
+      var offset = i % 2 === 0 ? 20 : 0;
       context.fillText(
         d,
         leftMargin + x(d) + x.bandwidth() / 2,
@@ -196,6 +202,7 @@ class Graph extends Component {
     // y-axis scale labels
     context.textAlign = "right";
     context.textBaseline = "middle";
+    context.font = "18px Arial";
     yTicks.forEach(function(d) {
       context.fillText(d, leftMargin - 10, y(d) + topMargin);
     });

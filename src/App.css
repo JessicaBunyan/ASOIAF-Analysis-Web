@@ -66,12 +66,16 @@ main {
 }
 
 .word-panel {
-  padding-top: 200px;
+  padding-top: 100px;
   text-align: center;
   margin: 0 auto;
   height: 200px;
   width: 1000px;
   text-transform: capitalize;
+}
+
+.word-panel h4 {
+  font-size: 24px;
 }
 
 .word-choice {
@@ -89,7 +93,7 @@ h3.selected-word {
   font-size: 36px;
 }
 
-img.stark-sigil {
+.stark-sigil {
   position: absolute;
   left: -500px;
   opacity: 0.3;
@@ -97,7 +101,7 @@ img.stark-sigil {
   z-index: -1;
 }
 
-img.targ-sigil {
+.targ-sigil {
   z-index: -1;
   opacity: 0.3;
   position: absolute;

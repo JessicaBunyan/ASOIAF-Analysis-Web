@@ -153,6 +153,7 @@ class Graph extends Component {
     var chaptersPerBook = this.getChaptersPerBook();
     for (var bookNum = 1; bookNum < 6; bookNum++) {
       var firstChapterInBook = chaptersPerBook[bookNum][0];
+
       var numChapters = chaptersPerBook[bookNum].length;
 
       console.log(
@@ -167,11 +168,30 @@ class Graph extends Component {
         diff = barWidth - MaxBarWidth;
         barWidth = MaxBarWidth;
       }
+      var left =
+        x(firstChapterInBook) + leftMargin + (bookNum - 1.5) * singleBookOffset; // -1.5 as we want to "meet in the middle" of the gaps
+
+      if (!firstChapterInBook) {
+        // if there's no chapters for this char in this book
+        var lastChapterInPrevBook =
+          chaptersPerBook[bookNum - 1][chaptersPerBook[bookNum - 1].length - 1];
+        console.log(lastChapterInPrevBook);
+        left =
+          x(lastChapterInPrevBook) +
+          leftMargin +
+          (bookNum - 1.5) * singleBookOffset +
+          barWidth * (1 + barPadding);
+        if (!lastChapterInPrevBook) {
+          left = leftMargin + (bookNum - 1) * singleBookOffset;
+        }
+      }
       context.fillRect(
-        x(firstChapterInBook) + leftMargin + (bookNum - 1) * singleBookOffset,
-        topMargin,
-        numChapters * barWidth * (1 + barPadding),
-        height
+        left,
+        topMargin / 2,
+        numChapters * barWidth + // n bars
+        (numChapters - 1) * (1 + barPadding) + //n-1 paddings
+          singleBookOffset,
+        height + 250
       );
     }
     return;
@@ -185,6 +205,7 @@ class Graph extends Component {
     var chapterLimits = this.props.chapterLimits;
 
     var bookInfo = {
+      0: [], // handy filling for looping and comparing to prev
       1: [],
       2: [],
       3: [],
@@ -211,8 +232,6 @@ class Graph extends Component {
       return 0;
     }
 
-    console.log("in get book offset");
-    console.log(d);
     for (var i = 1; i < 5; i++) {
       if (d > this.props.chapterLimits[i]) {
         continue;
@@ -248,7 +267,7 @@ class Graph extends Component {
 
   drawXAxisTicks(context, x, height) {
     // X-axis "ticks"
-
+    context.lineWidth = 1;
     context.beginPath();
     x.domain().forEach(d => {
       var bookOffset = this.getBookOffset(d);
@@ -260,9 +279,10 @@ class Graph extends Component {
     context.stroke();
   }
   drawXAxisLine(context, height) {
+    context.lineWidth = 4;
     context.beginPath();
-    context.moveTo(leftMargin, height + topMargin);
-    context.lineTo(canvasWidth, height + topMargin);
+    context.moveTo(leftMargin, height + topMargin + 2);
+    context.lineTo(canvasWidth, height + topMargin + 2);
     context.strokeStyle = "black";
     context.stroke();
   }
@@ -295,6 +315,7 @@ class Graph extends Component {
 
   drawYAxisTicks(context, yTicks, y) {
     // y-axis "ticks" delineating axis
+    context.lineWidth = 1;
     context.beginPath();
     console.log("y ticks");
     console.log(yTicks);
@@ -308,8 +329,9 @@ class Graph extends Component {
   drawYAxisLine(context, height) {
     // Vertical Axis (line)
     context.beginPath();
+    context.lineWidth = 4;
     context.moveTo(leftMargin, topMargin);
-    context.lineTo(leftMargin, height + topMargin);
+    context.lineTo(leftMargin, height + topMargin + 4); // 4 for linewidth
     context.strokeStyle = "black";
     context.stroke();
   }

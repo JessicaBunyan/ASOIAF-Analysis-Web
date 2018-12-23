@@ -18,13 +18,16 @@ const bookColours = {
   4: "rgba(255,0,0,0.2)",
   5: "rgba(255,255,255,0.2)"
 };
-const bookImgIds = {
-  1: "agot-cover",
-  2: "acok-cover",
-  3: "asos-cover",
-  4: "affc-cover",
-  5: "adwd-cover"
-};
+const bookImgIds = [
+  "",
+  "agot-cover",
+  "acok-cover",
+  "asos-cover",
+  "affc-cover",
+  "adwd-cover"
+];
+
+const bookImgOffsets = [0, 100, 200, 200, 200, 100];
 
 var elements = [];
 
@@ -250,7 +253,7 @@ class Graph extends Component {
       context.fillStyle = "black";
       context.drawImage(
         img,
-        200,
+        (630 - width) / 2,
         0,
         width,
         961,

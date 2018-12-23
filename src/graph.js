@@ -23,10 +23,21 @@ class Graph extends Component {
     return (
       <div className="graph">
         <h3 className="selected-word got-font">{this.props.word}</h3>
-        <h4 className="breakdown ">{this.props.breakdown}</h4>
+        <h4 className="breakdown ">
+          {this.getTotalOccurrences() + this.props.breakdown}
+        </h4>
         <canvas width={canvasWidth} height="800" />
       </div>
     );
+  }
+
+  getTotalOccurrences() {
+    var count = 0;
+    Object.keys(this.props.data).forEach(k => {
+      count += this.props.data[k];
+    });
+
+    return count + " occurrences, ";
   }
 
   onChartClick(e) {
@@ -215,6 +226,9 @@ class Graph extends Component {
     yTicks.forEach(function(d) {
       context.fillText(d, leftMargin - 10, y(d) + topMargin);
     });
+
+    context.textAlign = "center";
+    context.fillText("# Occurrences", leftMargin + 5, topMargin - 30);
   }
 }
 

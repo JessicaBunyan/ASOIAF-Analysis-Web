@@ -47,9 +47,9 @@ class App extends Component {
 
   getBreakdown() {
     if (this.state.filterByChar) {
-      return "By " + " Chapter - " + capitalise(this.state.filterByChar);
+      return "by " + capitalise(this.state.filterByChar) + " chapter";
     }
-    return "By PoV Character";
+    return "by PoV Character";
   }
 
   getOnClickCallback() {

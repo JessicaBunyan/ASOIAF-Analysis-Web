@@ -4,7 +4,7 @@ import * as _ from "underscore";
 import capitalise from "./utils";
 
 const leftMargin = 80;
-const topMargin = 100;
+const topMargin = 10;
 const MaxBarWidth = 80;
 const canvasWidth = 1200;
 const axisLabelFontSize = 20;
@@ -31,12 +31,14 @@ class Graph extends Component {
 
   render() {
     return (
-      <div className="graph">
+      <div className="graph clearfix">
         <h3 className="selected-word got-font">{this.props.word}</h3>
         <h4 className="breakdown ">
           {this.getBreakdownText(this.props.breakdown)}
         </h4>
-        <canvas width={canvasWidth} height="800" />
+        <div className="canvasWrapper">
+          <canvas width={canvasWidth} height="800" />
+        </div>
       </div>
     );
   }
@@ -234,7 +236,7 @@ class Graph extends Component {
       var left = midPoints[book - 1];
       var width = midPoints[book] - left;
       context.fillStyle = bookColours[book];
-      context.fillRect(leftMargin + left, 50, width, height + topMargin + 180);
+      context.fillRect(leftMargin + left, 0, width, height + topMargin + 180);
     }
   }
 

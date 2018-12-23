@@ -133,59 +133,82 @@ class Graph extends Component {
     this.drawYAxisLine(context, height);
     this.drawYAxisLabels(context, yTicks, y);
 
-    this.drawBookBoundaries(context, x, height);
+    this.drawBookBoundaries(context, x, width, height);
     this.drawBars(context, data, x, y, height);
   }
 
-  drawBookBoundaries(context, x, height) {
+  drawBookBoundaries(context, x, canvasWidth, height) {
     if (!this.props.breakdown) {
       return;
     }
+
     var barWidth = x.bandwidth();
 
-    if (barWidth > MaxBarWidth) {
-      // if we're limiting the bar width we need to adjust the left position to account for the difference
-      barWidth = MaxBarWidth;
+    var bookInfo = this.getChaptersPerBook();
+
+    var boundaryChapters = [];
+
+    var first, last;
+    for (var k = 1; k < 6; k++) {
+      console.log(bookInfo[k]);
+      if (bookInfo[k].length) {
+        // if it has chapters
+        first = bookInfo[k][0];
+        last = bookInfo[k][bookInfo[k].length - 1];
+        boundaryChapters.push(first);
+        boundaryChapters.push(last);
+      } else {
+        boundaryChapters.push(last);
+        boundaryChapters.push(last);
+      }
     }
 
-    console.log("draw book boundaries");
-    console.log(this.props.data);
-    console.log(this.props.chapterLimits);
-    var barPaddingPx = barPadding * barWidth;
-    console.log("barpadding");
-    console.log(barPaddingPx);
+    var barCenters = boundaryChapters.map(c =>
+      c == -1 ? c : this.getBarLeft(x, c) + barWidth / 2
+    );
+    var midPoints = [0];
 
-    // var dataKeys = Object.keys(this.props.data);
-    var left = leftMargin;
-    var chaptersByBook = this.getChaptersPerBook();
+    for (var i = 1; i < barCenters.length - 1; i += 2) {
+      var endBar = barCenters[i];
+      var startBar = barCenters[i + 1];
+
+      console.log("bars: " + endBar + ", " + startBar);
+      console.log("midpoints so far: ");
+      console.log(midPoints);
+
+      var midPoint = startBar - leftMargin + (endBar - startBar) / 2;
+
+      if (endBar == startBar) {
+        midPoint = -1;
+      }
+      console.log("new midpoint");
+      console.log(midPoint);
+      midPoints.push(midPoint);
+    }
+
+    midPoints.push(canvasWidth + 4 * singleBookOffset);
+
+    console.log("boundary chapters");
+    console.log(boundaryChapters);
+    console.log(barCenters);
+    console.log("midpoints");
+    console.log(midPoints);
+
+    for (var i = midPoints.length - 1; i >= 0; i--) {
+      if (midPoints[i] == -1) {
+        midPoints[i] = midPoints[i + 1] - singleBookOffset / 2;
+        midPoints[i + 1] += singleBookOffset / 2;
+      }
+    }
+
+    console.log(midPoints);
 
     for (var book = 1; book < 6; book++) {
-      console.log("BOOK NUM: " + book);
+      var left = midPoints[book - 1];
+      var width = midPoints[book] - left;
       context.fillStyle = bookColours[book];
-      var thisBookChapters = chaptersByBook[book];
-      console.log(left);
-      console.log(x(thisBookChapters[0]));
-
-      var distanceToStartOfBar =
-        this.getBarLeft(x, thisBookChapters[0], barWidth) - left;
-      console.log("dist to bar: " + distanceToStartOfBar);
-
-      var width = thisBookChapters.length
-        ? distanceToStartOfBar +
-          thisBookChapters.length * (x.bandwidth() + barPaddingPx) +
-          singleBookOffset / 2
-        : singleBookOffset;
-
-      console.log("left: " + left);
-      console.log("width: " + width);
-      var newLeft = left + width;
-
-      context.fillRect(left, topMargin / 2, width, height + 250);
-      left = newLeft;
+      context.fillRect(leftMargin + left, 0, width, height + topMargin + 150);
     }
-
-    //
-    return;
   }
 
   getChaptersPerBook() {
@@ -373,7 +396,7 @@ class Graph extends Component {
     console.log(elements);
   }
 
-  getBarLeft(x, d, barWidth) {
+  getBarLeft(x, d) {
     var bookOffset = this.getBookOffset(d);
 
     var width = x.bandwidth();

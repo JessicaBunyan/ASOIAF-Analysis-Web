@@ -116,6 +116,7 @@ class App extends Component {
     }
     if (this.state.groupBy == "cid") {
       return x => chapters[x].title;
+      // return x => x;
     }
   }
 }

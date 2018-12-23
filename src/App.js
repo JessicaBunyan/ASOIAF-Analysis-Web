@@ -30,8 +30,9 @@ class App extends Component {
         <GraphContainer
           reset={() => this.setState(initialState)}
           word={this.state.word}
-          breakdown={this.getBreakdown()}
+          breakdown={this.state.filterByChar}
           data={this.getData()}
+          chapterLimits={this.getChapterInfo()}
           lookupXAxisLabel={this.getXAxisLabelFunction()}
           onClickCallback={this.getOnClickCallback()}
         />
@@ -45,11 +46,14 @@ class App extends Component {
     }
   }
 
-  getBreakdown() {
-    if (this.state.filterByChar) {
-      return "by " + capitalise(this.state.filterByChar) + " chapter";
-    }
-    return "by PoV Character";
+  getChapterInfo() {
+    return {
+      AGOT: 72,
+      ACOK: 142,
+      ASOS: 224,
+      AFFC: 270,
+      ADWD: 343
+    };
   }
 
   getOnClickCallback() {

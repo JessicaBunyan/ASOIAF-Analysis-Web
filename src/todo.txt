@@ -1,3 +1,1 @@
 implement "back" to go from chapter breakdown to char breakdown
-
-add label to y axis "occurrences"

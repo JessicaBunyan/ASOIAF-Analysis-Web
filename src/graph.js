@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 import * as _ from "underscore";
+import capitalise from "./utils";
 
 const leftMargin = 60;
 const topMargin = 100;
@@ -24,11 +25,23 @@ class Graph extends Component {
       <div className="graph">
         <h3 className="selected-word got-font">{this.props.word}</h3>
         <h4 className="breakdown ">
-          {this.getTotalOccurrences() + this.props.breakdown}
+          {this.getBreakdownText(this.props.breakdown)}
         </h4>
         <canvas width={canvasWidth} height="800" />
       </div>
     );
+  }
+
+  getBreakdownText() {
+    if (this.props.breakdown) {
+      return (
+        this.getTotalOccurrences() +
+        " by " +
+        capitalise(this.props.breakdown) +
+        " chapter"
+      );
+    }
+    return this.getTotalOccurrences() + " by PoV Character";
   }
 
   getTotalOccurrences() {

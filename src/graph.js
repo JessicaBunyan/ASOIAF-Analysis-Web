@@ -144,6 +144,11 @@ class Graph extends Component {
 
     var barWidth = x.bandwidth();
 
+    if (barWidth > MaxBarWidth) {
+      // if we're limiting the bar width we need to adjust the left position to account for the difference
+      barWidth = MaxBarWidth;
+    }
+
     var bookInfo = this.getChaptersPerBook();
 
     var boundaryChapters = [];
@@ -159,16 +164,10 @@ class Graph extends Component {
         boundaryChapters.push(first);
         boundaryChapters.push(last);
       } else {
-        boundaryChapters.push(last);
-        boundaryChapters.push(last);
+        boundaryChapters.push(last); // if its at the start, we will put -1s in,
+        boundaryChapters.push(last); // otherwise we will repeat previous ones
       }
     }
-
-    // for (var i = boundaryChapters.length - 1; i >= 0; i--) {
-    //   if (boundaryChapters[i] == -1) {
-    //     boundaryChapters[i] = boundaryChapters[i + 1];
-    //   }
-    // }
 
     var barCenters = boundaryChapters.map(c =>
       c == -1 ? -1 : this.getBarLeft(x, c) + barWidth / 2
@@ -190,8 +189,12 @@ class Graph extends Component {
       var midPoint = startBar - leftMargin + (endBar - startBar) / 2;
 
       if (endBar == startBar) {
-        midPoint = -1;
+        midPoint = -2; // -2 aka missing chapter but not at start
       }
+      if (barCenters[i] == -1 && barCenters[i - 1] == -1) {
+        midPoint = -1; // -1 aka missing chapter at start
+      }
+
       console.log("new midpoint");
       console.log(midPoint);
       midPoints.push(midPoint);
@@ -205,21 +208,20 @@ class Graph extends Component {
     console.log("midpoints");
     console.log(midPoints);
 
+    // first deal with all the -1s - simply add gaps counting up from 0
     for (var i = 1; i < midPoints.length - 1; i++) {
-      if (midPoints[i] < midPoints[i - 1]) {
+      if (midPoints[i] == -1) {
         midPoints[i] = midPoints[i - 1] + singleBookOffset;
-      } else {
-        break;
       }
     }
-    console.log(midPoints);
-    var negatives = _.filter(midPoints, m => m == -1);
-    var numNegatives = negatives.length;
+
+    //deal with all the -2s
     for (var i = midPoints.length - 1; i >= 0; i--) {
-      if (midPoints[i] == -1) {
-        console.log("num negatives: " + numNegatives);
-        midPoints[i] = midPoints[i + 1] - (singleBookOffset / 2) * numNegatives;
-        if (numNegatives == 1) {
+      if (midPoints[i] == -2) {
+        midPoints[i] = midPoints[i + 1] - singleBookOffset;
+        if (midPoints[midPoints.length - 1] - midPoints[i] >= 41) {
+          // hacky way of checking if there's books with chapters after this or not
+          midPoints[i] += singleBookOffset / 2;
           midPoints[i + 1] += singleBookOffset / 2;
         }
       }
@@ -413,11 +415,6 @@ class Graph extends Component {
       context.fillRect(el.left, el.top, el.width, el.height);
     });
 
-    // console.log("bars drawn: ");
-    // console.log("x.bandwidth() " + x.bandwidth());
-    // console.log("width: " + width);
-    // console.log("bar padding: " + 0.05 * x.bandwidth());
-    // console.log("x(5): " + x("5"));
     console.log(elements);
   }
 

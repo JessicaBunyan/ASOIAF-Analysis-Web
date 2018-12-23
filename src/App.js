@@ -48,6 +48,7 @@ class App extends Component {
 
   getChapterLimits() {
     return {
+      0: 0, // handy fillin
       1: 72, // AGOT has 72 chapters
       2: 142, // ACOK is chapters 73-142 etc
       3: 224,

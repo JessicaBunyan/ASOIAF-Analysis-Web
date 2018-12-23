@@ -9,6 +9,14 @@ const MaxBarWidth = 80;
 const canvasWidth = 1200;
 const axisLabelFontSize = 20;
 const singleBookOffset = 20;
+const barPadding = 0.05;
+const bookColours = {
+  1: "rgba(0,0,255,0.2)",
+  2: "rgba(0,255,0,0.2)",
+  3: "rgba(255,255,0,0.2)",
+  4: "rgba(255,0,0,0.2)",
+  5: "rgba(255,255,255,0.2)"
+};
 
 var elements = [];
 
@@ -100,7 +108,7 @@ class Graph extends Component {
     var x = d3
       .scaleBand()
       .rangeRound([0, width])
-      .padding(0.05);
+      .padding(barPadding);
 
     var y = d3.scaleLinear().rangeRound([height, 0]);
 
@@ -125,7 +133,77 @@ class Graph extends Component {
     this.drawYAxisLine(context, height);
     this.drawYAxisLabels(context, yTicks, y);
 
+    this.drawBookBoundaries(context, x, height);
     this.drawBars(context, data, x, y, height);
+  }
+
+  drawBookBoundaries(context, x, height) {
+    if (!this.props.breakdown) {
+      return;
+    }
+
+    console.log("draw book boundaries");
+    console.log(this.props.data);
+    console.log(this.props.chapterLimits);
+    console.log("barpadding");
+    console.log(barPadding);
+
+    // var dataKeys = Object.keys(this.props.data);
+
+    var chaptersPerBook = this.getChaptersPerBook();
+    for (var bookNum = 1; bookNum < 6; bookNum++) {
+      var firstChapterInBook = chaptersPerBook[bookNum][0];
+      var numChapters = chaptersPerBook[bookNum].length;
+
+      console.log(
+        "number of chapters in book " + bookNum + " :  " + numChapters
+      );
+
+      context.fillStyle = bookColours[bookNum];
+      var barWidth = x.bandwidth();
+      var diff = 0;
+      if (barWidth > MaxBarWidth) {
+        // if we're limiting the bar width we need to adjust the left position to account for the difference
+        diff = barWidth - MaxBarWidth;
+        barWidth = MaxBarWidth;
+      }
+      context.fillRect(
+        x(firstChapterInBook) + leftMargin + (bookNum - 1) * singleBookOffset,
+        topMargin,
+        numChapters * barWidth * (1 + barPadding),
+        height
+      );
+    }
+    return;
+  }
+
+  getChaptersPerBook() {
+    var dataKeys = Object.keys(this.props.data);
+
+    console.log(dataKeys);
+    console.log(dataKeys.length);
+    var chapterLimits = this.props.chapterLimits;
+
+    var bookInfo = {
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+      5: []
+    };
+    dataKeys.forEach(k => {
+      console.log(k);
+      for (var book = 1; book < 6; book++) {
+        if (k > chapterLimits[book - 1] && k < chapterLimits[book]) {
+          bookInfo[book].push(k);
+          return;
+        }
+      }
+    });
+
+    console.log("BOOK INFO");
+    console.log(bookInfo);
+    return bookInfo;
   }
 
   getBookOffset(d) {

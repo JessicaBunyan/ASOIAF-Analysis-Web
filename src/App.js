@@ -68,7 +68,7 @@ class App extends Component {
     if (this.state.groupBy == "pov") {
       return c => this.setState({ filterByChar: c, groupBy: "cid" });
     } else {
-      return console.log;
+      return;
     }
   }
 

@@ -6,3 +6,5 @@ can we do some magic with the images where we never stretch, instead we max it i
 
 
 I think we might want mini/"placeholder" bars for 0 occurences just to make it look better eg on mummer's farce - catelyn
+
+link through to asoiaf wiki for synopsis

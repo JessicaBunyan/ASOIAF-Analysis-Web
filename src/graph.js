@@ -212,14 +212,21 @@ class Graph extends Component {
         break;
       }
     }
+    console.log(midPoints);
+    var negatives = _.filter(midPoints, m => m == -1);
+    var numNegatives = negatives.length;
     for (var i = midPoints.length - 1; i >= 0; i--) {
       if (midPoints[i] == -1) {
-        midPoints[i] = midPoints[i + 1] - singleBookOffset / 2;
-        midPoints[i + 1] += singleBookOffset / 2;
+        console.log("num negatives: " + numNegatives);
+        midPoints[i] = midPoints[i + 1] - (singleBookOffset / 2) * numNegatives;
+        if (numNegatives == 1) {
+          midPoints[i + 1] += singleBookOffset / 2;
+        }
       }
     }
-
     console.log(midPoints);
+
+    // midPoints = [0, 460, 760, 1060, 1080, 1100];
 
     for (var book = 1; book < 6; book++) {
       var left = midPoints[book - 1];

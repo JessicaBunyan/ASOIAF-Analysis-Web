@@ -271,29 +271,6 @@ class Graph extends Component {
 
     var img = document.getElementById("agot-cover");
     context.fillStyle = "black";
-    // context.drawImage(
-    //   img,
-    //   200,
-    //   0,
-    //   midPoints[1],
-    //   961,
-    //   leftMargin,
-    //   0,
-    //   midPoints[1],
-    //   height + topMargin + 180
-    // );
-
-    // context.drawImage(
-    //   img,
-    //   0,
-    //   0,
-    //   midPoints[1],
-    //   height + topMargin + 180,
-    //   leftMargin,
-    //   0,
-    //   630,
-    //   961
-    // );
 
     context.globalAlpha = 1;
   }

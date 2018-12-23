@@ -28,8 +28,6 @@ class App extends Component {
     if (this.state.word) {
       // not very react-y but it works
       document.getElementsByTagName("body")[0].classList.add("active");
-    } else {
-      document.getElementsByTagName("body")[0].classList.remove("active");
     }
   }
 

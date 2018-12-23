@@ -125,29 +125,7 @@ class Graph extends Component {
     this.drawYAxisLine(context, height);
     this.drawYAxisLabels(context, yTicks, y);
 
-    elements = [];
-    // Bars
-    context.fillStyle = "steelblue";
-    Object.keys(data).forEach(d => {
-      var width = x.bandwidth();
-      var diff = 0;
-      if (width > MaxBarWidth) {
-        // if we're limiting the bar width we need to adjust the left position to account for the difference
-        diff = width - MaxBarWidth;
-        width = MaxBarWidth;
-      }
-      var bookOffset = this.getBookOffset(d);
-      var el = {
-        char: d,
-        left: x(d) + bookOffset + leftMargin + diff / 2,
-        top: y(data[d]) + topMargin,
-        width: width,
-        height: height - y(data[d])
-      };
-      elements.push(el);
-
-      context.fillRect(el.left, el.top, el.width, el.height);
-    });
+    this.drawBars(context, data, x, y, height);
   }
 
   getBookOffset(d) {
@@ -268,6 +246,32 @@ class Graph extends Component {
 
     context.textAlign = "center";
     context.fillText("# Occurrences", leftMargin + 5, topMargin - 30);
+  }
+
+  drawBars(context, data, x, y, chartHeight) {
+    elements = [];
+    // Bars
+    context.fillStyle = "steelblue";
+    Object.keys(data).forEach(d => {
+      var width = x.bandwidth();
+      var diff = 0;
+      if (width > MaxBarWidth) {
+        // if we're limiting the bar width we need to adjust the left position to account for the difference
+        diff = width - MaxBarWidth;
+        width = MaxBarWidth;
+      }
+      var bookOffset = this.getBookOffset(d);
+      var el = {
+        char: d,
+        left: x(d) + bookOffset + leftMargin + diff / 2,
+        top: y(data[d]) + topMargin,
+        width: width,
+        height: chartHeight - y(data[d])
+      };
+      elements.push(el);
+
+      context.fillRect(el.left, el.top, el.width, el.height);
+    });
   }
 }
 

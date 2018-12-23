@@ -3,7 +3,7 @@ import * as d3 from "d3";
 import * as _ from "underscore";
 import capitalise from "./utils";
 
-const leftMargin = 60;
+const leftMargin = 80;
 const topMargin = 100;
 const MaxBarWidth = 80;
 const canvasWidth = 1200;
@@ -234,7 +234,7 @@ class Graph extends Component {
       var left = midPoints[book - 1];
       var width = midPoints[book] - left;
       context.fillStyle = bookColours[book];
-      context.fillRect(leftMargin + left, 0, width, height + topMargin + 150);
+      context.fillRect(leftMargin + left, 50, width, height + topMargin + 180);
     }
   }
 
@@ -385,8 +385,12 @@ class Graph extends Component {
       context.fillText(d, leftMargin - 10, y(d) + topMargin);
     });
 
-    context.textAlign = "center";
-    context.fillText("# Occurrences", leftMargin + 5, topMargin - 30);
+    //// Occurences label
+
+    // context.rotate(Math.PI / 2);
+    // context.textAlign = "center";
+    // context.fillText("# Occurrences", topMargin + 200, -10);
+    // context.rotate(-Math.PI / 2);
   }
 
   drawBars(context, data, x, y, chartHeight) {

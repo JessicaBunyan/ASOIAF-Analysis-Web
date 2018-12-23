@@ -115,7 +115,7 @@ class App extends Component {
       return x => x;
     }
     if (this.state.groupBy == "cid") {
-      // return x => chapters[x].title;
+      return x => chapters[x].title;
       return x => x;
     }
   }

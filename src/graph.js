@@ -143,6 +143,11 @@ class Graph extends Component {
     }
     var barWidth = x.bandwidth();
 
+    if (barWidth > MaxBarWidth) {
+      // if we're limiting the bar width we need to adjust the left position to account for the difference
+      barWidth = MaxBarWidth;
+    }
+
     console.log("draw book boundaries");
     console.log(this.props.data);
     console.log(this.props.chapterLimits);
@@ -153,21 +158,11 @@ class Graph extends Component {
     // var dataKeys = Object.keys(this.props.data);
     var left = leftMargin;
     var chaptersByBook = this.getChaptersPerBook();
-    var thisBookChapters = chaptersByBook[1];
 
-    context.fillStyle = bookColours[1];
-    var width = thisBookChapters[0]
-      ? x(thisBookChapters[0]) +
-        thisBookChapters.length * (barWidth + barPaddingPx) +
-        singleBookOffset / 2
-      : singleBookOffset;
-    context.fillRect(left, topMargin / 2, width, height + 250);
-    left = left + width;
-
-    for (var book = 2; book < 6; book++) {
+    for (var book = 1; book < 6; book++) {
       console.log("BOOK NUM: " + book);
       context.fillStyle = bookColours[book];
-      thisBookChapters = chaptersByBook[book];
+      var thisBookChapters = chaptersByBook[book];
       console.log(left);
       console.log(x(thisBookChapters[0]));
 
@@ -175,9 +170,9 @@ class Graph extends Component {
         this.getBarLeft(x, thisBookChapters[0], barWidth) - left;
       console.log("dist to bar: " + distanceToStartOfBar);
 
-      width = thisBookChapters.length
+      var width = thisBookChapters.length
         ? distanceToStartOfBar +
-          thisBookChapters.length * (barWidth + barPaddingPx) +
+          thisBookChapters.length * (x.bandwidth() + barPaddingPx) +
           singleBookOffset / 2
         : singleBookOffset;
 

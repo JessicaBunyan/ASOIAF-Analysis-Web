@@ -11,13 +11,14 @@ const canvasWidth = 1200;
 const axisLabelFontSize = 20;
 const singleBookOffset = 20;
 const barPadding = 0.05;
-const bookColours = {
-  1: "rgba(0,0,255,0.2)",
-  2: "rgba(0,255,0,0.2)",
-  3: "rgba(255,255,0,0.2)",
-  4: "rgba(255,0,0,0.2)",
-  5: "rgba(255,255,255,0.2)"
-};
+const bookColours = [
+  "",
+  "rgba(0,0,255,0.4)",
+  "rgba(255,255,0,0.2)",
+  "rgba(0,255,0,0.4)",
+  "rgba(255,0,0,0.4)",
+  "rgba(255,255,255,0.2)"
+];
 const bookImgIds = [
   "",
   "agot-cover",
@@ -250,19 +251,22 @@ class Graph extends Component {
       var img = document.getElementById(bookImgIds[book]);
       context.globalAlpha = 0.2;
 
-      context.fillStyle = "black";
-      context.drawImage(
-        img,
-        (630 - width) / 2,
-        0,
-        width,
-        961,
-        left + leftMargin,
-        0,
-        width,
-        height + topMargin + 180
-      );
-      // context.fillRect(leftMargin + left, 0, width, height + topMargin + 180);
+      if (width <= singleBookOffset + 2) {
+        context.fillRect(leftMargin + left, 0, width, height + topMargin + 180);
+      } else {
+        context.fillStyle = "black";
+        context.drawImage(
+          img,
+          0,
+          0,
+          630,
+          961,
+          left + leftMargin,
+          0,
+          width,
+          height + topMargin + 180
+        );
+      }
     }
 
     var img = document.getElementById("agot-cover");

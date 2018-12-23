@@ -113,14 +113,14 @@ h3.selected-word {
 .stark-sigil {
   position: absolute;
   left: -500px;
-  opacity: 0.3;
+  opacity: 0;
   top: 200px;
   z-index: -1;
 }
 
 .targ-sigil {
   z-index: -1;
-  opacity: 0.3;
+  opacity: 0;
   position: absolute;
   bottom: -300px;
   left: calc(100% - 600px);

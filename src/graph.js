@@ -8,6 +8,7 @@ const topMargin = 100;
 const MaxBarWidth = 80;
 const canvasWidth = 1200;
 const axisLabelFontSize = 20;
+const singleBookOffset = 20;
 
 var elements = [];
 
@@ -93,10 +94,13 @@ class Graph extends Component {
       width = canvas.width - margin.left - margin.right,
       height = canvas.height - margin.top - margin.bottom;
 
+    // if we're breaking down by chapter allow room for gaps between books
+    width = this.props.breakdown ? width - 5 * singleBookOffset : width;
+
     var x = d3
       .scaleBand()
       .rangeRound([0, width])
-      .padding(0.1);
+      .padding(0.05);
 
     var y = d3.scaleLinear().rangeRound([height, 0]);
 
@@ -124,7 +128,7 @@ class Graph extends Component {
     elements = [];
     // Bars
     context.fillStyle = "steelblue";
-    Object.keys(data).forEach(function(d) {
+    Object.keys(data).forEach(d => {
       var width = x.bandwidth();
       var diff = 0;
       if (width > MaxBarWidth) {
@@ -132,9 +136,10 @@ class Graph extends Component {
         diff = width - MaxBarWidth;
         width = MaxBarWidth;
       }
+      var bookOffset = this.getBookOffset(d);
       var el = {
         char: d,
-        left: x(d) + leftMargin + diff / 2,
+        left: x(d) + bookOffset + leftMargin + diff / 2,
         top: y(data[d]) + topMargin,
         width: width,
         height: height - y(data[d])
@@ -143,6 +148,22 @@ class Graph extends Component {
 
       context.fillRect(el.left, el.top, el.width, el.height);
     });
+  }
+
+  getBookOffset(d) {
+    if (!this.props.breakdown) {
+      return 0;
+    }
+
+    console.log("in get book offset");
+    console.log(d);
+    for (var i = 1; i < 5; i++) {
+      if (d > this.props.chapterLimits[i]) {
+        continue;
+      }
+      break;
+    }
+    return (i - 1) * singleBookOffset;
   }
 
   getYAxisLimit(max) {
@@ -173,12 +194,11 @@ class Graph extends Component {
     // X-axis "ticks"
 
     context.beginPath();
-    x.domain().forEach(function(d) {
-      context.moveTo(leftMargin + x(d) + x.bandwidth() / 2, height + topMargin);
-      context.lineTo(
-        leftMargin + x(d) + x.bandwidth() / 2,
-        height + 6 + topMargin
-      );
+    x.domain().forEach(d => {
+      var bookOffset = this.getBookOffset(d);
+      var xPos = leftMargin + bookOffset + x(d) + x.bandwidth() / 2;
+      context.moveTo(xPos, height + topMargin);
+      context.lineTo(xPos, height + 6 + topMargin);
     });
     context.strokeStyle = "black";
     context.stroke();
@@ -205,7 +225,13 @@ class Graph extends Component {
       context.fillText(
         this.props.lookupXAxisLabel(d),
         height + topMargin + 8, // our y value for the location we want is now "x" here (will match up when we rotate paper backwards)
-        -(leftMargin + x(d) + axisLabelFontSize / 2 + x.bandwidth() / 2) // the negative of our x value is now our "y"
+        -(
+          leftMargin +
+          x(d) +
+          this.getBookOffset(d) +
+          axisLabelFontSize / 2 +
+          x.bandwidth() / 2
+        ) // the negative of our x value is now our "y"
       );
       context.restore();
     });

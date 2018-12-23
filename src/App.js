@@ -32,7 +32,7 @@ class App extends Component {
           word={this.state.word}
           breakdown={this.state.filterByChar}
           data={this.getData()}
-          chapterLimits={this.getChapterInfo()}
+          chapterLimits={this.getChapterLimits()}
           lookupXAxisLabel={this.getXAxisLabelFunction()}
           onClickCallback={this.getOnClickCallback()}
         />
@@ -46,13 +46,13 @@ class App extends Component {
     }
   }
 
-  getChapterInfo() {
+  getChapterLimits() {
     return {
-      AGOT: 72,
-      ACOK: 142,
-      ASOS: 224,
-      AFFC: 270,
-      ADWD: 343
+      1: 72, // AGOT has 72 chapters
+      2: 142, // ACOK is chapters 73-142 etc
+      3: 224,
+      4: 270,
+      5: 343
     };
   }
 

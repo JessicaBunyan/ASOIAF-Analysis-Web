@@ -11,7 +11,6 @@ class GraphContainer extends Component {
     return (
       <div className="graph-container">
         <ResetButton reset={() => this.props.reset()} />
-        <div className="padding clearfix" />
         <Graph
           word={this.props.word}
           breakdown={this.props.breakdown}
@@ -20,9 +19,6 @@ class GraphContainer extends Component {
           lookupXAxisLabel={this.props.lookupXAxisLabel}
           onClickCallback={this.props.onClickCallback}
         />
-        <div className="padding clearfix">
-          <Key breakdown={this.props.breakdown} />
-        </div>
       </div>
     );
   }

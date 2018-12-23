@@ -1,1 +1,8 @@
 implement "back" to go from chapter breakdown to char breakdown
+
+
+can we do some magic with the images where we never stretch, instead we max it in perspective then roll back to reveal
+ more of the colour
+
+
+I think we might want mini/"placeholder" bars for 0 occurences just to make it look better eg on mummer's farce - catelyn

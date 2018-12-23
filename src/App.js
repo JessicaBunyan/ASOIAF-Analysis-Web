@@ -24,6 +24,15 @@ class App extends Component {
     this.state = initialState;
   }
 
+  componentDidUpdate() {
+    if (this.state.word) {
+      // not very react-y but it works
+      document.getElementsByTagName("body")[0].classList.add("active");
+    } else {
+      document.getElementsByTagName("body")[0].classList.remove("active");
+    }
+  }
+
   render() {
     if (this.state.word) {
       return (

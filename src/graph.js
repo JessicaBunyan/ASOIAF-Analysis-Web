@@ -148,7 +148,8 @@ class Graph extends Component {
 
     var boundaryChapters = [];
 
-    var first, last;
+    var first = -1,
+      last = -1;
     for (var k = 1; k < 6; k++) {
       console.log(bookInfo[k]);
       if (bookInfo[k].length) {
@@ -163,10 +164,20 @@ class Graph extends Component {
       }
     }
 
+    // for (var i = boundaryChapters.length - 1; i >= 0; i--) {
+    //   if (boundaryChapters[i] == -1) {
+    //     boundaryChapters[i] = boundaryChapters[i + 1];
+    //   }
+    // }
+
     var barCenters = boundaryChapters.map(c =>
-      c == -1 ? c : this.getBarLeft(x, c) + barWidth / 2
+      c == -1 ? -1 : this.getBarLeft(x, c) + barWidth / 2
     );
     var midPoints = [0];
+
+    console.log("boundary chapters");
+    console.log(boundaryChapters);
+    console.log(barCenters);
 
     for (var i = 1; i < barCenters.length - 1; i += 2) {
       var endBar = barCenters[i];
@@ -194,6 +205,13 @@ class Graph extends Component {
     console.log("midpoints");
     console.log(midPoints);
 
+    for (var i = 1; i < midPoints.length - 1; i++) {
+      if (midPoints[i] < midPoints[i - 1]) {
+        midPoints[i] = midPoints[i - 1] + singleBookOffset;
+      } else {
+        break;
+      }
+    }
     for (var i = midPoints.length - 1; i >= 0; i--) {
       if (midPoints[i] == -1) {
         midPoints[i] = midPoints[i + 1] - singleBookOffset / 2;

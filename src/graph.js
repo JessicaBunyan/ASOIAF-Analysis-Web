@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as d3 from "d3";
 import * as _ from "underscore";
 import capitalise from "./utils";
+import agotCover from "./img/agot-cover.jpg";
 
 const leftMargin = 80;
 const topMargin = 10;
@@ -16,6 +17,13 @@ const bookColours = {
   3: "rgba(255,255,0,0.2)",
   4: "rgba(255,0,0,0.2)",
   5: "rgba(255,255,255,0.2)"
+};
+const bookImgIds = {
+  1: "agot-cover",
+  2: "acok-cover",
+  3: "asos-cover",
+  4: "affc-cover",
+  5: "adwd-cover"
 };
 
 var elements = [];
@@ -236,8 +244,51 @@ class Graph extends Component {
       var left = midPoints[book - 1];
       var width = midPoints[book] - left;
       context.fillStyle = bookColours[book];
-      context.fillRect(leftMargin + left, 0, width, height + topMargin + 180);
+      var img = document.getElementById(bookImgIds[book]);
+      context.globalAlpha = 0.2;
+
+      context.fillStyle = "black";
+      context.drawImage(
+        img,
+        200,
+        0,
+        width,
+        961,
+        left + leftMargin,
+        0,
+        width,
+        height + topMargin + 180
+      );
+      // context.fillRect(leftMargin + left, 0, width, height + topMargin + 180);
     }
+
+    var img = document.getElementById("agot-cover");
+    context.fillStyle = "black";
+    // context.drawImage(
+    //   img,
+    //   200,
+    //   0,
+    //   midPoints[1],
+    //   961,
+    //   leftMargin,
+    //   0,
+    //   midPoints[1],
+    //   height + topMargin + 180
+    // );
+
+    // context.drawImage(
+    //   img,
+    //   0,
+    //   0,
+    //   midPoints[1],
+    //   height + topMargin + 180,
+    //   leftMargin,
+    //   0,
+    //   630,
+    //   961
+    // );
+
+    context.globalAlpha = 1;
   }
 
   getChaptersPerBook() {

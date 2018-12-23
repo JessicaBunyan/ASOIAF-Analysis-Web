@@ -12,10 +12,10 @@ import GraphContainer from "./GraphContainer";
 import capitalise from "./utils";
 
 const initialState = {
-  word: "",
-  filterByChar: "",
+  word: "ice",
+  filterByChar: "Jon",
   filterByBook: "",
-  groupBy: "pov"
+  groupBy: "cid"
 };
 
 class App extends Component {

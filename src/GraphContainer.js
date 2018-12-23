@@ -20,8 +20,9 @@ class GraphContainer extends Component {
           lookupXAxisLabel={this.props.lookupXAxisLabel}
           onClickCallback={this.props.onClickCallback}
         />
-        <div className="padding clearfix" />
-        <Key breakdown={this.props.breakdown} />
+        <div className="padding clearfix">
+          <Key breakdown={this.props.breakdown} />
+        </div>
       </div>
     );
   }

@@ -105,7 +105,7 @@ class Graph extends Component {
       height = canvas.height - margin.top - margin.bottom;
 
     // if we're breaking down by chapter allow room for gaps between books
-    width = this.props.breakdown ? width - 5 * singleBookOffset : width;
+    width = this.props.breakdown ? width - 4 * singleBookOffset : width;
 
     var x = d3
       .scaleBand()

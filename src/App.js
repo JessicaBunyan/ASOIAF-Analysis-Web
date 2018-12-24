@@ -63,14 +63,9 @@ class App extends Component {
 
   getWikiURLFunction() {
     var base = "https://awoiaf.westeros.org/index.php/";
-    console.log("chapterData");
-    console.log(chapterData);
     return w => {
       var chapter = _.find(chapterData["default"], c => c.id == w);
-
-      console.log(chapter);
       var bookPart = bookWikiNames[chapter.book];
-      console.log(new Error().stack);
       var chapterPart = "-Chapter_" + chapter.seq;
       window.open(base + bookPart + chapterPart);
     };

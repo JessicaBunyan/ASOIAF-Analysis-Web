@@ -35,6 +35,8 @@ var elements = [];
 class Graph extends Component {
   componentDidMount() {
     this.createBarChart();
+    var canvas = document.querySelector("canvas");
+    canvas.addEventListener("click", e => this.onChartClick(e));
   }
   componentDidUpdate() {
     this.clearCanvas();
@@ -108,9 +110,6 @@ class Graph extends Component {
     var data = this.props.data;
     var canvas = document.querySelector("canvas"),
       context = canvas.getContext("2d");
-
-    this.onChartClick.bind(this);
-    canvas.addEventListener("click", e => this.onChartClick(e));
 
     var margin = { top: 20, right: 20, bottom: 300, left: 60 },
       width = canvas.width - margin.left - margin.right,

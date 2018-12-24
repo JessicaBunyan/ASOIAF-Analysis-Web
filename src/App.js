@@ -18,6 +18,14 @@ const initialState = {
   groupBy: "pov"
 };
 
+const bookWikiNames = {
+  AGOT: "A_Game_of_Thrones",
+  ACOK: "A_Clash_of_Kings",
+  ASOS: "A_Storm_of_Swords",
+  AFFC: "A_Feast_for_Crows",
+  ADWD: "A_Dance_with_Dragons"
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -53,6 +61,21 @@ class App extends Component {
     }
   }
 
+  getWikiURLFunction() {
+    var base = "https://awoiaf.westeros.org/index.php/";
+    console.log("chapterData");
+    console.log(chapterData);
+    return w => {
+      var chapter = _.find(chapterData["default"], c => c.id == w);
+
+      console.log(chapter);
+      var bookPart = bookWikiNames[chapter.book];
+      console.log(new Error().stack);
+      var chapterPart = "-Chapter_" + chapter.seq;
+      window.open(base + bookPart + chapterPart);
+    };
+  }
+
   getChapterLimits() {
     return {
       0: 0, // handy fillin
@@ -68,6 +91,7 @@ class App extends Component {
     if (this.state.groupBy == "pov") {
       return c => this.setState({ filterByChar: c, groupBy: "cid" });
     } else {
+      return this.getWikiURLFunction();
       return;
     }
   }

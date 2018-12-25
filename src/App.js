@@ -26,6 +26,11 @@ const bookWikiNames = {
   ADWD: "A_Dance_with_Dragons"
 };
 
+const epilogueChapters = {
+  224: true,
+  343: true
+};
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -66,7 +71,13 @@ class App extends Component {
     return w => {
       var chapter = _.find(chapterData["default"], c => c.id == w);
       var bookPart = bookWikiNames[chapter.book];
-      var chapterPart = "-Chapter_" + chapter.seq;
+      var chapterPart =
+        chapter.seq == 1
+          ? "-Prologue"
+          : epilogueChapters[chapter.id]
+          ? "-Epilogue"
+          : "-Chapter_" + (chapter.seq - 1); //seq starts at 0
+
       window.open(base + bookPart + chapterPart);
     };
   }

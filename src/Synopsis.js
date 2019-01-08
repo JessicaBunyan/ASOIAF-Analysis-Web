@@ -11,16 +11,16 @@ class Synopsis extends Component {
   render() {
     return (
       <div id="synopsis">
-        <div class="synopsis-header">
-          <h3 class="synopsis-title">
+        <div className="synopsis-header">
+          <h3 className="synopsis-title">
             {this.props.chapterTitle +
               " Synopsis (" +
               bookNameFromCode(this.props.book) +
               ")"}
           </h3>
-          <a href={this.props.url}>
-            <h3 class="wiki-link">
-              <i class="fas fa-external-link-alt" /> A Wiki of Ice and Fire
+          <a href={this.props.url} target="_blank">
+            <h3 className="wiki-link">
+              <i className="fas fa-external-link-alt" /> A Wiki of Ice and Fire
             </h3>
           </a>
         </div>

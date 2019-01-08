@@ -125,6 +125,8 @@ main {
 
 .word-panel h2 {
   font-size: 36px;
+  font-weight: bold;
+  margin: 24px 0 024px 0;
 }
 
 .word-choice {
@@ -156,7 +158,7 @@ h3.selected-word {
 }
 
 #synopsis p {
-  padding: 0 12px 0 12px;
+  padding: 16px 12px 0px 12px;
 }
 
 .synopsis-header {
@@ -200,6 +202,7 @@ h3.selected-word {
 }
 
 .synopsis-footer {
+  margin-top: 8px;
   background: #ddd;
   font-size: 12px;
   height: 20px;

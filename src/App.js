@@ -59,7 +59,7 @@ class App extends Component {
             lookupXAxisLabel={this.getXAxisLabelFunction()}
             onClickCallback={this.getOnClickCallback()}
           />
-          <WikiFrame />
+          <WikiFrame url={this.state.wikiURL} />
         </div>
       );
     } else {
@@ -71,20 +71,18 @@ class App extends Component {
     }
   }
 
-  getWikiURLFunction() {
+  getWikiURL(w) {
     var base = "https://awoiaf.westeros.org/index.php/";
-    return w => {
-      var chapter = _.find(chapterData["default"], c => c.id == w);
-      var bookPart = bookWikiNames[chapter.book];
-      var chapterPart =
-        chapter.seq == 1
-          ? "-Prologue"
-          : epilogueChapters[chapter.id]
-          ? "-Epilogue"
-          : "-Chapter_" + (chapter.seq - 1); //seq starts at 0
+    var chapter = _.find(chapterData["default"], c => c.id == w);
+    var bookPart = bookWikiNames[chapter.book];
+    var chapterPart =
+      chapter.seq == 1
+        ? "-Prologue"
+        : epilogueChapters[chapter.id]
+        ? "-Epilogue"
+        : "-Chapter_" + (chapter.seq - 1); //seq starts at 0
 
-      window.open(base + bookPart + chapterPart);
-    };
+    return base + bookPart + chapterPart;
   }
 
   getChapterLimits() {
@@ -102,7 +100,7 @@ class App extends Component {
     if (this.state.groupBy == "pov") {
       return c => this.setState({ filterByChar: c, groupBy: "cid" });
     } else {
-      return this.getWikiURLFunction();
+      return cid => this.setState({ wikiURL: this.getWikiURL(cid) });
       return;
     }
   }

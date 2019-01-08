@@ -5,7 +5,10 @@ can we do some magic with the images where we never stretch, instead we max it i
  more of the colour
 
 
-I think we might want mini/"placeholder" bars for 0 occurences just to make it look better eg on mummer's farce - catelyn
+Do we want to scroll down to the synopsis every time we click a new chapter?
 
-change from click through to asoiaf wiki to load in the synopsis below
-Make we sure attribute it w/ licence
+
+Download all the synopses
+add link to wiki page for the chapter
+style synopses
+style License banner at bottom

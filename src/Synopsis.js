@@ -20,6 +20,12 @@ class Synopsis extends Component {
         {this.props.paragraphs.map(para => {
           return <p>{para}</p>;
         })}
+        <div class="synopsis-footer">
+          Chapter Synopsis from{" "}
+          <a href="https://awoiaf.westeros.org/">A Wiki of Ice and Fire</a>.
+          Licensed{" "}
+          <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA</a>
+        </div>
       </div>
     );
   }

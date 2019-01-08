@@ -12,7 +12,6 @@ import GraphContainer from "./GraphContainer";
 import { capitalise } from "./utils";
 import WikiFrame from "./WikiFrame";
 import $ from "jquery";
-import scrollTo from "jquery.scrollto";
 
 const chapterInfo = chapterData.chapterInfo;
 

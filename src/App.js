@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import logo from "./logo.svg";
+import "./reset.css";
 import "./App.css";
 import * as json from "./data.json";
 import chapterData from "./chapters.json";
@@ -21,19 +22,6 @@ const initialState = {
   filterByBook: "",
   groupBy: "pov",
   wikiURL: ""
-};
-
-const bookWikiNames = {
-  AGOT: "A_Game_of_Thrones",
-  ACOK: "A_Clash_of_Kings",
-  ASOS: "A_Storm_of_Swords",
-  AFFC: "A_Feast_for_Crows",
-  ADWD: "A_Dance_with_Dragons"
-};
-
-const epilogueChapters = {
-  224: true,
-  343: true
 };
 
 class App extends Component {
@@ -72,22 +60,6 @@ class App extends Component {
         <WordPanel words={words} onClick={w => this.setState({ word: w })} />
       );
     }
-  }
-
-  getWikiURL(w) {
-    // var chapterData = chapterData["default"];
-
-    var base = "https://awoiaf.westeros.org/index.php/";
-    var chapter = _.find(chapterInfo, c => c.id == w);
-    var bookPart = bookWikiNames[chapter.book];
-    var chapterPart =
-      chapter.seq == 1
-        ? "-Prologue"
-        : epilogueChapters[chapter.id]
-        ? "-Epilogue"
-        : "-Chapter_" + (chapter.seq - 1); //seq starts at 0
-
-    return base + bookPart + chapterPart;
   }
 
   getChapterLimits() {

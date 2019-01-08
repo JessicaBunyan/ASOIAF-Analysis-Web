@@ -4,6 +4,7 @@ import capitalise from "./utils";
 import $ from "jquery";
 import Synopsis from "./Synopsis";
 import chapterData from "./chapters.json";
+import { getWikiURL } from "./utils";
 
 const chapterInfo = chapterData.chapterInfo;
 
@@ -49,6 +50,7 @@ class WikiFrame extends Component {
         paragraphs={this.state.content}
         chapterTitle={chapterInfo[this.props.cid].title}
         book={chapterInfo[this.props.cid].book}
+        url={getWikiURL(this.props.cid)}
       />
     );
   }

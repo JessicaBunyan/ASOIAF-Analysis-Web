@@ -18,9 +18,11 @@ class Synopsis extends Component {
               bookNameFromCode(this.props.book) +
               ")"}
           </h3>
-          <h3 class="wiki-link">
-            <i class="fas fa-external-link-alt" /> A Wiki of Ice and Fire
-          </h3>
+          <a href={this.props.url}>
+            <h3 class="wiki-link">
+              <i class="fas fa-external-link-alt" /> A Wiki of Ice and Fire
+            </h3>
+          </a>
         </div>
         {this.props.paragraphs.map(para => {
           return <p>{para}</p>;

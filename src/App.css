@@ -187,6 +187,11 @@ h3.selected-word {
   color: white;
   cursor: pointer;
 }
+
+.synopsis-header .wiki-link {
+  color: black;
+}
+
 .synopsis-header .wiki-link i {
   margin-right: 8px;
 

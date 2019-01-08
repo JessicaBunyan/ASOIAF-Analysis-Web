@@ -141,9 +141,8 @@ h3.selected-word {
   height: 800px;
 }
 
-.synopsis {
+#synopsis {
   width: 1200px;
-  height: 900px;
   margin: 0 auto;
   display: block;
 }

@@ -3,6 +3,9 @@ import * as _ from "underscore";
 import capitalise from "./utils";
 import $ from "jquery";
 import Synopsis from "./Synopsis";
+import chapterData from "./chapters.json";
+
+const chapterInfo = chapterData.chapterInfo;
 
 const initialState = {
   isLoaded: false,
@@ -37,15 +40,15 @@ class WikiFrame extends Component {
   }
 
   render() {
-    if (!this.state.isLoaded) {
+    if (!this.state.isLoaded || !this.props.cid) {
       return null;
     }
 
     return (
       <Synopsis
         paragraphs={this.state.content}
-        chapterTitle={this.props.chapterTitle}
-        book={this.props.chapterBook}
+        chapterTitle={chapterInfo[this.props.cid].title}
+        book={chapterInfo[this.props.cid].book}
       />
     );
   }

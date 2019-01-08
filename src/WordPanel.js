@@ -9,7 +9,9 @@ class WordPanel extends Component {
       <div className="word-panel clearfix">
         <h2>Choose a word or phrase</h2>
         {this.props.words.map(e => {
-          return <WordChoice word={e} onClick={w => this.props.onClick(w)} />;
+          return (
+            <WordChoice key={e} word={e} onClick={w => this.props.onClick(w)} />
+          );
         })}
       </div>
     );

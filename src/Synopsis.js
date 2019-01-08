@@ -10,7 +10,7 @@ class Synopsis extends Component {
 
   render() {
     return (
-      <div className="synopsis">
+      <div id="synopsis">
         <h3>
           {this.props.chapterTitle +
             " Synopsis (" +

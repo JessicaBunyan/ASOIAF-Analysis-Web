@@ -11,6 +11,8 @@ import WordPanel from "./WordPanel";
 import GraphContainer from "./GraphContainer";
 import { capitalise } from "./utils";
 import WikiFrame from "./WikiFrame";
+import $ from "jquery";
+import scrollTo from "jquery.scrollto";
 
 const chapterInfo = chapterData.chapterInfo;
 
@@ -50,14 +52,6 @@ class App extends Component {
 
   render() {
     if (this.state.word) {
-      var synposis = this.state.cid ? (
-        <WikiFrame
-          cid={this.state.cid}
-          chapterTitle={chapterInfo[this.state.cid].title}
-          chapterBook={chapterInfo[this.state.cid].book}
-        />
-      ) : null;
-
       return (
         <div>
           <GraphContainer
@@ -69,7 +63,7 @@ class App extends Component {
             lookupXAxisLabel={this.getXAxisLabelFunction()}
             onClickCallback={this.getOnClickCallback()}
           />
-          {synposis}
+          <WikiFrame cid={this.state.cid} />
         </div>
       );
     } else {
@@ -112,7 +106,12 @@ class App extends Component {
     if (this.state.groupBy == "pov") {
       return c => this.setState({ filterByChar: c, groupBy: "cid" });
     } else {
-      return cid => this.setState({ cid: cid });
+      return cid => {
+        this.setState({ cid: cid });
+        window.setTimeout(() => {
+          $("html, body").animate({ scrollTop: 1000 }, 500);
+        }, 500);
+      };
       return;
     }
   }

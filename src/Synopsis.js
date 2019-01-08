@@ -12,13 +12,15 @@ class Synopsis extends Component {
     return (
       <div id="synopsis">
         <div class="synopsis-header">
-          <h3>
+          <h3 class="synopsis-title">
             {this.props.chapterTitle +
               " Synopsis (" +
               bookNameFromCode(this.props.book) +
               ")"}
           </h3>
-          <h3 class="wiki-link">A Wiki of Ice and Fire</h3>
+          <h3 class="wiki-link">
+            <i class="fas fa-external-link-alt" /> A Wiki of Ice and Fire
+          </h3>
         </div>
         {this.props.paragraphs.map(para => {
           return <p>{para}</p>;

@@ -147,6 +147,7 @@ h3.selected-word {
 }
 
 #synopsis {
+  /* border: solid 1px black; */
   background: white;
   width: 1200px;
   margin: 0 auto;
@@ -159,7 +160,7 @@ h3.selected-word {
 }
 
 .synopsis-header {
-  padding: 20px 12px 0 12px;
+  padding: 6px 12px 0 12px;
   border-bottom: solid 1px rgba(163, 131, 32, 0.9);
   background: rgba(248, 231, 203, 0.9);
 }
@@ -167,7 +168,12 @@ h3.selected-word {
 .synopsis-header h3 {
   display: inline-block;
   width: 49%;
+  font-size: 30px;
 }
+.synopsis-header .synopsis-title {
+  margin: 12px 0 12px 0;
+}
+
 .synopsis-header .wiki-link {
   font-family: uncial antiqua;
   margin: 0;
@@ -181,9 +187,18 @@ h3.selected-word {
   color: white;
   cursor: pointer;
 }
+.synopsis-header .wiki-link i {
+  margin-right: 8px;
+
+  opacity: 0.5;
+  color: #999;
+}
 
 .synopsis-footer {
-  background: #999;
+  background: #ddd;
   font-size: 12px;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: middle;
   text-align: center;
 }

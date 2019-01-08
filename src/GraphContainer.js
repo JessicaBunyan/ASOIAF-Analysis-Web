@@ -4,7 +4,6 @@ import * as _ from "underscore";
 import WordChoice from "./WordChoice";
 import ResetButton from "./ResetButton";
 import Graph from "./graph";
-import Key from "./Key";
 
 class GraphContainer extends Component {
   render() {

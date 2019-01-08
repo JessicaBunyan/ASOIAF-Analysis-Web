@@ -10,6 +10,7 @@ import ResetButton from "./ResetButton";
 import WordPanel from "./WordPanel";
 import GraphContainer from "./GraphContainer";
 import capitalise from "./utils";
+import WikiFrame from "./WikiFrame";
 
 const initialState = {
   word: "",
@@ -47,15 +48,18 @@ class App extends Component {
   render() {
     if (this.state.word) {
       return (
-        <GraphContainer
-          reset={() => this.setState(initialState)}
-          word={this.state.word}
-          breakdown={this.state.filterByChar}
-          data={this.getData()}
-          chapterLimits={this.getChapterLimits()}
-          lookupXAxisLabel={this.getXAxisLabelFunction()}
-          onClickCallback={this.getOnClickCallback()}
-        />
+        <div>
+          <GraphContainer
+            reset={() => this.setState(initialState)}
+            word={this.state.word}
+            breakdown={this.state.filterByChar}
+            data={this.getData()}
+            chapterLimits={this.getChapterLimits()}
+            lookupXAxisLabel={this.getXAxisLabelFunction()}
+            onClickCallback={this.getOnClickCallback()}
+          />
+          <WikiFrame />
+        </div>
       );
     } else {
       var words = Object.keys(json["default"]);

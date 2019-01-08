@@ -16,7 +16,8 @@ const initialState = {
   word: "",
   filterByChar: "",
   filterByBook: "",
-  groupBy: "pov"
+  groupBy: "pov",
+  wikiURL: ""
 };
 
 const bookWikiNames = {

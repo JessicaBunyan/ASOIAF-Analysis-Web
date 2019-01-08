@@ -8,12 +8,11 @@ class WikiFrame extends Component {
   }
 
   render() {
-    return (
-      <iframe
-        id="wiki-frame"
-        src="https://awoiaf.westeros.org/index.php/A_Dance_with_Dragons-Chapter_10"
-      />
-    );
+    if (this.state.url) {
+      return <div id="wiki-frame" />;
+    } else {
+      return null;
+    }
   }
 }
 

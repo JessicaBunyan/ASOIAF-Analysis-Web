@@ -452,7 +452,10 @@ class Graph extends Component {
       };
       elements.push(el);
 
+      context.fillStyle = "black";
       context.fillRect(el.left, el.top, el.width, el.height);
+      context.fillStyle = "steelblue";
+      context.fillRect(el.left + 1, el.top + 1, el.width - 2, el.height);
     });
 
     console.log(elements);

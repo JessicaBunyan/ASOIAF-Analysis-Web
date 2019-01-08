@@ -45,6 +45,7 @@ class WikiFrame extends Component {
       <Synopsis
         paragraphs={this.state.content}
         chapterTitle={this.props.chapterTitle}
+        book={this.props.chapterBook}
       />
     );
   }

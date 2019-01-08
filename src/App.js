@@ -9,7 +9,7 @@ import Graph from "./graph";
 import ResetButton from "./ResetButton";
 import WordPanel from "./WordPanel";
 import GraphContainer from "./GraphContainer";
-import capitalise from "./utils";
+import { capitalise } from "./utils";
 import WikiFrame from "./WikiFrame";
 
 const chapterInfo = chapterData.chapterInfo;
@@ -50,6 +50,14 @@ class App extends Component {
 
   render() {
     if (this.state.word) {
+      var synposis = this.state.cid ? (
+        <WikiFrame
+          cid={this.state.cid}
+          chapterTitle={chapterInfo[this.state.cid].title}
+          chapterBook={chapterInfo[this.state.cid].book}
+        />
+      ) : null;
+
       return (
         <div>
           <GraphContainer
@@ -61,10 +69,7 @@ class App extends Component {
             lookupXAxisLabel={this.getXAxisLabelFunction()}
             onClickCallback={this.getOnClickCallback()}
           />
-          <WikiFrame
-            cid={this.state.cid}
-            chapterTitle={this.getLongChapterTitle(this.state.cid)}
-          />
+          {synposis}
         </div>
       );
     } else {
@@ -74,18 +79,6 @@ class App extends Component {
         <WordPanel words={words} onClick={w => this.setState({ word: w })} />
       );
     }
-  }
-
-  getLongChapterTitle(cid) {
-    if (!cid) {
-      return "";
-    }
-    console.log("@@@");
-    console.log(chapterInfo);
-    console.log(cid);
-    var chapter = chapterInfo[cid];
-
-    return chapter.book + " " + chapter.title;
   }
 
   getWikiURL(w) {

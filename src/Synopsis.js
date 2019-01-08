@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import * as _ from "underscore";
-import capitalise from "./utils";
+import { bookNameFromCode } from "./utils";
 import $ from "jquery";
 
 class Synopsis extends Component {
@@ -11,7 +11,12 @@ class Synopsis extends Component {
   render() {
     return (
       <div className="synopsis">
-        <h3>{this.props.chapterTitle + " Synopsis"}</h3>
+        <h3>
+          {this.props.chapterTitle +
+            " Synopsis (" +
+            bookNameFromCode(this.props.book) +
+            ")"}
+        </h3>
         {this.props.paragraphs.map(para => {
           return <p>{para}</p>;
         })}

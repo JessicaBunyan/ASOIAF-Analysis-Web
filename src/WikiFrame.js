@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as _ from "underscore";
 import capitalise from "./utils";
 import $ from "jquery";
+import Synopsis from "./Synopsis";
 
 const initialState = {
   isLoaded: false,
@@ -22,12 +23,14 @@ class WikiFrame extends Component {
       return;
     }
     $.get(
-      "synopses/synopsis-test.html",
+      "synopses/synopsis-test.json",
       "",
       data => {
         console.log("LOADED CONTENT");
-        console.log(data);
-        this.setState({ content: data, isLoaded: true });
+        var content = JSON.parse(data);
+        console.log(content);
+        console.log(content.paragraphs);
+        this.setState({ content: content.paragraphs, isLoaded: true });
       },
       "html"
     );
@@ -38,7 +41,7 @@ class WikiFrame extends Component {
       return null;
     }
 
-    return this.state.content;
+    return <Synopsis paragraphs={this.state.content} />;
   }
 }
 

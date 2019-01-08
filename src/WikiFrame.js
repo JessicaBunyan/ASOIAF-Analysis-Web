@@ -19,7 +19,7 @@ class WikiFrame extends Component {
     console.log("in component did update");
     console.log("====================");
     console.log(this.props.url);
-    if (this.state.isLoaded || !this.props.url) {
+    if (this.state.isLoaded || !this.props.cid) {
       return;
     }
     $.get(
@@ -41,7 +41,12 @@ class WikiFrame extends Component {
       return null;
     }
 
-    return <Synopsis paragraphs={this.state.content} />;
+    return (
+      <Synopsis
+        paragraphs={this.state.content}
+        chapterTitle={this.props.chapterTitle}
+      />
+    );
   }
 }
 

@@ -141,17 +141,9 @@ h3.selected-word {
   height: 800px;
 }
 
-#wiki-frame {
+.synopsis {
   width: 1200px;
   height: 900px;
   margin: 0 auto;
-  display: block;
-}
-
-#wiki-frame * {
-  display: none;
-}
-
-#wiki-frame #synopsis {
   display: block;
 }

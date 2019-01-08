@@ -59,7 +59,10 @@ class App extends Component {
             lookupXAxisLabel={this.getXAxisLabelFunction()}
             onClickCallback={this.getOnClickCallback()}
           />
-          <WikiFrame url={this.state.wikiURL} />
+          <WikiFrame
+            cid={this.state.cid}
+            chapterTitle={this.getChapterTitle(this.state.cid)}
+          />
         </div>
       );
     } else {
@@ -69,6 +72,10 @@ class App extends Component {
         <WordPanel words={words} onClick={w => this.setState({ word: w })} />
       );
     }
+  }
+
+  getChapterTitle(cid) {
+    return "test";
   }
 
   getWikiURL(w) {
@@ -100,7 +107,7 @@ class App extends Component {
     if (this.state.groupBy == "pov") {
       return c => this.setState({ filterByChar: c, groupBy: "cid" });
     } else {
-      return cid => this.setState({ wikiURL: this.getWikiURL(cid) });
+      return cid => this.setState({ cid: cid });
       return;
     }
   }

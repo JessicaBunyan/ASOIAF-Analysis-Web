@@ -11,6 +11,7 @@ class Synopsis extends Component {
   render() {
     return (
       <div className="synopsis">
+        <h3>{this.props.chapterTitle + " Synopsis"}</h3>
         {this.props.paragraphs.map(para => {
           return <p>{para}</p>;
         })}

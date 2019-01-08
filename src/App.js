@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import * as json from "./data.json";
-import * as chapterData from "./chapters.json";
+import chapterData from "./chapters.json";
 import * as d3 from "d3";
 import * as _ from "underscore";
 import Graph from "./graph";
@@ -11,6 +11,8 @@ import WordPanel from "./WordPanel";
 import GraphContainer from "./GraphContainer";
 import capitalise from "./utils";
 import WikiFrame from "./WikiFrame";
+
+const chapterInfo = chapterData.chapterInfo;
 
 const initialState = {
   word: "",
@@ -61,7 +63,7 @@ class App extends Component {
           />
           <WikiFrame
             cid={this.state.cid}
-            chapterTitle={this.getChapterTitle(this.state.cid)}
+            chapterTitle={this.getLongChapterTitle(this.state.cid)}
           />
         </div>
       );
@@ -74,13 +76,23 @@ class App extends Component {
     }
   }
 
-  getChapterTitle(cid) {
-    return "test";
+  getLongChapterTitle(cid) {
+    if (!cid) {
+      return "";
+    }
+    console.log("@@@");
+    console.log(chapterInfo);
+    console.log(cid);
+    var chapter = chapterInfo[cid];
+
+    return chapter.book + " " + chapter.title;
   }
 
   getWikiURL(w) {
+    // var chapterData = chapterData["default"];
+
     var base = "https://awoiaf.westeros.org/index.php/";
-    var chapter = _.find(chapterData["default"], c => c.id == w);
+    var chapter = _.find(chapterInfo, c => c.id == w);
     var bookPart = bookWikiNames[chapter.book];
     var chapterPart =
       chapter.seq == 1
@@ -140,7 +152,7 @@ class App extends Component {
   addEmptyChapters(groupedRefs) {
     console.log("adding empty chapters");
     if (this.state.groupBy == "cid") {
-      var chaptersForChar = _.where(chapterData["default"], {
+      var chaptersForChar = _.where(chapterInfo, {
         pov_character: this.state.filterByChar
       });
       var base = {};
@@ -155,7 +167,7 @@ class App extends Component {
   }
 
   getXAxisLabelFunction() {
-    var chapters = chapterData["default"];
+    var chapters = chapterInfo;
     console.log(chapters);
 
     if (this.state.groupBy == "pov") {

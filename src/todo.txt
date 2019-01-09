@@ -9,6 +9,7 @@ can we do some magic with the images where we never stretch, instead we max it i
 Do we want to scroll down to the synopsis every time we click a new chapter?
 
 reset button goes missing when offline? Can we save fa icons locally or something to prevent this
+new icon for reset button
 
 gaps between bars goes seem weird when zoomed, not all gap look even - "Ice" by Jon
 

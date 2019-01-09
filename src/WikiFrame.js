@@ -27,7 +27,7 @@ class WikiFrame extends Component {
       return;
     }
     $.get(
-      "synopses/synopsis-test.json",
+      "synopses/" + this.props.cid + ".json",
       "",
       data => {
         console.log("LOADED CONTENT");

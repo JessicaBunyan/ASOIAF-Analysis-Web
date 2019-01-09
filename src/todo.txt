@@ -9,7 +9,8 @@ can we do some magic with the images where we never stretch, instead we max it i
 Do we want to scroll down to the synopsis every time we click a new chapter?
 
 
-Download all the synopses
+Synopses not updating when clicking a second chapter
+
 add link to wiki page for the chapter
 style synopses
 style License banner at bottom

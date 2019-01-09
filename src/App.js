@@ -11,7 +11,7 @@ import ResetButton from "./ResetButton";
 import WordPanel from "./WordPanel";
 import GraphContainer from "./GraphContainer";
 import { getWikiURL } from "./utils";
-import WikiFrame from "./WikiFrame";
+import SynopsisFrame from "./SynopsisFrame";
 import $ from "jquery";
 
 const chapterInfo = chapterData.chapterInfo;
@@ -50,7 +50,7 @@ class App extends Component {
             lookupXAxisLabel={this.getXAxisLabelFunction()}
             onClickCallback={this.getOnClickCallback()}
           />
-          <WikiFrame cid={this.state.cid} />
+          <SynopsisFrame cid={this.state.cid} />
         </div>
       );
     } else {

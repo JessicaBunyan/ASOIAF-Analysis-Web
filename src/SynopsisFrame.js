@@ -13,7 +13,7 @@ const initialState = {
   content: ""
 };
 
-class WikiFrame extends Component {
+class SynopsisFrame extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
@@ -56,4 +56,4 @@ class WikiFrame extends Component {
   }
 }
 
-export default WikiFrame;
+export default SynopsisFrame;

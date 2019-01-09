@@ -10,7 +10,7 @@ import Graph from "./graph";
 import ResetButton from "./ResetButton";
 import WordPanel from "./WordPanel";
 import GraphContainer from "./GraphContainer";
-import { capitalise } from "./utils";
+import { getWikiURL } from "./utils";
 import WikiFrame from "./WikiFrame";
 import $ from "jquery";
 

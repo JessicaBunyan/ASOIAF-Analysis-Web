@@ -37,10 +37,6 @@ export function getWikiURL(w) {
 
   var base = "https://awoiaf.westeros.org/index.php/";
   var chapter = chapterInfo[w];
-  console.log("in get wiki url");
-  console.log(w);
-  console.log(chapterData);
-  console.log(chapterInfo);
   if (!chapter) {
     return "";
   }

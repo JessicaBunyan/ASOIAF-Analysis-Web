@@ -19,10 +19,10 @@ class WikiFrame extends Component {
     this.state = initialState;
   }
 
-  componentDidUpdate() {
-    console.log("in component did update");
-    console.log("====================");
-    console.log(this.props.url);
+  componentDidUpdate(prevProps) {
+    if (prevProps.cid !== this.props.cid) {
+      this.setState({ isLoaded: false });
+    }
     if (this.state.isLoaded || !this.props.cid) {
       return;
     }

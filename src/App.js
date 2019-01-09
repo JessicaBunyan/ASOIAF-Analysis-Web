@@ -21,7 +21,7 @@ const initialState = {
   filterByChar: "",
   filterByBook: "",
   groupBy: "pov",
-  wikiURL: ""
+  cid: ""
 };
 
 class App extends Component {

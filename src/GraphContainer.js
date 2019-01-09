@@ -5,13 +5,17 @@ import WordChoice from "./WordChoice";
 import ResetButton from "./ResetButton";
 import Graph from "./graph";
 import BackButton from "./BackButton";
+import ControlPanel from "./ControlPanel";
 
 class GraphContainer extends Component {
   render() {
     return (
       <div className="graph-container">
-        <ResetButton reset={() => this.props.reset()} />
-        <BackButton back={() => this.props.back()} />
+        <ControlPanel
+          showBackButton={this.props.breakdown ? true : false}
+          back={this.props.back}
+          reset={this.props.reset}
+        />
         <Graph
           word={this.props.word}
           breakdown={this.props.breakdown}

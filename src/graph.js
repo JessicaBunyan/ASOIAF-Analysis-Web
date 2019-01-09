@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import * as d3 from "d3";
 import * as _ from "underscore";
 import { capitalise } from "./utils";
-import agotCover from "./img/agot-cover.jpg";
 
 const leftMargin = 80;
 const topMargin = 10;

@@ -1,5 +1,3 @@
-implement "back" to go from chapter breakdown to char breakdown
-
 fix headers that got borked by adding css reset
 
 can we do some magic with the images where we never stretch, instead we max it in perspective then roll back to reveal
@@ -14,3 +12,6 @@ new icon for reset button
 gaps between bars goes seem weird when zoomed, not all gap look even - "Ice" by Jon
 
 Bars change colour on hover? / cursor: pointer on hover?
+
+
+refactor graph.js??? might be tricky but would be nice. Some of the calculation can definitely be moved up e.g axis length and scale/tick frequency

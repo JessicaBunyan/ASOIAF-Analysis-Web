@@ -241,8 +241,6 @@ class Graph extends Component {
     }
     console.log(midPoints);
 
-    // midPoints = [0, 460, 760, 1060, 1080, 1100];
-
     for (var book = 1; book < 6; book++) {
       var left = midPoints[book - 1];
       var width = midPoints[book] - left;
@@ -251,20 +249,49 @@ class Graph extends Component {
       context.globalAlpha = 0.2;
 
       if (width <= singleBookOffset + 2) {
+        // If there are no chapters we just draw a coloured line
         context.fillRect(leftMargin + left, 0, width, height + topMargin + 180);
       } else {
-        context.fillStyle = "black";
-        context.drawImage(
-          img,
-          0,
-          0,
-          630,
-          961,
-          left + leftMargin,
-          0,
-          width,
-          height + topMargin + 180
-        );
+        if (width > 550) {
+          context.fillRect(
+            leftMargin + left,
+            0,
+            (width - 550) / 2,
+            height + topMargin + 180
+          );
+          context.fillRect(
+            leftMargin + left + 550 + (width - 550) / 2,
+            0,
+            (width - 550) / 2,
+            height + topMargin + 180
+          );
+
+          context.fillStyle = "black";
+          context.drawImage(
+            img,
+            0,
+            0,
+            630,
+            961,
+            left + leftMargin + (width - 550) / 2,
+            0,
+            550,
+            height + topMargin + 180
+          );
+        } else {
+          context.fillStyle = "black";
+          context.drawImage(
+            img,
+            0,
+            0,
+            630,
+            961,
+            left + leftMargin,
+            0,
+            width,
+            height + topMargin + 180
+          );
+        }
       }
     }
 

@@ -43,6 +43,7 @@ class App extends Component {
         <div>
           <GraphContainer
             reset={() => this.setState(initialState)}
+            back={() => this.setState({ filterByChar: "", groupBy: "pov" })}
             word={this.state.word}
             breakdown={this.state.filterByChar}
             data={this.getData()}

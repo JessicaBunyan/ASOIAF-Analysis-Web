@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import * as d3 from "d3";
 import * as _ from "underscore";
 
-class ResetButton extends Component {
+class BackButton extends Component {
   render() {
     return (
-      <div className="reset-button" onClick={() => this.props.reset()}>
+      <div className="back-button" onClick={() => this.props.back()}>
         <i className="fas fa-long-arrow-alt-left" />
-        reset
+        back
       </div>
     );
   }
 }
 
-export default ResetButton;
+export default BackButton;

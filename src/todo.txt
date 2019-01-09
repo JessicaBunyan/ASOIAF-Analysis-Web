@@ -15,3 +15,6 @@ Bars change colour on hover? / cursor: pointer on hover?
 
 
 refactor graph.js??? might be tricky but would be nice. Some of the calculation can definitely be moved up e.g axis length and scale/tick frequency
+
+
+tests? Snapshot tests would be cool.

@@ -10,6 +10,7 @@ class ControlPanel extends Component {
       <BackButton back={() => this.props.back()} />
     ) : null;
     var resetBtn = <ResetButton reset={() => this.props.reset()} />;
+
     return (
       <div className="control-panel">
         {backBtn}

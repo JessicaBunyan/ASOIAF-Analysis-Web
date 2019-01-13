@@ -1,0 +1,41 @@
+body img {
+    transition: all 1s;
+    z-index: -1;
+    opacity: 0.4;
+}
+
+#bg-logos {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    position: absolute;
+}
+
+.stark-sigil {
+    width: 60%;
+    position: absolute;
+    left: -500px;
+    top: 150px;
+}
+
+.targ-sigil {
+    width: 70%;
+    display: inline-block;
+    position: absolute;
+    bottom: -600px;
+    left: calc(100% - 600px);
+}
+
+body.active {
+    img {
+        width: 50%;
+        opacity: 0.1;
+    }
+    .stark-sigil {
+        left: -600px;
+    }
+    .targ-sigil {
+        bottom: -500px;
+        left: calc(100% - 300px);
+    }
+}

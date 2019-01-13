@@ -19,14 +19,7 @@ const bookColours = [
     "rgba(255,0,0,0.4)",
     "rgba(255,255,255,0.4)"
 ];
-const bookImgIds = [
-    "",
-    "agot-cover",
-    "acok-cover",
-    "asos-cover",
-    "affc-cover",
-    "adwd-cover"
-];
+const bookImgIds = ["", "agot-cover", "acok-cover", "asos-cover", "affc-cover", "adwd-cover"];
 
 const baseBookImgWidth = 630;
 const baseBookImgHeight = 961;
@@ -50,9 +43,7 @@ class Graph extends Component {
         return (
             <div className="graph clearfix">
                 <h3 className="selected-word got-font">{this.props.word}</h3>
-                <h4 className="breakdown ">
-                    {this.getBreakdownText(this.props.breakdown)}
-                </h4>
+                <h4 className="breakdown ">{this.getBreakdownText(this.props.breakdown)}</h4>
                 <div className="canvasWrapper">
                     <canvas width={canvasWidth} height="800" />
                 </div>
@@ -62,12 +53,7 @@ class Graph extends Component {
 
     getBreakdownText() {
         if (this.props.breakdown) {
-            return (
-                this.getTotalOccurrences() +
-                " by " +
-                capitalise(this.props.breakdown) +
-                " chapter"
-            );
+            return this.getTotalOccurrences() + " by " + capitalise(this.props.breakdown) + " chapter";
         }
         return this.getTotalOccurrences() + " by PoV Character";
     }
@@ -185,9 +171,7 @@ class Graph extends Component {
             }
         }
 
-        var barCenters = boundaryChapters.map(c =>
-            c == -1 ? -1 : this.getBarLeft(x, c) + barWidth / 2
-        );
+        var barCenters = boundaryChapters.map(c => (c == -1 ? -1 : this.getBarLeft(x, c) + barWidth / 2));
         var midPoints = [0];
 
         console.log("boundary chapters");
@@ -263,63 +247,39 @@ class Graph extends Component {
         var img = document.getElementById(bookImgIds[book]);
         context.globalAlpha = 0.2;
 
-        var testimg = document.getElementById("adwd-right");
+        var testimg = document.getElementById("affc-right");
 
         if (width <= singleBookOffset + 2) {
             // If there are no chapters we just draw a coloured line
             context.fillRect(left, 0, width, height);
         } else {
-            if (width > 550) {
-                // context.fillRect(
-                //     leftMargin + left,
-                //     0,
-                //     (width - 550) / 2,
-                //     height + topMargin + 180
-                // );
-                // context.drawImage(
-                //     testimg,
-                //     0,
-                //     0,
-                //     18,
-                //     961,
-                //     left + 550 + (width - 550) / 2,
-                //     0,
-                //     (width - 550) / 2,
-                //     height
-                // );
-                // context.fillRect(
-                //     leftMargin + left + 550 + (width - 550) / 2,
-                //     0,
-                //     (width - 550) / 2,
-                //     height + topMargin + 180
-                // );
+            if (width < 550) {
+                // if its not too wide just draw the image as is
+                context.fillStyle = "black";
+                context.drawImage(img, 0, 0, baseBookImgWidth, baseBookImgHeight, left, 0, width, height);
+            } else {
+                // if its too wise we draw the image in the middle and "fill in" the sides
+                var fillAreaWidth = (width - 550) / 2;
+
+                this.fillInBookSide(context, testimg, left, fillAreaWidth, height);
+                this.fillInBookSide(context, testimg, left + 550 + fillAreaWidth, fillAreaWidth, height);
 
                 context.fillStyle = "black";
-                context.drawImage(
-                    img,
-                    0,
-                    0,
-                    baseBookImgWidth,
-                    baseBookImgHeight,
-                    left + (width - 550) / 2,
-                    0,
-                    550,
-                    height
-                );
-            } else {
-                context.fillStyle = "black";
-                context.drawImage(
-                    img,
-                    0,
-                    0,
-                    baseBookImgWidth,
-                    baseBookImgHeight,
-                    left,
-                    0,
-                    width,
-                    height
-                );
+                context.drawImage(img, 0, 0, baseBookImgWidth, baseBookImgHeight, left + fillAreaWidth, 0, 550, height);
             }
+        }
+    }
+
+    fillInBookSide(context, img, left, fillWidth, height) {
+        for (var i = 0; i < fillWidth; i += 10) {
+            var tileWidth = 10;
+            console.log("++++++++++++++");
+            if (i >= fillWidth - 10) {
+                // if we have less than 10 pixels to the end shorten the tile width so we don't overflow
+                tileWidth = 10 + i - fillWidth;
+                console.log("CROPPING TILE WIDTH TO: " + tileWidth);
+            }
+            context.drawImage(img, 0, 0, 10, 961, left + i, 0, tileWidth, height);
         }
     }
 
@@ -368,8 +328,7 @@ class Graph extends Component {
     }
 
     getYAxisLimit(max) {
-        var roundToNearest =
-            max < 10 ? max : max < 20 ? 2 : max < 40 ? 5 : max < 200 ? 10 : 25;
+        var roundToNearest = max < 10 ? max : max < 20 ? 2 : max < 40 ? 5 : max < 200 ? 10 : 25;
         var yAxisLimit = Math.ceil(max / roundToNearest) * roundToNearest;
         return yAxisLimit;
     }
@@ -377,15 +336,7 @@ class Graph extends Component {
     getYTickCount(max) {
         var yTickCount;
         yTickCount = Math.ceil(
-            max < 10
-                ? max
-                : max < 20
-                ? max / 2
-                : max < 40
-                ? max / 5
-                : max < 200
-                ? max / 10
-                : max / 25
+            max < 10 ? max : max < 20 ? max / 2 : max < 40 ? max / 5 : max < 200 ? max / 10 : max / 25
         );
 
         return yTickCount;
@@ -427,13 +378,7 @@ class Graph extends Component {
             context.fillText(
                 this.props.lookupXAxisLabel(d),
                 height + topMargin + 8, // our y value for the location we want is now "x" here (will match up when we rotate paper backwards)
-                -(
-                    leftMargin +
-                    x(d) +
-                    this.getBookOffset(d) +
-                    axisLabelFontSize / 2 +
-                    x.bandwidth() / 2
-                ) // the negative of our x value is now our "y"
+                -(leftMargin + x(d) + this.getBookOffset(d) + axisLabelFontSize / 2 + x.bandwidth() / 2) // the negative of our x value is now our "y"
             );
             context.restore();
         });

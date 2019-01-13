@@ -20,6 +20,8 @@ const bookColours = [
     "rgba(255,255,255,0.4)"
 ];
 const bookImgIds = ["", "agot-cover", "acok-cover", "asos-cover", "affc-cover", "adwd-cover"];
+const bookImgLeftIds = ["", "agot-left", "acok-left", "asos-left", "affc-left", "adwd-left"];
+const bookImgRightIds = ["", "agot-right", "acok-right", "asos-right", "affc-right", "adwd-right"];
 
 const baseBookImgWidth = 630;
 const baseBookImgHeight = 961;
@@ -238,16 +240,14 @@ class Graph extends Component {
         context.globalAlpha = 1;
     }
 
-    drawBook(context, midPoints, book, height) {
-        var left = midPoints[book - 1];
-        var width = midPoints[book] - left;
+    drawBook(context, midPoints, bookNum, height) {
+        var left = midPoints[bookNum - 1];
+        var width = midPoints[bookNum] - left;
         left = left + leftMargin;
 
-        context.fillStyle = bookColours[book];
-        var img = document.getElementById(bookImgIds[book]);
+        context.fillStyle = bookColours[bookNum];
+        var img = document.getElementById(bookImgIds[bookNum]);
         context.globalAlpha = 0.2;
-
-        var testimg = document.getElementById("affc-right");
 
         if (width <= singleBookOffset + 2) {
             // If there are no chapters we just draw a coloured line
@@ -260,14 +260,16 @@ class Graph extends Component {
             } else {
                 // if its too wise we draw the image in the middle and "fill in" the sides
                 var fillAreaWidth = (width - 550) / 2;
+                var leftImg = document.getElementById(bookImgLeftIds[bookNum]);
+                var rightImg = document.getElementById(bookImgRightIds[bookNum]);
 
-                this.fillInBookSide(context, testimg, left, fillAreaWidth, height);
-                this.fillInBookSide(context, testimg, left + 550 + fillAreaWidth, fillAreaWidth, height);
+                this.fillInBookSide(context, leftImg, left, fillAreaWidth, height);
+                this.fillInBookSide(context, rightImg, left + 550 + fillAreaWidth, fillAreaWidth, height);
 
-                context.fillStyle = "black";
                 context.drawImage(img, 0, 0, baseBookImgWidth, baseBookImgHeight, left + fillAreaWidth, 0, 550, height);
             }
         }
+        context.fillStyle = "black";
     }
 
     fillInBookSide(context, img, left, fillWidth, height) {

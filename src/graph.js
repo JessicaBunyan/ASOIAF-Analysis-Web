@@ -276,7 +276,7 @@ class Graph extends Component {
         for (var i = 0; i < fillWidth; i += 10) {
             var tileWidth = 10;
             console.log("++++++++++++++");
-            if (i >= fillWidth - 10) {
+            if (i > fillWidth - 10) {
                 // if we have less than 10 pixels to the end shorten the tile width so we don't overflow
                 tileWidth = 10 + i - fillWidth;
                 console.log("CROPPING TILE WIDTH TO: " + tileWidth);

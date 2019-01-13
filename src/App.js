@@ -17,7 +17,7 @@ import $ from "jquery";
 const chapterInfo = chapterData.chapterInfo;
 
 const initialState = {
-    word: "stone",
+    word: "",
     filterByChar: "",
     filterByBook: "",
     groupBy: "pov",
@@ -56,12 +56,7 @@ class App extends Component {
         } else {
             var words = Object.keys(json["default"]);
 
-            return (
-                <WordPanel
-                    words={words}
-                    onClick={w => this.setState({ word: w })}
-                />
-            );
+            return <WordPanel words={words} onClick={w => this.setState({ word: w })} />;
         }
     }
 

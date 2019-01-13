@@ -43,9 +43,12 @@ class App extends Component {
                 <div>
                     <GraphContainer
                         reset={() => this.setState(initialState)}
+<<<<<<< HEAD
                         back={() =>
                             this.setState({ filterByChar: "", groupBy: "pov" })
                         }
+=======
+>>>>>>> max-book-width
                         word={this.state.word}
                         breakdown={this.state.filterByChar}
                         data={this.getData()}
@@ -53,18 +56,26 @@ class App extends Component {
                         lookupXAxisLabel={this.getXAxisLabelFunction()}
                         onClickCallback={this.getOnClickCallback()}
                     />
+<<<<<<< HEAD
                     <SynopsisFrame cid={this.state.cid} />
+=======
+                    <WikiFrame cid={this.state.cid} />
+>>>>>>> max-book-width
                 </div>
             );
         } else {
             var words = Object.keys(json["default"]);
 
+<<<<<<< HEAD
             return (
                 <WordPanel
                     words={words}
                     onClick={w => this.setState({ word: w })}
                 />
             );
+=======
+            return <WordPanel words={words} onClick={w => this.setState({ word: w })} />;
+>>>>>>> max-book-width
         }
     }
 

@@ -1,30 +1,45 @@
-fix headers that got borked by adding css reset
+DEFINITELY DO BEFORE RELEASE
+============================
+
+NORMALISED WORD SCORE
+show not just absolute frequency of the word, but a normalised score based upon the total number of words in the chapter/pov
+for example Bran has more words than chett in their respective chapters so the absolute scores will always be way off   
+
+Style control panel better
+    - new icon for reset button
+
+
+==========================
+PROBABLY DO BEFORE RELEASE
+==========================
+
+Do we want to scroll down to the synopsis every time we click a new chapter? 
+    - I think not, need a good way of storing this state
+
+Bars change colour on hover? / cursor: pointer on hover?
+    -If not this then some indication that bars are clickable
+
+shrink the gap between the graph and the synopsis. 
+    -This will require writing chapter titles across multiple lines as long titles stretch super far (e.g the princess in the tower) 
+
+long chapter title forces synopsis titles onto 2 lines. abbreviate book name in this case?
+
+
+=========================
+CAN RELEASE WITHOUT THESE
+=========================
 
 make it so the images never stretch, instead we max it in perspective then roll back to reveal more of the colour 
     - prototype done on max-book-width, 
         -need better colours, or to get a stretchable/repeatable image to use instead to match texture 
 
-Do we want to scroll down to the synopsis every time we click a new chapter? 
-    - I think not, need a good way of storing this state
-
 reset button goes missing when offline? Can we save fa icons locally or something to prevent this
-new icon for reset button
 
 gaps between bars goes seem weird when zoomed, not all gap look even - "Ice" by Jon
 
-Bars change colour on hover? / cursor: pointer on hover?
-
-shrink the gap between the graph and the synopsis. 
-    -This will require writing chapter titles across multiple lines as long titles stretch super far (e.g the princess in the tower) 
-
 refactor graph.js??? might be tricky but would be nice. Some of the calculation can definitely be moved up e.g axis length and scale/tick frequency
-
-refactor css? use LESS? otherwise break css down into base and per-component sytles. Perhaps both
 
 tests? Snapshot tests would be cool.
 
 
 
-NORMALISED WORD SCORE
-show not just absolute frequency of the word, but a normalised score based upon the total number of words in the chapter/pov
-for example Bran has more words than chett in their respective chapters so the absolute scores will always be way off   

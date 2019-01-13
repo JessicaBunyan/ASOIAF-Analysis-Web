@@ -28,6 +28,9 @@ const bookImgIds = [
     "adwd-cover"
 ];
 
+const baseBookImgWidth = 630;
+const baseBookImgHeight = 961;
+
 const bookImgOffsets = [0, 100, 200, 200, 200, 100];
 
 var elements = [];
@@ -242,81 +245,82 @@ class Graph extends Component {
         console.log(midPoints);
 
         for (var book = 1; book < 6; book++) {
-            var left = midPoints[book - 1];
-            var width = midPoints[book] - left;
-            context.fillStyle = bookColours[book];
-            var img = document.getElementById(bookImgIds[book]);
-            context.globalAlpha = 0.2;
-
-            var testimg = document.getElementById("adwd-right");
-
-            if (width <= singleBookOffset + 2) {
-                // If there are no chapters we just draw a coloured line
-                context.fillRect(
-                    leftMargin + left,
-                    0,
-                    width,
-                    height + topMargin + 180
-                );
-            } else {
-                if (width > 550) {
-                    // context.fillRect(
-                    //     leftMargin + left,
-                    //     0,
-                    //     (width - 550) / 2,
-                    //     height + topMargin + 180
-                    // );
-                    context.drawImage(
-                        testimg,
-                        0,
-                        0,
-                        18,
-                        961,
-                        leftMargin + left + 550 + (width - 550) / 2,
-                        0,
-                        (width - 550) / 2,
-                        height + topMargin + 180
-                    );
-                    // context.fillRect(
-                    //     leftMargin + left + 550 + (width - 550) / 2,
-                    //     0,
-                    //     (width - 550) / 2,
-                    //     height + topMargin + 180
-                    // );
-
-                    context.fillStyle = "black";
-                    context.drawImage(
-                        img,
-                        0,
-                        0,
-                        630,
-                        961,
-                        left + leftMargin + (width - 550) / 2,
-                        0,
-                        550,
-                        height + topMargin + 180
-                    );
-                } else {
-                    context.fillStyle = "black";
-                    context.drawImage(
-                        img,
-                        0,
-                        0,
-                        630,
-                        961,
-                        left + leftMargin,
-                        0,
-                        width,
-                        height + topMargin + 180
-                    );
-                }
-            }
+            this.drawBook(context, midPoints, book, height + topMargin + 180);
         }
 
         var img = document.getElementById("agot-cover");
         context.fillStyle = "black";
 
         context.globalAlpha = 1;
+    }
+
+    drawBook(context, midPoints, book, height) {
+        var left = midPoints[book - 1];
+        var width = midPoints[book] - left;
+        left = left + leftMargin;
+
+        context.fillStyle = bookColours[book];
+        var img = document.getElementById(bookImgIds[book]);
+        context.globalAlpha = 0.2;
+
+        var testimg = document.getElementById("adwd-right");
+
+        if (width <= singleBookOffset + 2) {
+            // If there are no chapters we just draw a coloured line
+            context.fillRect(left, 0, width, height);
+        } else {
+            if (width > 550) {
+                // context.fillRect(
+                //     leftMargin + left,
+                //     0,
+                //     (width - 550) / 2,
+                //     height + topMargin + 180
+                // );
+                // context.drawImage(
+                //     testimg,
+                //     0,
+                //     0,
+                //     18,
+                //     961,
+                //     left + 550 + (width - 550) / 2,
+                //     0,
+                //     (width - 550) / 2,
+                //     height
+                // );
+                // context.fillRect(
+                //     leftMargin + left + 550 + (width - 550) / 2,
+                //     0,
+                //     (width - 550) / 2,
+                //     height + topMargin + 180
+                // );
+
+                context.fillStyle = "black";
+                context.drawImage(
+                    img,
+                    0,
+                    0,
+                    baseBookImgWidth,
+                    baseBookImgHeight,
+                    left + (width - 550) / 2,
+                    0,
+                    550,
+                    height
+                );
+            } else {
+                context.fillStyle = "black";
+                context.drawImage(
+                    img,
+                    0,
+                    0,
+                    baseBookImgWidth,
+                    baseBookImgHeight,
+                    left,
+                    0,
+                    width,
+                    height
+                );
+            }
+        }
     }
 
     getChaptersPerBook() {

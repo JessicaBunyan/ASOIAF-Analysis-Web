@@ -7,7 +7,6 @@ class BackButton extends Component {
         return (
             <div className="back-button" onClick={() => this.props.back()}>
                 <i className="fas fa-long-arrow-alt-left" />
-                back
             </div>
         );
     }

@@ -5,9 +5,6 @@ NORMALISED WORD SCORE
 show not just absolute frequency of the word, but a normalised score based upon the total number of words in the chapter/pov
 for example Bran has more words than chett in their respective chapters so the absolute scores will always be way off   
 
-Style control panel better
-    - new icon for reset button
-
 
 ==========================
 PROBABLY DO BEFORE RELEASE

@@ -6,8 +6,7 @@ class ResetButton extends Component {
     render() {
         return (
             <div className="reset-button" onClick={() => this.props.reset()}>
-                <i className="fas fa-long-arrow-alt-left" />
-                reset
+                <i className="fas fa-undo-alt" />
             </div>
         );
     }

@@ -9,51 +9,51 @@ import { getWikiURL } from "./utils";
 const chapterInfo = chapterData.chapterInfo;
 
 const initialState = {
-  isLoaded: false,
-  content: ""
+    isLoaded: false,
+    content: ""
 };
 
 class SynopsisFrame extends Component {
-  constructor(props) {
-    super(props);
-    this.state = initialState;
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.cid !== this.props.cid) {
-      this.setState({ isLoaded: false });
-    }
-    if (this.state.isLoaded || !this.props.cid) {
-      return;
-    }
-    $.get(
-      "synopses/" + this.props.cid + ".json",
-      "",
-      data => {
-        console.log("LOADED CONTENT");
-        var content = JSON.parse(data);
-        console.log(content);
-        console.log(content.paragraphs);
-        this.setState({ content: content.paragraphs, isLoaded: true });
-      },
-      "html"
-    );
-  }
-
-  render() {
-    if (!this.state.isLoaded || !this.props.cid) {
-      return null;
+    constructor(props) {
+        super(props);
+        this.state = initialState;
     }
 
-    return (
-      <Synopsis
-        paragraphs={this.state.content}
-        chapterTitle={chapterInfo[this.props.cid].title}
-        book={chapterInfo[this.props.cid].book}
-        url={getWikiURL(this.props.cid)}
-      />
-    );
-  }
+    componentDidUpdate(prevProps) {
+        if (prevProps.cid !== this.props.cid) {
+            this.setState({ isLoaded: false });
+        }
+        if (this.state.isLoaded || !this.props.cid) {
+            return;
+        }
+        $.get(
+            "synopses/" + this.props.cid + ".json",
+            "",
+            data => {
+                console.log("LOADED CONTENT");
+                var content = JSON.parse(data);
+                console.log(content);
+                console.log(content.paragraphs);
+                this.setState({ content: content.paragraphs, isLoaded: true });
+            },
+            "html"
+        );
+    }
+
+    render() {
+        if (!this.state.isLoaded || !this.props.cid) {
+            return null;
+        }
+
+        return (
+            <Synopsis
+                paragraphs={this.state.content}
+                chapterTitle={chapterInfo[this.props.cid].title}
+                book={chapterInfo[this.props.cid].book}
+                url={getWikiURL(this.props.cid)}
+            />
+        );
+    }
 }
 
 export default SynopsisFrame;

@@ -24,3 +24,6 @@ yarn-error.log*
 
 #compiled CSS
 *.css*
+
+#prettier code (VS code extension) config file
+.prettierrc

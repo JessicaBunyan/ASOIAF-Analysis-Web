@@ -3,14 +3,14 @@ import * as d3 from "d3";
 import * as _ from "underscore";
 
 class ResetButton extends Component {
-  render() {
-    return (
-      <div className="reset-button" onClick={() => this.props.reset()}>
-        <i className="fas fa-long-arrow-alt-left" />
-        reset
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="reset-button" onClick={() => this.props.reset()}>
+                <i className="fas fa-long-arrow-alt-left" />
+                reset
+            </div>
+        );
+    }
 }
 
 export default ResetButton;

@@ -5,19 +5,19 @@ import BackButton from "./BackButton";
 import ResetButton from "./ResetButton";
 
 class ControlPanel extends Component {
-  render() {
-    var backBtn = this.props.showBackButton ? (
-      <BackButton back={() => this.props.back()} />
-    ) : null;
-    var resetBtn = <ResetButton reset={() => this.props.reset()} />;
+    render() {
+        var backBtn = this.props.showBackButton ? (
+            <BackButton back={() => this.props.back()} />
+        ) : null;
+        var resetBtn = <ResetButton reset={() => this.props.reset()} />;
 
-    return (
-      <div className="control-panel">
-        {backBtn}
-        {resetBtn}
-      </div>
-    );
-  }
+        return (
+            <div className="control-panel">
+                {backBtn}
+                {resetBtn}
+            </div>
+        );
+    }
 }
 
 export default ControlPanel;

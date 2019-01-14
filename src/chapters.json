@@ -5,2408 +5,2752 @@
             "seq": 1,
             "book": "AGOT",
             "title": "Prologue",
-            "pov_character": "Will"
+            "pov_character": "Will",
+            "words": 3807
         },
         {
             "id": 1,
             "seq": 2,
             "book": "AGOT",
             "title": "Bran I",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 3014
         },
         {
             "id": 2,
             "seq": 3,
             "book": "AGOT",
             "title": "Catelyn I",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 2059
         },
         {
             "id": 3,
             "seq": 4,
             "book": "AGOT",
             "title": "Daenerys I",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 4142
         },
         {
             "id": 4,
             "seq": 5,
             "book": "AGOT",
             "title": "Eddard I",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 3771
         },
         {
             "id": 5,
             "seq": 6,
             "book": "AGOT",
             "title": "Jon I",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 3230
         },
         {
             "id": 6,
             "seq": 7,
             "book": "AGOT",
             "title": "Catelyn II",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 3477
         },
         {
             "id": 7,
             "seq": 8,
             "book": "AGOT",
             "title": "Arya I",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 2700
         },
         {
             "id": 8,
             "seq": 9,
             "book": "AGOT",
             "title": "Bran II",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 3775
         },
         {
             "id": 9,
             "seq": 10,
             "book": "AGOT",
             "title": "Tyrion I",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 2134
         },
         {
             "id": 10,
             "seq": 11,
             "book": "AGOT",
             "title": "Jon II",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 2026
         },
         {
             "id": 11,
             "seq": 12,
             "book": "AGOT",
             "title": "Daenerys II",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 3851
         },
         {
             "id": 12,
             "seq": 13,
             "book": "AGOT",
             "title": "Eddard II",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 3224
         },
         {
             "id": 13,
             "seq": 14,
             "book": "AGOT",
             "title": "Tyrion II",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 3533
         },
         {
             "id": 14,
             "seq": 15,
             "book": "AGOT",
             "title": "Catelyn III",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 3840
         },
         {
             "id": 15,
             "seq": 16,
             "book": "AGOT",
             "title": "Sansa I",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 5076
         },
         {
             "id": 16,
             "seq": 17,
             "book": "AGOT",
             "title": "Eddard III",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 2309
         },
         {
             "id": 17,
             "seq": 18,
             "book": "AGOT",
             "title": "Bran III",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 1700
         },
         {
             "id": 18,
             "seq": 19,
             "book": "AGOT",
             "title": "Catelyn IV",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 4000
         },
         {
             "id": 19,
             "seq": 20,
             "book": "AGOT",
             "title": "Jon III",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5163
         },
         {
             "id": 20,
             "seq": 21,
             "book": "AGOT",
             "title": "Eddard IV",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 4738
         },
         {
             "id": 21,
             "seq": 22,
             "book": "AGOT",
             "title": "Tyrion III",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 4373
         },
         {
             "id": 22,
             "seq": 23,
             "book": "AGOT",
             "title": "Arya II",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 3891
         },
         {
             "id": 23,
             "seq": 24,
             "book": "AGOT",
             "title": "Daenerys III",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 4221
         },
         {
             "id": 24,
             "seq": 25,
             "book": "AGOT",
             "title": "Bran IV",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 4662
         },
         {
             "id": 25,
             "seq": 26,
             "book": "AGOT",
             "title": "Eddard V",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 3230
         },
         {
             "id": 26,
             "seq": 27,
             "book": "AGOT",
             "title": "Jon IV",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 4893
         },
         {
             "id": 27,
             "seq": 28,
             "book": "AGOT",
             "title": "Eddard VI",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 4099
         },
         {
             "id": 28,
             "seq": 29,
             "book": "AGOT",
             "title": "Catelyn V",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 3554
         },
         {
             "id": 29,
             "seq": 30,
             "book": "AGOT",
             "title": "Sansa II",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 4515
         },
         {
             "id": 30,
             "seq": 31,
             "book": "AGOT",
             "title": "Eddard VII",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 7227
         },
         {
             "id": 31,
             "seq": 32,
             "book": "AGOT",
             "title": "Tyrion IV",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5402
         },
         {
             "id": 32,
             "seq": 33,
             "book": "AGOT",
             "title": "Arya III",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 4785
         },
         {
             "id": 33,
             "seq": 34,
             "book": "AGOT",
             "title": "Eddard VIII",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 3005
         },
         {
             "id": 34,
             "seq": 35,
             "book": "AGOT",
             "title": "Catelyn VI",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 7350
         },
         {
             "id": 35,
             "seq": 36,
             "book": "AGOT",
             "title": "Eddard IX",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 2473
         },
         {
             "id": 36,
             "seq": 37,
             "book": "AGOT",
             "title": "Daenerys IV",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 3800
         },
         {
             "id": 37,
             "seq": 38,
             "book": "AGOT",
             "title": "Bran V",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 5048
         },
         {
             "id": 38,
             "seq": 39,
             "book": "AGOT",
             "title": "Tyrion V",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5139
         },
         {
             "id": 39,
             "seq": 40,
             "book": "AGOT",
             "title": "Eddard X",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 2477
         },
         {
             "id": 40,
             "seq": 41,
             "book": "AGOT",
             "title": "Catelyn VII",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 4844
         },
         {
             "id": 41,
             "seq": 42,
             "book": "AGOT",
             "title": "Jon V",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 2929
         },
         {
             "id": 42,
             "seq": 43,
             "book": "AGOT",
             "title": "Tyrion VI",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 3543
         },
         {
             "id": 43,
             "seq": 44,
             "book": "AGOT",
             "title": "Eddard XI",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 3531
         },
         {
             "id": 44,
             "seq": 45,
             "book": "AGOT",
             "title": "Sansa III",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 2956
         },
         {
             "id": 45,
             "seq": 46,
             "book": "AGOT",
             "title": "Eddard XII",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 3245
         },
         {
             "id": 46,
             "seq": 47,
             "book": "AGOT",
             "title": "Daenerys V",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 4439
         },
         {
             "id": 47,
             "seq": 48,
             "book": "AGOT",
             "title": "Eddard XIII",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 4997
         },
         {
             "id": 48,
             "seq": 49,
             "book": "AGOT",
             "title": "Jon VI",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 2935
         },
         {
             "id": 49,
             "seq": 50,
             "book": "AGOT",
             "title": "Eddard XIV",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 2229
         },
         {
             "id": 50,
             "seq": 51,
             "book": "AGOT",
             "title": "Arya IV",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 4647
         },
         {
             "id": 51,
             "seq": 52,
             "book": "AGOT",
             "title": "Sansa IV",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 3769
         },
         {
             "id": 52,
             "seq": 53,
             "book": "AGOT",
             "title": "Jon VII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 6041
         },
         {
             "id": 53,
             "seq": 54,
             "book": "AGOT",
             "title": "Bran VI",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 5572
         },
         {
             "id": 54,
             "seq": 55,
             "book": "AGOT",
             "title": "Daenerys VI",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 4370
         },
         {
             "id": 55,
             "seq": 56,
             "book": "AGOT",
             "title": "Catelyn VIII",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 4370
         },
         {
             "id": 56,
             "seq": 57,
             "book": "AGOT",
             "title": "Tyrion VII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 3679
         },
         {
             "id": 57,
             "seq": 58,
             "book": "AGOT",
             "title": "Sansa V",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 3387
         },
         {
             "id": 58,
             "seq": 59,
             "book": "AGOT",
             "title": "Eddard XV",
-            "pov_character": "Eddard"
+            "pov_character": "Eddard",
+            "words": 3545
         },
         {
             "id": 59,
             "seq": 60,
             "book": "AGOT",
             "title": "Catelyn IX",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 5167
         },
         {
             "id": 60,
             "seq": 61,
             "book": "AGOT",
             "title": "Jon VIII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 4937
         },
         {
             "id": 61,
             "seq": 62,
             "book": "AGOT",
             "title": "Daenerys VII",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 3725
         },
         {
             "id": 62,
             "seq": 63,
             "book": "AGOT",
             "title": "Tyrion VIII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 7111
         },
         {
             "id": 63,
             "seq": 64,
             "book": "AGOT",
             "title": "Catelyn X",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 3043
         },
         {
             "id": 64,
             "seq": 65,
             "book": "AGOT",
             "title": "Daenerys VIII",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 5209
         },
         {
             "id": 65,
             "seq": 66,
             "book": "AGOT",
             "title": "Arya V",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 4957
         },
         {
             "id": 66,
             "seq": 67,
             "book": "AGOT",
             "title": "Bran VII",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 4245
         },
         {
             "id": 67,
             "seq": 68,
             "book": "AGOT",
             "title": "Sansa VI",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 3711
         },
         {
             "id": 68,
             "seq": 69,
             "book": "AGOT",
             "title": "Daenerys IX",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 4186
         },
         {
             "id": 69,
             "seq": 70,
             "book": "AGOT",
             "title": "Tyrion IX",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 3493
         },
         {
             "id": 70,
             "seq": 71,
             "book": "AGOT",
             "title": "Jon IX",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 4923
         },
         {
             "id": 71,
             "seq": 72,
             "book": "AGOT",
             "title": "Catelyn XI",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 4582
         },
         {
             "id": 72,
             "seq": 73,
             "book": "AGOT",
             "title": "Daenerys X",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 3566
         },
         {
             "id": 73,
             "seq": 1,
             "book": "ACOK",
             "title": "Prologue",
-            "pov_character": "Cressen"
+            "pov_character": "Cressen",
+            "words": 10229
         },
         {
             "id": 74,
             "seq": 2,
             "book": "ACOK",
             "title": "Arya I",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 2546
         },
         {
             "id": 75,
             "seq": 3,
             "book": "ACOK",
             "title": "Sansa I",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 4788
         },
         {
             "id": 76,
             "seq": 4,
             "book": "ACOK",
             "title": "Tyrion I",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5650
         },
         {
             "id": 77,
             "seq": 5,
             "book": "ACOK",
             "title": "Bran I",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 3601
         },
         {
             "id": 78,
             "seq": 6,
             "book": "ACOK",
             "title": "Arya II",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 3741
         },
         {
             "id": 79,
             "seq": 7,
             "book": "ACOK",
             "title": "Jon I",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 4754
         },
         {
             "id": 80,
             "seq": 8,
             "book": "ACOK",
             "title": "Catelyn I",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 5030
         },
         {
             "id": 81,
             "seq": 9,
             "book": "ACOK",
             "title": "Tyrion II",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 4651
         },
         {
             "id": 82,
             "seq": 10,
             "book": "ACOK",
             "title": "Arya III",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 3135
         },
         {
             "id": 83,
             "seq": 11,
             "book": "ACOK",
             "title": "Davos I",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 6522
         },
         {
             "id": 84,
             "seq": 12,
             "book": "ACOK",
             "title": "Theon I",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 8189
         },
         {
             "id": 85,
             "seq": 13,
             "book": "ACOK",
             "title": "Daenerys I",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 5590
         },
         {
             "id": 86,
             "seq": 14,
             "book": "ACOK",
             "title": "Jon II",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 2421
         },
         {
             "id": 87,
             "seq": 15,
             "book": "ACOK",
             "title": "Arya IV",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 5639
         },
         {
             "id": 88,
             "seq": 16,
             "book": "ACOK",
             "title": "Tyrion III",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 4828
         },
         {
             "id": 89,
             "seq": 17,
             "book": "ACOK",
             "title": "Bran II",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 6147
         },
         {
             "id": 90,
             "seq": 18,
             "book": "ACOK",
             "title": "Tyrion IV",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5697
         },
         {
             "id": 91,
             "seq": 19,
             "book": "ACOK",
             "title": "Sansa II",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 3405
         },
         {
             "id": 92,
             "seq": 20,
             "book": "ACOK",
             "title": "Arya V",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 6026
         },
         {
             "id": 93,
             "seq": 21,
             "book": "ACOK",
             "title": "Tyrion V",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5236
         },
         {
             "id": 94,
             "seq": 22,
             "book": "ACOK",
             "title": "Bran III",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 3651
         },
         {
             "id": 95,
             "seq": 23,
             "book": "ACOK",
             "title": "Catelyn II",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 6870
         },
         {
             "id": 96,
             "seq": 24,
             "book": "ACOK",
             "title": "Jon III",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 7915
         },
         {
             "id": 97,
             "seq": 25,
             "book": "ACOK",
             "title": "Theon II",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 6727
         },
         {
             "id": 98,
             "seq": 26,
             "book": "ACOK",
             "title": "Tyrion VI",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5188
         },
         {
             "id": 99,
             "seq": 27,
             "book": "ACOK",
             "title": "Arya VI",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 2822
         },
         {
             "id": 100,
             "seq": 28,
             "book": "ACOK",
             "title": "Daenerys II",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 3606
         },
         {
             "id": 101,
             "seq": 29,
             "book": "ACOK",
             "title": "Bran IV",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 3360
         },
         {
             "id": 102,
             "seq": 30,
             "book": "ACOK",
             "title": "Tyrion VII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 3472
         },
         {
             "id": 103,
             "seq": 31,
             "book": "ACOK",
             "title": "Arya VII",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 5082
         },
         {
             "id": 104,
             "seq": 32,
             "book": "ACOK",
             "title": "Catelyn III",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 5012
         },
         {
             "id": 105,
             "seq": 33,
             "book": "ACOK",
             "title": "Sansa III",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 3047
         },
         {
             "id": 106,
             "seq": 34,
             "book": "ACOK",
             "title": "Catelyn IV",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 3890
         },
         {
             "id": 107,
             "seq": 35,
             "book": "ACOK",
             "title": "Jon IV",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 3795
         },
         {
             "id": 108,
             "seq": 36,
             "book": "ACOK",
             "title": "Bran V",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 2634
         },
         {
             "id": 109,
             "seq": 37,
             "book": "ACOK",
             "title": "Tyrion VIII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 2848
         },
         {
             "id": 110,
             "seq": 38,
             "book": "ACOK",
             "title": "Theon III",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 3108
         },
         {
             "id": 111,
             "seq": 39,
             "book": "ACOK",
             "title": "Arya VIII",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 3355
         },
         {
             "id": 112,
             "seq": 40,
             "book": "ACOK",
             "title": "Catelyn V",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 5739
         },
         {
             "id": 113,
             "seq": 41,
             "book": "ACOK",
             "title": "Daenerys III",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 4341
         },
         {
             "id": 114,
             "seq": 42,
             "book": "ACOK",
             "title": "Tyrion IX",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5589
         },
         {
             "id": 115,
             "seq": 43,
             "book": "ACOK",
             "title": "Davos II",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 6874
         },
         {
             "id": 116,
             "seq": 44,
             "book": "ACOK",
             "title": "Jon V",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 3199
         },
         {
             "id": 117,
             "seq": 45,
             "book": "ACOK",
             "title": "Tyrion X",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 4942
         },
         {
             "id": 118,
             "seq": 46,
             "book": "ACOK",
             "title": "Catelyn VI",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 4540
         },
         {
             "id": 119,
             "seq": 47,
             "book": "ACOK",
             "title": "Bran VI",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 3804
         },
         {
             "id": 120,
             "seq": 48,
             "book": "ACOK",
             "title": "Arya IX",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 7055
         },
         {
             "id": 121,
             "seq": 49,
             "book": "ACOK",
             "title": "Daenerys IV",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 4498
         },
         {
             "id": 122,
             "seq": 50,
             "book": "ACOK",
             "title": "Tyrion XI",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 3565
         },
         {
             "id": 123,
             "seq": 51,
             "book": "ACOK",
             "title": "Theon IV",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 5485
         },
         {
             "id": 124,
             "seq": 52,
             "book": "ACOK",
             "title": "Jon VI",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 4819
         },
         {
             "id": 125,
             "seq": 53,
             "book": "ACOK",
             "title": "Sansa IV",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 4054
         },
         {
             "id": 126,
             "seq": 54,
             "book": "ACOK",
             "title": "Jon VII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 3278
         },
         {
             "id": 127,
             "seq": 55,
             "book": "ACOK",
             "title": "Tyrion XII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 3300
         },
         {
             "id": 128,
             "seq": 56,
             "book": "ACOK",
             "title": "Catelyn VII",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 5768
         },
         {
             "id": 129,
             "seq": 57,
             "book": "ACOK",
             "title": "Theon V",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 3775
         },
         {
             "id": 130,
             "seq": 58,
             "book": "ACOK",
             "title": "Sansa V",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 2611
         },
         {
             "id": 131,
             "seq": 59,
             "book": "ACOK",
             "title": "Davos III",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 6107
         },
         {
             "id": 132,
             "seq": 60,
             "book": "ACOK",
             "title": "Tyrion XIII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 2314
         },
         {
             "id": 133,
             "seq": 61,
             "book": "ACOK",
             "title": "Sansa VI",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 2517
         },
         {
             "id": 134,
             "seq": 62,
             "book": "ACOK",
             "title": "Tyrion XIV",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 3108
         },
         {
             "id": 135,
             "seq": 63,
             "book": "ACOK",
             "title": "Sansa VII",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 2885
         },
         {
             "id": 136,
             "seq": 64,
             "book": "ACOK",
             "title": "Daenerys V",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 4987
         },
         {
             "id": 137,
             "seq": 65,
             "book": "ACOK",
             "title": "Arya X",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 6632
         },
         {
             "id": 138,
             "seq": 66,
             "book": "ACOK",
             "title": "Sansa VIII",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 3798
         },
         {
             "id": 139,
             "seq": 67,
             "book": "ACOK",
             "title": "Theon VI",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 4906
         },
         {
             "id": 140,
             "seq": 68,
             "book": "ACOK",
             "title": "Tyrion XV",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 3888
         },
         {
             "id": 141,
             "seq": 69,
             "book": "ACOK",
             "title": "Jon VIII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 4469
         },
         {
             "id": 142,
             "seq": 70,
             "book": "ACOK",
             "title": "Bran VII",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 4625
         },
         {
             "id": 143,
             "seq": 1,
             "book": "ASOS",
             "title": "Prologue",
-            "pov_character": "Chett"
+            "pov_character": "Chett",
+            "words": 6608
         },
         {
             "id": 144,
             "seq": 2,
             "book": "ASOS",
             "title": "Jaime I",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 5555
         },
         {
             "id": 145,
             "seq": 3,
             "book": "ASOS",
             "title": "Catelyn I",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 3737
         },
         {
             "id": 146,
             "seq": 4,
             "book": "ASOS",
             "title": "Arya I",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 3791
         },
         {
             "id": 147,
             "seq": 5,
             "book": "ASOS",
             "title": "Tyrion I",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5038
         },
         {
             "id": 148,
             "seq": 6,
             "book": "ASOS",
             "title": "Davos I",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 3158
         },
         {
             "id": 149,
             "seq": 7,
             "book": "ASOS",
             "title": "Sansa I",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 5801
         },
         {
             "id": 150,
             "seq": 8,
             "book": "ASOS",
             "title": "Jon I",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5218
         },
         {
             "id": 151,
             "seq": 9,
             "book": "ASOS",
             "title": "Daenerys I",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 6336
         },
         {
             "id": 152,
             "seq": 10,
             "book": "ASOS",
             "title": "Bran I",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 4148
         },
         {
             "id": 153,
             "seq": 11,
             "book": "ASOS",
             "title": "Davos II",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 4882
         },
         {
             "id": 154,
             "seq": 12,
             "book": "ASOS",
             "title": "Jaime II",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 5319
         },
         {
             "id": 155,
             "seq": 13,
             "book": "ASOS",
             "title": "Tyrion II",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 4507
         },
         {
             "id": 156,
             "seq": 14,
             "book": "ASOS",
             "title": "Arya II",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 5608
         },
         {
             "id": 157,
             "seq": 15,
             "book": "ASOS",
             "title": "Catelyn II",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 5139
         },
         {
             "id": 158,
             "seq": 16,
             "book": "ASOS",
             "title": "Jon II",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 6873
         },
         {
             "id": 159,
             "seq": 17,
             "book": "ASOS",
             "title": "Sansa II",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 2452
         },
         {
             "id": 160,
             "seq": 18,
             "book": "ASOS",
             "title": "Arya III",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 3366
         },
         {
             "id": 161,
             "seq": 19,
             "book": "ASOS",
             "title": "Samwell I",
-            "pov_character": "Samwell"
+            "pov_character": "Samwell",
+            "words": 7218
         },
         {
             "id": 162,
             "seq": 20,
             "book": "ASOS",
             "title": "Tyrion III",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 7027
         },
         {
             "id": 163,
             "seq": 21,
             "book": "ASOS",
             "title": "Catelyn III",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 4369
         },
         {
             "id": 164,
             "seq": 22,
             "book": "ASOS",
             "title": "Jaime III",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 4682
         },
         {
             "id": 165,
             "seq": 23,
             "book": "ASOS",
             "title": "Arya IV",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 4750
         },
         {
             "id": 166,
             "seq": 24,
             "book": "ASOS",
             "title": "Daenerys II",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 7719
         },
         {
             "id": 167,
             "seq": 25,
             "book": "ASOS",
             "title": "Bran II",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 4791
         },
         {
             "id": 168,
             "seq": 26,
             "book": "ASOS",
             "title": "Davos III",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 4013
         },
         {
             "id": 169,
             "seq": 27,
             "book": "ASOS",
             "title": "Jon III",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 4600
         },
         {
             "id": 170,
             "seq": 28,
             "book": "ASOS",
             "title": "Daenerys III",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 5456
         },
         {
             "id": 171,
             "seq": 29,
             "book": "ASOS",
             "title": "Sansa III",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 4808
         },
         {
             "id": 172,
             "seq": 30,
             "book": "ASOS",
             "title": "Arya V",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 3842
         },
         {
             "id": 173,
             "seq": 31,
             "book": "ASOS",
             "title": "Jon IV",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 2823
         },
         {
             "id": 174,
             "seq": 32,
             "book": "ASOS",
             "title": "Jaime IV",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 4312
         },
         {
             "id": 175,
             "seq": 33,
             "book": "ASOS",
             "title": "Tyrion IV",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5900
         },
         {
             "id": 176,
             "seq": 34,
             "book": "ASOS",
             "title": "Samwell II",
-            "pov_character": "Samwell"
+            "pov_character": "Samwell",
+            "words": 7377
         },
         {
             "id": 177,
             "seq": 35,
             "book": "ASOS",
             "title": "Arya VI",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 4847
         },
         {
             "id": 178,
             "seq": 36,
             "book": "ASOS",
             "title": "Catelyn IV",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 5180
         },
         {
             "id": 179,
             "seq": 37,
             "book": "ASOS",
             "title": "Davos IV",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 5625
         },
         {
             "id": 180,
             "seq": 38,
             "book": "ASOS",
             "title": "Jaime V",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 5318
         },
         {
             "id": 181,
             "seq": 39,
             "book": "ASOS",
             "title": "Tyrion V",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 4791
         },
         {
             "id": 182,
             "seq": 40,
             "book": "ASOS",
             "title": "Arya VII",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 5570
         },
         {
             "id": 183,
             "seq": 41,
             "book": "ASOS",
             "title": "Bran III",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 3818
         },
         {
             "id": 184,
             "seq": 42,
             "book": "ASOS",
             "title": "Jon V",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5665
         },
         {
             "id": 185,
             "seq": 43,
             "book": "ASOS",
             "title": "Daenerys IV",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 7073
         },
         {
             "id": 186,
             "seq": 44,
             "book": "ASOS",
             "title": "Arya VIII",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 4943
         },
         {
             "id": 187,
             "seq": 45,
             "book": "ASOS",
             "title": "Jaime VI",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 6163
         },
         {
             "id": 188,
             "seq": 46,
             "book": "ASOS",
             "title": "Catelyn V",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 6452
         },
         {
             "id": 189,
             "seq": 47,
             "book": "ASOS",
             "title": "Samwell III",
-            "pov_character": "Samwell"
+            "pov_character": "Samwell",
+            "words": 4293
         },
         {
             "id": 190,
             "seq": 48,
             "book": "ASOS",
             "title": "Arya IX",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 4183
         },
         {
             "id": 191,
             "seq": 49,
             "book": "ASOS",
             "title": "Jon VI",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 3763
         },
         {
             "id": 192,
             "seq": 50,
             "book": "ASOS",
             "title": "Catelyn VI",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 5984
         },
         {
             "id": 193,
             "seq": 51,
             "book": "ASOS",
             "title": "Arya X",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 2462
         },
         {
             "id": 194,
             "seq": 52,
             "book": "ASOS",
             "title": "Catelyn VII",
-            "pov_character": "Catelyn"
+            "pov_character": "Catelyn",
+            "words": 4894
         },
         {
             "id": 195,
             "seq": 53,
             "book": "ASOS",
             "title": "Arya XI",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 1717
         },
         {
             "id": 196,
             "seq": 54,
             "book": "ASOS",
             "title": "Tyrion VI",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 3810
         },
         {
             "id": 197,
             "seq": 55,
             "book": "ASOS",
             "title": "Davos V",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 6022
         },
         {
             "id": 198,
             "seq": 56,
             "book": "ASOS",
             "title": "Jon VII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 6539
         },
         {
             "id": 199,
             "seq": 57,
             "book": "ASOS",
             "title": "Bran IV",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 7323
         },
         {
             "id": 200,
             "seq": 58,
             "book": "ASOS",
             "title": "Daenerys V",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 6963
         },
         {
             "id": 201,
             "seq": 59,
             "book": "ASOS",
             "title": "Tyrion VII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 2053
         },
         {
             "id": 202,
             "seq": 60,
             "book": "ASOS",
             "title": "Sansa IV",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 3439
         },
         {
             "id": 203,
             "seq": 61,
             "book": "ASOS",
             "title": "Tyrion VIII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 8735
         },
         {
             "id": 204,
             "seq": 62,
             "book": "ASOS",
             "title": "Sansa V",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 3780
         },
         {
             "id": 205,
             "seq": 63,
             "book": "ASOS",
             "title": "Jaime VII",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 5298
         },
         {
             "id": 206,
             "seq": 64,
             "book": "ASOS",
             "title": "Davos VI",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 3856
         },
         {
             "id": 207,
             "seq": 65,
             "book": "ASOS",
             "title": "Jon VIII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5410
         },
         {
             "id": 208,
             "seq": 66,
             "book": "ASOS",
             "title": "Arya XII",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 4226
         },
         {
             "id": 209,
             "seq": 67,
             "book": "ASOS",
             "title": "Tyrion IX",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 6648
         },
         {
             "id": 210,
             "seq": 68,
             "book": "ASOS",
             "title": "Jaime VIII",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 5384
         },
         {
             "id": 211,
             "seq": 69,
             "book": "ASOS",
             "title": "Sansa VI",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 7380
         },
         {
             "id": 212,
             "seq": 70,
             "book": "ASOS",
             "title": "Jon IX",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5061
         },
         {
             "id": 213,
             "seq": 71,
             "book": "ASOS",
             "title": "Tyrion X",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 6379
         },
         {
             "id": 214,
             "seq": 72,
             "book": "ASOS",
             "title": "Daenerys VI",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 7100
         },
         {
             "id": 215,
             "seq": 73,
             "book": "ASOS",
             "title": "Jaime IX",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 5423
         },
         {
             "id": 216,
             "seq": 74,
             "book": "ASOS",
             "title": "Jon X",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5815
         },
         {
             "id": 217,
             "seq": 75,
             "book": "ASOS",
             "title": "Arya XIII",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 5710
         },
         {
             "id": 218,
             "seq": 76,
             "book": "ASOS",
             "title": "Samwell IV",
-            "pov_character": "Samwell"
+            "pov_character": "Samwell",
+            "words": 4102
         },
         {
             "id": 219,
             "seq": 77,
             "book": "ASOS",
             "title": "Jon XI",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 3216
         },
         {
             "id": 220,
             "seq": 78,
             "book": "ASOS",
             "title": "Tyrion XI",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 4357
         },
         {
             "id": 221,
             "seq": 79,
             "book": "ASOS",
             "title": "Samwell V",
-            "pov_character": "Samwell"
+            "pov_character": "Samwell",
+            "words": 4680
         },
         {
             "id": 222,
             "seq": 80,
             "book": "ASOS",
             "title": "Jon XII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 4061
         },
         {
             "id": 223,
             "seq": 81,
             "book": "ASOS",
             "title": "Sansa VII",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 6964
         },
         {
             "id": 224,
             "seq": 82,
             "book": "ASOS",
             "title": "Epilogue",
-            "pov_character": "Merrett Frey"
+            "pov_character": "Merrett Frey",
+            "words": 4915
         },
         {
             "id": 225,
             "seq": 1,
             "book": "AFFC",
             "title": "Prologue",
-            "pov_character": "Pate"
+            "pov_character": "Pate",
+            "words": 6377
         },
         {
             "id": 226,
             "seq": 2,
             "book": "AFFC",
             "title": "The Prophet",
-            "pov_character": "Aeron"
+            "pov_character": "Aeron",
+            "words": 5837
         },
         {
             "id": 227,
             "seq": 3,
             "book": "AFFC",
             "title": "The Captain Of Guards",
-            "pov_character": "Areo Hotah"
+            "pov_character": "Areo Hotah",
+            "words": 7046
         },
         {
             "id": 228,
             "seq": 4,
             "book": "AFFC",
             "title": "Cersei I",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 4518
         },
         {
             "id": 229,
             "seq": 5,
             "book": "AFFC",
             "title": "Brienne I",
-            "pov_character": "Brienne"
+            "pov_character": "Brienne",
+            "words": 6514
         },
         {
             "id": 230,
             "seq": 6,
             "book": "AFFC",
             "title": "Samwell I",
-            "pov_character": "Samwell"
+            "pov_character": "Samwell",
+            "words": 7177
         },
         {
             "id": 231,
             "seq": 7,
             "book": "AFFC",
             "title": "Arya I",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 5098
         },
         {
             "id": 232,
             "seq": 8,
             "book": "AFFC",
             "title": "Cersei II",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 7472
         },
         {
             "id": 233,
             "seq": 9,
             "book": "AFFC",
             "title": "Jaime I",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 6235
         },
         {
             "id": 234,
             "seq": 10,
             "book": "AFFC",
             "title": "Brienne II",
-            "pov_character": "Brienne"
+            "pov_character": "Brienne",
+            "words": 6963
         },
         {
             "id": 235,
             "seq": 11,
             "book": "AFFC",
             "title": "Sansa I",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 6034
         },
         {
             "id": 236,
             "seq": 12,
             "book": "AFFC",
             "title": "The Kraken's Daughter",
-            "pov_character": "Asha"
+            "pov_character": "Asha",
+            "words": 5575
         },
         {
             "id": 237,
             "seq": 13,
             "book": "AFFC",
             "title": "Cersei III",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 5731
         },
         {
             "id": 238,
             "seq": 14,
             "book": "AFFC",
             "title": "The Soiled Knight",
-            "pov_character": "Arys Oakheart"
+            "pov_character": "Arys Oakheart",
+            "words": 6313
         },
         {
             "id": 239,
             "seq": 15,
             "book": "AFFC",
             "title": "Brienne III",
-            "pov_character": "Brienne"
+            "pov_character": "Brienne",
+            "words": 6924
         },
         {
             "id": 240,
             "seq": 16,
             "book": "AFFC",
             "title": "Samwell II",
-            "pov_character": "Samwell"
+            "pov_character": "Samwell",
+            "words": 5017
         },
         {
             "id": 241,
             "seq": 17,
             "book": "AFFC",
             "title": "Jaime II",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 4687
         },
         {
             "id": 242,
             "seq": 18,
             "book": "AFFC",
             "title": "Cersei IV",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 7093
         },
         {
             "id": 243,
             "seq": 19,
             "book": "AFFC",
             "title": "The Iron Captain",
-            "pov_character": "Victarion"
+            "pov_character": "Victarion",
+            "words": 4990
         },
         {
             "id": 244,
             "seq": 20,
             "book": "AFFC",
             "title": "The Drowned Man",
-            "pov_character": "Aeron"
+            "pov_character": "Aeron",
+            "words": 5755
         },
         {
             "id": 245,
             "seq": 21,
             "book": "AFFC",
             "title": "Brienne IV",
-            "pov_character": "Brienne"
+            "pov_character": "Brienne",
+            "words": 8112
         },
         {
             "id": 246,
             "seq": 22,
             "book": "AFFC",
             "title": "The Queenmaker",
-            "pov_character": "Arianne"
+            "pov_character": "Arianne",
+            "words": 5832
         },
         {
             "id": 247,
             "seq": 23,
             "book": "AFFC",
             "title": "Arya II",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 7000
         },
         {
             "id": 248,
             "seq": 24,
             "book": "AFFC",
             "title": "Alayne I",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 7070
         },
         {
             "id": 249,
             "seq": 25,
             "book": "AFFC",
             "title": "Cersei V",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 8043
         },
         {
             "id": 250,
             "seq": 26,
             "book": "AFFC",
             "title": "Brienne V",
-            "pov_character": "Brienne"
+            "pov_character": "Brienne",
+            "words": 6004
         },
         {
             "id": 251,
             "seq": 27,
             "book": "AFFC",
             "title": "Samwell III",
-            "pov_character": "Samwell"
+            "pov_character": "Samwell",
+            "words": 6041
         },
         {
             "id": 252,
             "seq": 28,
             "book": "AFFC",
             "title": "Jaime III",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 8252
         },
         {
             "id": 253,
             "seq": 29,
             "book": "AFFC",
             "title": "Cersei VI",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 7274
         },
         {
             "id": 254,
             "seq": 30,
             "book": "AFFC",
             "title": "The Reaver",
-            "pov_character": "Victarion"
+            "pov_character": "Victarion",
+            "words": 7992
         },
         {
             "id": 255,
             "seq": 31,
             "book": "AFFC",
             "title": "Jaime IV",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 6533
         },
         {
             "id": 256,
             "seq": 32,
             "book": "AFFC",
             "title": "Brienne VI",
-            "pov_character": "Brienne"
+            "pov_character": "Brienne",
+            "words": 5697
         },
         {
             "id": 257,
             "seq": 33,
             "book": "AFFC",
             "title": "Cersei VII",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 6122
         },
         {
             "id": 258,
             "seq": 34,
             "book": "AFFC",
             "title": "Jaime V",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 7317
         },
         {
             "id": 259,
             "seq": 35,
             "book": "AFFC",
             "title": "Cat Of The Canals",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 6847
         },
         {
             "id": 260,
             "seq": 36,
             "book": "AFFC",
             "title": "Samwell IV",
-            "pov_character": "Samwell"
+            "pov_character": "Samwell",
+            "words": 4467
         },
         {
             "id": 261,
             "seq": 37,
             "book": "AFFC",
             "title": "Cersei VIII",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 7487
         },
         {
             "id": 262,
             "seq": 38,
             "book": "AFFC",
             "title": "Brienne VII",
-            "pov_character": "Brienne"
+            "pov_character": "Brienne",
+            "words": 6722
         },
         {
             "id": 263,
             "seq": 39,
             "book": "AFFC",
             "title": "Jaime VI",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 5501
         },
         {
             "id": 264,
             "seq": 40,
             "book": "AFFC",
             "title": "Cersei IX",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 5592
         },
         {
             "id": 265,
             "seq": 41,
             "book": "AFFC",
             "title": "The Princess In The Tower",
-            "pov_character": "Arianne"
+            "pov_character": "Arianne",
+            "words": 8108
         },
         {
             "id": 266,
             "seq": 42,
             "book": "AFFC",
             "title": "Alayne II",
-            "pov_character": "Sansa"
+            "pov_character": "Sansa",
+            "words": 10309
         },
         {
             "id": 267,
             "seq": 43,
             "book": "AFFC",
             "title": "Brienne VIII",
-            "pov_character": "Brienne"
+            "pov_character": "Brienne",
+            "words": 6078
         },
         {
             "id": 268,
             "seq": 44,
             "book": "AFFC",
             "title": "Cersei X",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 6985
         },
         {
             "id": 269,
             "seq": 45,
             "book": "AFFC",
             "title": "Jaime VII",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 5983
         },
         {
             "id": 270,
             "seq": 46,
             "book": "AFFC",
             "title": "Samwell V",
-            "pov_character": "Samwell"
+            "pov_character": "Samwell",
+            "words": 5488
         },
         {
             "id": 271,
             "seq": 1,
             "book": "ADWD",
             "title": "Prologue",
-            "pov_character": "Varamyr Sixskins"
+            "pov_character": "Varamyr Sixskins",
+            "words": 6075
         },
         {
             "id": 272,
             "seq": 2,
             "book": "ADWD",
             "title": "Tyrion I",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 6797
         },
         {
             "id": 273,
             "seq": 3,
             "book": "ADWD",
             "title": "Daenerys I",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 6550
         },
         {
             "id": 274,
             "seq": 4,
             "book": "ADWD",
             "title": "Jon I",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5932
         },
         {
             "id": 275,
             "seq": 5,
             "book": "ADWD",
             "title": "Bran I",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 4780
         },
         {
             "id": 276,
             "seq": 6,
             "book": "ADWD",
             "title": "Tyrion II",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5358
         },
         {
             "id": 277,
             "seq": 7,
             "book": "ADWD",
             "title": "The Merchant's Man",
-            "pov_character": "Quentyn"
+            "pov_character": "Quentyn",
+            "words": 5156
         },
         {
             "id": 278,
             "seq": 8,
             "book": "ADWD",
             "title": "Jon II",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 7554
         },
         {
             "id": 279,
             "seq": 9,
             "book": "ADWD",
             "title": "Tyrion III",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 4374
         },
         {
             "id": 280,
             "seq": 10,
             "book": "ADWD",
             "title": "Davos I",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 4771
         },
         {
             "id": 281,
             "seq": 11,
             "book": "ADWD",
             "title": "Jon III",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 6183
         },
         {
             "id": 282,
             "seq": 12,
             "book": "ADWD",
             "title": "Daenerys II",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 5821
         },
         {
             "id": 283,
             "seq": 13,
             "book": "ADWD",
             "title": "Reek I",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 3728
         },
         {
             "id": 284,
             "seq": 14,
             "book": "ADWD",
             "title": "Bran II",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 4294
         },
         {
             "id": 285,
             "seq": 15,
             "book": "ADWD",
             "title": "Tyrion IV",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5643
         },
         {
             "id": 286,
             "seq": 16,
             "book": "ADWD",
             "title": "Davos II",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 4796
         },
         {
             "id": 287,
             "seq": 17,
             "book": "ADWD",
             "title": "Daenerys III",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 6528
         },
         {
             "id": 288,
             "seq": 18,
             "book": "ADWD",
             "title": "Jon IV",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5927
         },
         {
             "id": 289,
             "seq": 19,
             "book": "ADWD",
             "title": "Tyrion V",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 4748
         },
         {
             "id": 290,
             "seq": 20,
             "book": "ADWD",
             "title": "Davos III",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 4348
         },
         {
             "id": 291,
             "seq": 21,
             "book": "ADWD",
             "title": "Reek II",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 6285
         },
         {
             "id": 292,
             "seq": 22,
             "book": "ADWD",
             "title": "Jon V",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 3976
         },
         {
             "id": 293,
             "seq": 23,
             "book": "ADWD",
             "title": "Tyrion VI",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 7389
         },
         {
             "id": 294,
             "seq": 24,
             "book": "ADWD",
             "title": "Daenerys IV",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 5529
         },
         {
             "id": 295,
             "seq": 25,
             "book": "ADWD",
             "title": "The Lost Lord",
-            "pov_character": "Jon Connington"
+            "pov_character": "Jon Connington",
+            "words": 5922
         },
         {
             "id": 296,
             "seq": 26,
             "book": "ADWD",
             "title": "The Windblown",
-            "pov_character": "Quentyn"
+            "pov_character": "Quentyn",
+            "words": 5351
         },
         {
             "id": 297,
             "seq": 27,
             "book": "ADWD",
             "title": "The Wayward Bride",
-            "pov_character": "Asha"
+            "pov_character": "Asha",
+            "words": 8494
         },
         {
             "id": 298,
             "seq": 28,
             "book": "ADWD",
             "title": "Tyrion VII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 9416
         },
         {
             "id": 299,
             "seq": 29,
             "book": "ADWD",
             "title": "Jon VI",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 4185
         },
         {
             "id": 300,
             "seq": 30,
             "book": "ADWD",
             "title": "Davos IV",
-            "pov_character": "Davos"
+            "pov_character": "Davos",
+            "words": 5762
         },
         {
             "id": 301,
             "seq": 31,
             "book": "ADWD",
             "title": "Daenerys V",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 4822
         },
         {
             "id": 302,
             "seq": 32,
             "book": "ADWD",
             "title": "Melisandre I",
-            "pov_character": "Melisandre"
+            "pov_character": "Melisandre",
+            "words": 5705
         },
         {
             "id": 303,
             "seq": 33,
             "book": "ADWD",
             "title": "Reek III",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 6090
         },
         {
             "id": 304,
             "seq": 34,
             "book": "ADWD",
             "title": "Tyrion VIII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 6057
         },
         {
             "id": 305,
             "seq": 35,
             "book": "ADWD",
             "title": "Bran III",
-            "pov_character": "Bran"
+            "pov_character": "Bran",
+            "words": 6075
         },
         {
             "id": 306,
             "seq": 36,
             "book": "ADWD",
             "title": "Jon VII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5420
         },
         {
             "id": 307,
             "seq": 37,
             "book": "ADWD",
             "title": "Daenerys VI",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 4726
         },
         {
             "id": 308,
             "seq": 38,
             "book": "ADWD",
             "title": "The Prince of Winterfell",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 7498
         },
         {
             "id": 309,
             "seq": 39,
             "book": "ADWD",
             "title": "The Watcher",
-            "pov_character": "Areo Hotah"
+            "pov_character": "Areo Hotah",
+            "words": 6086
         },
         {
             "id": 310,
             "seq": 40,
             "book": "ADWD",
             "title": "Jon VIII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 3978
         },
         {
             "id": 311,
             "seq": 41,
             "book": "ADWD",
             "title": "Tyrion IX",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5349
         },
         {
             "id": 312,
             "seq": 42,
             "book": "ADWD",
             "title": "The Turncloak",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 5677
         },
         {
             "id": 313,
             "seq": 43,
             "book": "ADWD",
             "title": "The King's Prize",
-            "pov_character": "Asha"
+            "pov_character": "Asha",
+            "words": 6359
         },
         {
             "id": 314,
             "seq": 44,
             "book": "ADWD",
             "title": "Daenerys VII",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 6304
         },
         {
             "id": 315,
             "seq": 45,
             "book": "ADWD",
             "title": "Jon IX",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5821
         },
         {
             "id": 316,
             "seq": 46,
             "book": "ADWD",
             "title": "The Blind Girl",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 5521
         },
         {
             "id": 317,
             "seq": 47,
             "book": "ADWD",
             "title": "A Ghost in Winterfell",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 5413
         },
         {
             "id": 318,
             "seq": 48,
             "book": "ADWD",
             "title": "Tyrion X",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 6086
         },
         {
             "id": 319,
             "seq": 49,
             "book": "ADWD",
             "title": "Jaime I",
-            "pov_character": "Jaime"
+            "pov_character": "Jaime",
+            "words": 6100
         },
         {
             "id": 320,
             "seq": 50,
             "book": "ADWD",
             "title": "Jon X",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 5834
         },
         {
             "id": 321,
             "seq": 51,
             "book": "ADWD",
             "title": "Daenerys VIII",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 5063
         },
         {
             "id": 322,
             "seq": 52,
             "book": "ADWD",
             "title": "Theon I",
-            "pov_character": "Theon"
+            "pov_character": "Theon",
+            "words": 6329
         },
         {
             "id": 323,
             "seq": 53,
             "book": "ADWD",
             "title": "Daenerys IX",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 5620
         },
         {
             "id": 324,
             "seq": 54,
             "book": "ADWD",
             "title": "Jon XI",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 7045
         },
         {
             "id": 325,
             "seq": 55,
             "book": "ADWD",
             "title": "Cersei I",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 5743
         },
         {
             "id": 326,
             "seq": 56,
             "book": "ADWD",
             "title": "The Queensguard",
-            "pov_character": "Barristan Selmy"
+            "pov_character": "Barristan Selmy",
+            "words": 4740
         },
         {
             "id": 327,
             "seq": 57,
             "book": "ADWD",
             "title": "The Iron Suitor",
-            "pov_character": "Victarion"
+            "pov_character": "Victarion",
+            "words": 5744
         },
         {
             "id": 328,
             "seq": 58,
             "book": "ADWD",
             "title": "Tyrion XI",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 6620
         },
         {
             "id": 329,
             "seq": 59,
             "book": "ADWD",
             "title": "Jon XII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 6037
         },
         {
             "id": 330,
             "seq": 60,
             "book": "ADWD",
             "title": "The Discarded Knight",
-            "pov_character": "Barristan Selmy"
+            "pov_character": "Barristan Selmy",
+            "words": 4106
         },
         {
             "id": 331,
             "seq": 61,
             "book": "ADWD",
             "title": "The Spurned Suitor",
-            "pov_character": "Quentyn"
+            "pov_character": "Quentyn",
+            "words": 3211
         },
         {
             "id": 332,
             "seq": 62,
             "book": "ADWD",
             "title": "The Griffin Reborn",
-            "pov_character": "Jon Connington"
+            "pov_character": "Jon Connington",
+            "words": 5483
         },
         {
             "id": 333,
             "seq": 63,
             "book": "ADWD",
             "title": "The Sacrifice",
-            "pov_character": "Asha"
+            "pov_character": "Asha",
+            "words": 5842
         },
         {
             "id": 334,
             "seq": 64,
             "book": "ADWD",
             "title": "Victarion I",
-            "pov_character": "Victarion"
+            "pov_character": "Victarion",
+            "words": 3684
         },
         {
             "id": 335,
             "seq": 65,
             "book": "ADWD",
             "title": "The Ugly Little Girl",
-            "pov_character": "Arya"
+            "pov_character": "Arya",
+            "words": 5757
         },
         {
             "id": 336,
             "seq": 66,
             "book": "ADWD",
             "title": "Cersei II",
-            "pov_character": "Cersei"
+            "pov_character": "Cersei",
+            "words": 5612
         },
         {
             "id": 337,
             "seq": 67,
             "book": "ADWD",
             "title": "Tyrion XII",
-            "pov_character": "Tyrion"
+            "pov_character": "Tyrion",
+            "words": 5032
         },
         {
             "id": 338,
             "seq": 68,
             "book": "ADWD",
             "title": "The Kingbreaker",
-            "pov_character": "Barristan Selmy"
+            "pov_character": "Barristan Selmy",
+            "words": 6458
         },
         {
             "id": 339,
             "seq": 69,
             "book": "ADWD",
             "title": "The Dragontamer",
-            "pov_character": "Quentyn"
+            "pov_character": "Quentyn",
+            "words": 4931
         },
         {
             "id": 340,
             "seq": 70,
             "book": "ADWD",
             "title": "Jon XIII",
-            "pov_character": "Jon"
+            "pov_character": "Jon",
+            "words": 6215
         },
         {
             "id": 341,
             "seq": 71,
             "book": "ADWD",
             "title": "The Queen's Hand",
-            "pov_character": "Barristan Selmy"
+            "pov_character": "Barristan Selmy",
+            "words": 6445
         },
         {
             "id": 342,
             "seq": 72,
             "book": "ADWD",
             "title": "Daenerys X",
-            "pov_character": "Daenerys"
+            "pov_character": "Daenerys",
+            "words": 6776
         },
         {
             "id": 343,
             "seq": 73,
             "book": "ADWD",
             "title": "Epilogue",
-            "pov_character": "Kevan Lannister"
+            "pov_character": "Kevan Lannister",
+            "words": 6927
         }
     ]
 }

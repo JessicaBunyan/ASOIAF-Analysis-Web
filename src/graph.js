@@ -249,7 +249,7 @@ class Graph extends Component {
         context.globalAlpha = 0.2;
 
         if (width <= singleBookOffset + 2) {
-            // If there are no chapters we just draw a coloured line
+            // If there are no chapters we just draw a coloured line/strip
             context.fillRect(left, 0, width, height);
         } else {
             if (width < 550) {
@@ -274,11 +274,9 @@ class Graph extends Component {
     fillInBookSide(context, img, left, fillWidth, height) {
         for (var i = 0; i < fillWidth; i += 10) {
             var tileWidth = 10;
-            console.log("++++++++++++++");
             if (i > fillWidth - 10) {
                 // if we have less than 10 pixels to the end shorten the tile width so we don't overflow
-                tileWidth = 10 + i - fillWidth;
-                console.log("CROPPING TILE WIDTH TO: " + tileWidth);
+                tileWidth = fillWidth - i;
             }
             context.drawImage(img, 0, 0, 10, 961, left + i, 0, tileWidth, height);
         }

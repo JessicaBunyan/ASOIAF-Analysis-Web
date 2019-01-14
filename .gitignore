@@ -23,7 +23,9 @@ yarn-debug.log*
 yarn-error.log*
 
 #compiled CSS
-*.css*
+**.css
+*.css
+*.css.map
 src/css/
 
 #prettier code (VS code extension) config file

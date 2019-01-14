@@ -20,6 +20,7 @@ class GraphContainer extends Component {
                 <div className="graph clearfix">
                     <h3 className="selected-word got-font">{this.props.word}</h3>
                     <h4 className="breakdown ">{this.getBreakdownText(this.props.breakdown)}</h4>
+                    <h4 onClick={() => this.props.toggleNormalise()}>Show NormalisedScores</h4>
                     <Graph
                         word={this.props.word}
                         breakdown={this.props.breakdown}

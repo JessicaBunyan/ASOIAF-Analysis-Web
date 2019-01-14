@@ -140,7 +140,6 @@ table {
 }
 main {
   position: relative;
-  overflow: hidden;
   width: 100%;
 }
 .clearfix::after {

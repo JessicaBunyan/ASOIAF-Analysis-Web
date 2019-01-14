@@ -26,7 +26,8 @@ yarn-error.log*
 **.css
 *.css
 *.css.map
-src/css/
+src\css\
+**/css
 
 #prettier code (VS code extension) config file
 .prettierrc

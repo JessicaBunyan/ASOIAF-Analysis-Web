@@ -16,12 +16,14 @@ import $ from "jquery";
 
 const chapterInfo = chapterData.chapterInfo;
 
+const normalisationScaleFactor = 3000;
+
 const initialState = {
     word: "",
     filterByChar: "",
-    filterByBook: "",
     groupBy: "pov",
-    cid: ""
+    cid: "",
+    normalisedScores: true
 };
 
 class App extends Component {
@@ -86,6 +88,23 @@ class App extends Component {
         }
     }
 
+    getTotalWords(key) {
+        console.log("IN GET TOTAL WORDS");
+        if (!this.state.filterByChar) {
+            var chaptersForThisChar = _.where(chapterInfo, { pov_character: key });
+            var wordsTotal = 0;
+
+            console.log(chaptersForThisChar);
+            chaptersForThisChar.forEach(c => {
+                wordsTotal += c.words;
+            });
+
+            return wordsTotal;
+        }
+
+        return chapterInfo[key].words;
+    }
+
     getData() {
         var refs = json["default"][this.state.word];
 
@@ -95,9 +114,6 @@ class App extends Component {
             refs = _.where(refs, { pov: this.state.filterByChar });
         }
 
-        if (this.state.filterByBook) {
-            refs = _.where(refs, { book: this.state.filterByBook });
-        }
         console.log("filtered");
         console.log(refs);
 
@@ -105,6 +121,13 @@ class App extends Component {
 
         console.log("grouped");
         console.log(groupedRefs);
+
+        if (this.state.normalisedScores) {
+            Object.keys(groupedRefs).forEach(k => {
+                groupedRefs[k] = (groupedRefs[k] * normalisationScaleFactor) / this.getTotalWords(k);
+            });
+        }
+
         groupedRefs = this.addEmptyChapters(groupedRefs);
         console.log("with empty chapters");
         console.log(groupedRefs);

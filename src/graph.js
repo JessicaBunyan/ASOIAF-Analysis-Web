@@ -292,7 +292,7 @@ class Graph extends Component {
         var chapterLimits = this.props.chapterLimits;
 
         var bookInfo = {
-            0: [], // handy filling for looping and comparing to prev
+            0: [], // handy fillin for looping and comparing to prev
             1: [],
             2: [],
             3: [],

@@ -47,6 +47,7 @@ class App extends Component {
                         reset={() => this.setState(initialState)}
                         back={() => this.setState({ filterByChar: "", groupBy: "pov" })}
                         toggleNormalise={() => this.setState({ normalisedScores: !this.state.normalisedScores })}
+                        normalisedScores={this.state.normalisedScores}
                         word={this.state.word}
                         breakdown={this.state.filterByChar}
                         data={this.getData()}

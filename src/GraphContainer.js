@@ -7,6 +7,7 @@ import Graph from "./graph";
 import BackButton from "./BackButton";
 import ControlPanel from "./ControlPanel";
 import { capitalise } from "./utils";
+import Breakdown from "./Breakdown";
 
 class GraphContainer extends Component {
     render() {
@@ -18,9 +19,11 @@ class GraphContainer extends Component {
                     reset={this.props.reset}
                 />
                 <div className="graph clearfix">
-                    <h3 className="selected-word got-font">{this.props.word}</h3>
-                    <h4 className="breakdown ">{this.getBreakdownText(this.props.breakdown)}</h4>
-                    <h4 onClick={() => this.props.toggleNormalise()}>Show NormalisedScores</h4>
+                    <Breakdown
+                        breakdownText={this.getBreakdownText()}
+                        toggleNormalise={this.props.toggleNormalise}
+                        toggleText={this.getToggleText()}
+                    />
                     <Graph
                         word={this.props.word}
                         breakdown={this.props.breakdown}
@@ -38,16 +41,29 @@ class GraphContainer extends Component {
         if (this.props.breakdown) {
             return this.getTotalOccurrences() + " by " + capitalise(this.props.breakdown) + " chapter";
         }
+
         return this.getTotalOccurrences() + " by PoV Character";
     }
 
     getTotalOccurrences() {
+        if (this.props.normalisedScores) {
+            return "Normalised word frequency";
+        }
+
         var count = 0;
         Object.keys(this.props.data).forEach(k => {
             count += this.props.data[k];
         });
 
         return count + " occurrences, ";
+    }
+
+    getToggleText() {
+        if (this.props.normalisedScores) {
+            return "Show absolute occurrences";
+        }
+
+        return "show normalised scores";
     }
 }
 

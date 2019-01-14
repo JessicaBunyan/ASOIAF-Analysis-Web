@@ -7,8 +7,6 @@ for example Bran has more words than chett in their respective chapters so the a
 
 stop targ sigil from cropping when the page does expand down (after opening synopsis)
 
-gap between ASOS and affc on jaime?
-
 ==========================
 PROBABLY DO BEFORE RELEASE
 ==========================

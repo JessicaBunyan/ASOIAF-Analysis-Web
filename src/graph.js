@@ -42,30 +42,10 @@ class Graph extends Component {
 
     render() {
         return (
-            <div className="graph clearfix">
-                <h3 className="selected-word got-font">{this.props.word}</h3>
-                <h4 className="breakdown ">{this.getBreakdownText(this.props.breakdown)}</h4>
-                <div className="canvasWrapper">
-                    <canvas width={canvasWidth} height="800" />
-                </div>
+            <div className="canvasWrapper">
+                <canvas width={canvasWidth} height="800" />
             </div>
         );
-    }
-
-    getBreakdownText() {
-        if (this.props.breakdown) {
-            return this.getTotalOccurrences() + " by " + capitalise(this.props.breakdown) + " chapter";
-        }
-        return this.getTotalOccurrences() + " by PoV Character";
-    }
-
-    getTotalOccurrences() {
-        var count = 0;
-        Object.keys(this.props.data).forEach(k => {
-            count += this.props.data[k];
-        });
-
-        return count + " occurrences, ";
     }
 
     onChartClick(e) {

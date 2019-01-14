@@ -16,14 +16,14 @@ import $ from "jquery";
 
 const chapterInfo = chapterData.chapterInfo;
 
-const normalisationScaleFactor = 3000;
+const normalisationScaleFactor = 10000;
 
 const initialState = {
     word: "",
     filterByChar: "",
     groupBy: "pov",
     cid: "",
-    normalisedScores: true
+    normalisedScores: false
 };
 
 class App extends Component {

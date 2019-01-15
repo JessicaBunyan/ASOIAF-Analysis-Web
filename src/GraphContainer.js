@@ -20,6 +20,7 @@ class GraphContainer extends Component {
                 />
                 <div className="graph clearfix">
                     <Breakdown
+                        word={this.props.word}
                         breakdownText={this.getBreakdownText()}
                         toggleNormalise={this.props.toggleNormalise}
                         toggleText={this.getToggleText()}

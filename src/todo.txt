@@ -1,12 +1,6 @@
 DEFINITELY DO BEFORE RELEASE
 ============================
 
-NORMALISED WORD SCORE
-Add meaningful scale for the scores 
-Add explanation
-
-improve toggle
-
 
 stop targ sigil from cropping when the page does expand down (after opening synopsis)
 
@@ -25,7 +19,12 @@ wolf
 remove words?
 It is known
 
+Rework back/reset buttons
+    - if we are showing word by all chars it should be backbutton that shows (same behaviour as current reset does)
+    - if we are showing word by one char e.g by jon chapter, it should be back and reset as per current behaviour
 
+Bars change colour on hover? / cursor: pointer on hover?
+    -If not this then some indication that bars are clickable
 
 ==========================
 PROBABLY DO BEFORE RELEASE
@@ -34,8 +33,6 @@ PROBABLY DO BEFORE RELEASE
 Do we want to scroll down to the synopsis every time we click a new chapter? 
     - I think not, need a good way of storing this state
 
-Bars change colour on hover? / cursor: pointer on hover?
-    -If not this then some indication that bars are clickable
 
 shrink the gap between the graph and the synopsis. 
     -This will require writing chapter titles across multiple lines as long titles stretch super far (e.g the princess in the tower) 
@@ -46,10 +43,6 @@ long chapter title forces synopsis titles onto 2 lines. abbreviate book name in 
 =========================
 CAN RELEASE WITHOUT THESE
 =========================
-
-make it so the images never stretch, instead we max it in perspective then roll back to reveal more of the colour 
-    - prototype done on max-book-width, 
-        -need better colours, or to get a stretchable/repeatable image to use instead to match texture 
 
 reset button goes missing when offline? Can we save fa icons locally or something to prevent this
 

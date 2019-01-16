@@ -52,7 +52,12 @@ class GraphContainer extends Component {
             return (
                 <span>
                     Frequency per 10,000 words
-                    <sup className="normalised-scores-explanation">?</sup>
+                    <sup className="normalised-scores-explanation">
+                        ?
+                        <div className="tooltip-text">
+                            How many times the word would appear if each character or chapter had exactly 10,000 words
+                        </div>
+                    </sup>
                 </span>
             );
         }

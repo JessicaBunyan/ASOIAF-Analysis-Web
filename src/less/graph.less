@@ -25,7 +25,7 @@
         border-radius: 3px;
         background: #666;
         h4 {
-            color: white;
+            color: #ddd;
             margin: 0;
         }
     }
@@ -36,7 +36,30 @@
         vertical-align: super;
         color: #666;
         margin-left: 4px;
+        position: relative;
         cursor: pointer;
+
+        .tooltip-text {
+            position: absolute;
+            top: 20px;
+            // left: ~"calc(50% - 100px)";
+            left: 50%;
+            font-size: 16px;
+            visibility: hidden;
+            opacity: 0;
+            text-align: center;
+            width: 200px;
+            transition: opacity 0.3s;
+            background: #eee;
+            border: solid 2px black;
+            border-radius: 8px;
+            padding: 4px;
+        }
+
+        &:hover .tooltip-text {
+            visibility: visible;
+            opacity: 1;
+        }
     }
 }
 .graph-container {

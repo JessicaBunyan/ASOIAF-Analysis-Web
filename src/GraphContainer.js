@@ -49,7 +49,12 @@ class GraphContainer extends Component {
 
     getTotalOccurrences() {
         if (this.props.areScoresNormalised) {
-            return "Frequency per 10,000 words*";
+            return (
+                <span>
+                    Frequency per 10,000 words
+                    <sup className="normalised-scores-explanation">?</sup>
+                </span>
+            );
         }
 
         var count = 0;
@@ -57,7 +62,7 @@ class GraphContainer extends Component {
             count += this.props.data[k];
         });
 
-        return count + " occurrences";
+        return <span>{count} occurrences</span>;
     }
 }
 

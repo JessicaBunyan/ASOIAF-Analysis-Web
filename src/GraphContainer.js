@@ -22,8 +22,9 @@ class GraphContainer extends Component {
                     <Breakdown
                         word={this.props.word}
                         breakdownText={this.getBreakdownText()}
+                        occurrencesText={this.getTotalOccurrences()}
                         toggleNormalise={this.props.toggleNormalise}
-                        toggleText={this.getToggleText()}
+                        areScoresNormalised={this.props.areScoresNormalised}
                     />
                     <Graph
                         word={this.props.word}
@@ -40,14 +41,14 @@ class GraphContainer extends Component {
 
     getBreakdownText() {
         if (this.props.breakdown) {
-            return this.getTotalOccurrences() + " by " + capitalise(this.props.breakdown) + " chapter";
+            return "By " + capitalise(this.props.breakdown) + " Chapter";
         }
 
-        return this.getTotalOccurrences() + " by PoV Character";
+        return "By PoV Character";
     }
 
     getTotalOccurrences() {
-        if (this.props.normalisedScores) {
+        if (this.props.areScoresNormalised) {
             return "Frequency per 10,000 words*";
         }
 
@@ -56,15 +57,7 @@ class GraphContainer extends Component {
             count += this.props.data[k];
         });
 
-        return count + " occurrences, ";
-    }
-
-    getToggleText() {
-        if (this.props.normalisedScores) {
-            return "Show absolute occurrences";
-        }
-
-        return "Show normalised scores";
+        return count + " occurrences";
     }
 }
 

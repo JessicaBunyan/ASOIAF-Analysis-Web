@@ -64,7 +64,7 @@ class GraphContainer extends Component {
             return "Show absolute occurrences";
         }
 
-        return "show normalised scores";
+        return "Show normalised scores";
     }
 }
 

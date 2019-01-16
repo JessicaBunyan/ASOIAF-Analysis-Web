@@ -17,7 +17,7 @@ class Breakdown extends Component {
     }
 
     getToggleText() {
-        if (this.props.normalisedScores) {
+        if (this.props.areScoresNormalised) {
             return "Show absolute occurrences";
         }
 

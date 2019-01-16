@@ -4,10 +4,28 @@
     /* display: inline-block; */
     h3 {
         text-align: center;
+        &.selected-word {
+            text-transform: capitalize;
+            font-size: 36px;
+            margin: 32px 0 20px 0;
+        }
     }
-    h4 {
+    h4.breakdown {
         font-size: 24px;
         text-align: center;
+    }
+
+    .normalise-toggle {
+        float: right;
+        max-width: 45%;
+        padding: 3px;
+        white-space: nowrap;
+        border-radius: 3px;
+        background: #666;
+        h4 {
+            color: white;
+            margin: 0;
+        }
     }
 }
 .graph-container {

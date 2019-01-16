@@ -7,7 +7,9 @@ class Breakdown extends Component {
             <div className="breakdown">
                 <h3 className="selected-word got-font">{this.props.word}</h3>
                 <h4 className="breakdown ">{this.props.breakdownText}</h4>
-                <h4 onClick={() => this.props.toggleNormalise()}>{this.props.toggleText}</h4>
+                <div className="normalise-toggle">
+                    <h4 onClick={() => this.props.toggleNormalise()}>{this.props.toggleText}</h4>
+                </div>
             </div>
         );
     }

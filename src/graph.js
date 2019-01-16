@@ -34,6 +34,7 @@ class Graph extends Component {
         this.createBarChart();
         var canvas = document.querySelector("canvas");
         canvas.addEventListener("click", e => this.onChartClick(e));
+        canvas.addEventListener("mousemove", e => this.onChartHover(e));
     }
     componentDidUpdate() {
         this.clearCanvas();
@@ -48,9 +49,11 @@ class Graph extends Component {
         );
     }
 
-    onChartClick(e) {
-        console.log("THIS");
-        console.log(this);
+    /**
+     * returns the element the mouse is over, or false if its not over any
+     * @param {} e event object
+     */
+    isMouseOverCanvasElement(e) {
         var canvas = document.querySelector("canvas");
         var elemLeft = canvas.offsetLeft;
         var elemTop = canvas.offsetTop;
@@ -59,16 +62,34 @@ class Graph extends Component {
             y = e.offsetY;
 
         // Collision detection between clicked offset and element.
-        elements.forEach(element => {
+        for (var i = 0; i < elements.length; i++) {
+            var element = elements[i];
             if (
                 y >= element.top &&
                 y <= element.top + element.height &&
                 x >= element.left &&
                 x <= element.left + element.width
             ) {
-                this.props.onClickCallback(element.char);
+                return element;
             }
-        });
+        }
+
+        return false;
+    }
+
+    onChartHover(e) {
+        if (this.isMouseOverCanvasElement(e)) {
+            document.querySelector("canvas").style.cursor = "pointer";
+        } else {
+            document.querySelector("canvas").style.cursor = "auto";
+        }
+    }
+
+    onChartClick(e) {
+        var element = this.isMouseOverCanvasElement(e);
+        if (element) {
+            this.props.onClickCallback(element.char);
+        }
     }
 
     clearCanvas() {

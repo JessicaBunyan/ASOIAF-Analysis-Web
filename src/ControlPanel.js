@@ -8,8 +8,11 @@ class ControlPanel extends Component {
     render() {
         var backBtn = this.props.showBackButton ? (
             <BackButton back={() => this.props.back()} />
-        ) : null;
-        var resetBtn = <ResetButton reset={() => this.props.reset()} />;
+        ) : (
+            <BackButton back={() => this.props.reset()} />
+        );
+
+        var resetBtn = this.props.showBackButton ? <ResetButton reset={() => this.props.reset()} /> : null;
 
         return (
             <div className="control-panel">

@@ -1,55 +1,7 @@
 DEFINITELY DO BEFORE RELEASE
 ============================
 
-Colours: 
-I think we wanna reshape the JSON to be like
-
-{
-    data:
-    [
-        {word: ice,
-        class: blue,
-        refs: [
-                {
-            "book": "A Game of Thrones",
-            "chapter": "Prologue",
-            "cid": 0,
-            "pov": "Will"
-             },
-            {
-            "book": "A Game of Thrones",
-            "chapter": "Prologue",
-            "cid": 0,
-            "pov": "Will"
-            }
-        ]}
-]
-}
-
-this way we can include any other info on the words e.g preferred capitalisation easily.
-
-In the JS we can then strip out the refs if necessary 
-
 stop targ sigil from cropping when the page does expand down (after opening synopsis)
-
-Add words:
-Egg
-Honor
-Duty
-family
-face?
-black
-crow
-lion
-wolf
-
-
-remove words?
-It is known
-
-Rework back/reset buttons
-    - if we are showing word by all chars it should be backbutton that shows (same behaviour as current reset does)
-    - if we are showing word by one char e.g by jon chapter, it should be back and reset as per current behaviour
 
 Bars change colour on hover? / cursor: pointer on hover?
     -If not this then some indication that bars are clickable

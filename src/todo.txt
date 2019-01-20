@@ -1,6 +1,30 @@
 DEFINITELY DO BEFORE RELEASE
 ============================
 
+Colours: 
+I think we wanna reshape the JSON to be like
+{
+    data:
+    [
+        {word: ice,
+        class: blue,
+        refs: [
+            {
+        "book": "A Game of Thrones",
+        "chapter": "Prologue",
+        "cid": 0,
+        "pov": "Will"
+      },
+      {
+        "book": "A Game of Thrones",
+        "chapter": "Prologue",
+        "cid": 0,
+        "pov": "Will"
+      }
+        ]}
+]
+}
+
 
 stop targ sigil from cropping when the page does expand down (after opening synopsis)
 

@@ -3,9 +3,9 @@ import * as d3 from "d3";
 import * as _ from "underscore";
 import { capitalise } from "./utils";
 
-const Button = ({ className, action, text }) => (
+const Button = ({ className, action, children }) => (
     <div className={className} onClick={() => action()}>
-        {text}
+        {children}
     </div>
 );
 

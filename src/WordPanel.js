@@ -14,12 +14,9 @@ class WordPanel extends Component {
                         return null;
                     }
                     return (
-                        <Button
-                            key={index}
-                            className={this.getClass(w)}
-                            action={() => this.props.onClick(w.Word)}
-                            text={w.DisplayName}
-                        />
+                        <Button key={index} className={this.getClass(w)} action={() => this.props.onClick(w.Word)}>
+                            {w.DisplayName}
+                        </Button>
                     );
                 })}
                 <Toggle

@@ -113,21 +113,15 @@ class App extends Component {
     }
 
     getData() {
-        var refs = json["default"][this.state.word];
+        // var refs = json["default"][this.state.word];
 
-        console.log(refs);
-        console.log(this.state.filterByChar);
+        var refs = _.find(json["default"], r => r.Word === this.state.word.toLowerCase()).References;
+
         if (this.state.filterByChar) {
             refs = _.where(refs, { pov: this.state.filterByChar });
         }
 
-        console.log("filtered");
-        console.log(refs);
-
         var groupedRefs = _.countBy(refs, this.state.groupBy);
-
-        console.log("grouped");
-        console.log(groupedRefs);
 
         if (this.state.normalisedScores) {
             Object.keys(groupedRefs).forEach(k => {
@@ -136,8 +130,6 @@ class App extends Component {
         }
 
         groupedRefs = this.addEmptyChapters(groupedRefs);
-        console.log("with empty chapters");
-        console.log(groupedRefs);
         return groupedRefs;
     }
 

@@ -1,18 +1,21 @@
 import React, { Component } from "react";
-import * as d3 from "d3";
-import * as _ from "underscore";
-import BackButton from "./BackButton";
-import ResetButton from "./ResetButton";
+import Button from "./Button";
 
 class ControlPanel extends Component {
     render() {
-        var backBtn = this.props.showBackButton ? (
-            <BackButton back={() => this.props.back()} />
-        ) : (
-            <BackButton back={() => this.props.reset()} />
+        var backBtnAction = this.props.showBackButton ? this.props.back : this.props.reset;
+
+        var backBtn = (
+            <Button className="back-button" action={() => backBtnAction()}>
+                <i className="fas fa-long-arrow-alt-left" />
+            </Button>
         );
 
-        var resetBtn = this.props.showBackButton ? <ResetButton reset={() => this.props.reset()} /> : null;
+        var resetBtn = this.props.showBackButton ? (
+            <Button className="reset-button" action={() => this.props.reset()}>
+                <i className="fas fa-undo-alt" />
+            </Button>
+        ) : null;
 
         return (
             <div className="control-panel">

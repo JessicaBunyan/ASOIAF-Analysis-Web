@@ -1,16 +1,9 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-// import "./reset.css";
-// import "./App.css";
 import * as json from "./data.json";
 import chapterData from "./chapters.json";
-import * as d3 from "d3";
 import * as _ from "underscore";
-import Graph from "./graph";
-import ResetButton from "./ResetButton";
 import WordPanel from "./WordPanel";
 import GraphContainer from "./GraphContainer";
-import { getWikiURL } from "./utils";
 import SynopsisFrame from "./SynopsisFrame";
 import $ from "jquery";
 

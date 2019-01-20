@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 import * as _ from "underscore";
-import WordChoice from "./Button";
-import ResetButton from "./ResetButton";
 import Graph from "./graph";
-import BackButton from "./BackButton";
 import ControlPanel from "./ControlPanel";
 import { capitalise } from "./utils";
 import Breakdown from "./Breakdown";

@@ -13,30 +13,22 @@ class Synopsis extends Component {
             <div id="synopsis">
                 <div className="synopsis-header">
                     <h3 className="synopsis-title">
-                        {this.props.chapterTitle +
-                            " Synopsis (" +
-                            bookNameFromCode(this.props.book) +
-                            ")"}
+                        {this.props.chapterTitle + " Synopsis (" + bookNameFromCode(this.props.book) + ")"}
                     </h3>
-                    <a href={this.props.url} target="_blank">
-                        <h3 className="wiki-link">
-                            <i className="fas fa-external-link-alt" /> A Wiki of
-                            Ice and Fire
-                        </h3>
-                    </a>
+                    <h3 className="">
+                        <a href={this.props.url} target="_blank">
+                            <span className="wiki-link">
+                                <i className="fas fa-external-link-alt" /> A Wiki of Ice and Fire
+                            </span>
+                        </a>
+                    </h3>
                 </div>
                 {this.props.paragraphs.map(para => {
                     return <p>{para}</p>;
                 })}
                 <div class="synopsis-footer">
-                    Chapter Synopsis from{" "}
-                    <a href="https://awoiaf.westeros.org/">
-                        A Wiki of Ice and Fire
-                    </a>
-                    . Licensed{" "}
-                    <a href="https://creativecommons.org/licenses/by-sa/3.0/">
-                        CC BY-SA
-                    </a>
+                    Chapter Synopsis from <a href="https://awoiaf.westeros.org/">A Wiki of Ice and Fire</a>. Licensed{" "}
+                    <a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA</a>
                 </div>
             </div>
         );

@@ -1,19 +1,26 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 import * as _ from "underscore";
-import WordChoice from "./WordChoice";
 import Toggle from "./Toggle";
+import Button from "./Button";
 
 class WordPanel extends Component {
     render() {
         return (
             <div className="word-panel clearfix">
                 <h2>Choose a word or phrase</h2>
-                {this.props.words.map(w => {
+                {this.props.words.map((w, index) => {
                     if (w.IsNSFW && !this.props.nsfwEnabled) {
                         return null;
                     }
-                    return <WordChoice key={w.word} word={w} onClick={e => this.props.onClick(e)} />;
+                    return (
+                        <Button
+                            key={index}
+                            className={this.getClass(w)}
+                            action={() => this.props.onClick(w.Word)}
+                            text={w.DisplayName}
+                        />
+                    );
                 })}
                 <Toggle
                     action={this.props.toggleNSFWEnabled}
@@ -21,6 +28,10 @@ class WordPanel extends Component {
                 />
             </div>
         );
+    }
+
+    getClass(word) {
+        return "word-choice " + word.CssClass;
     }
 }
 export default WordPanel;

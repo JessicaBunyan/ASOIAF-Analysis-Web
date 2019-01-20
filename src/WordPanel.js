@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import * as d3 from "d3";
 import * as _ from "underscore";
 import WordChoice from "./WordChoice";
+import Toggle from "./Toggle";
 
 class WordPanel extends Component {
     render() {
@@ -14,6 +15,7 @@ class WordPanel extends Component {
                     }
                     return <WordChoice key={w.word} word={w} onClick={e => this.props.onClick(e)} />;
                 })}
+                <Toggle />
             </div>
         );
     }

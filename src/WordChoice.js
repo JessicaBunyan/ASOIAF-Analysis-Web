@@ -6,7 +6,7 @@ import { capitalise } from "./utils";
 class WordChoice extends Component {
     render() {
         return (
-            <div className={this.getClass()} onClick={() => this.props.onClick(this.props.word.word)}>
+            <div className={this.getClass()} onClick={() => this.props.onClick(this.props.word.Word)}>
                 {this.props.word.DisplayName}
             </div>
         );

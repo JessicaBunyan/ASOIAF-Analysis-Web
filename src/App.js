@@ -23,7 +23,8 @@ const initialState = {
     filterByChar: "",
     groupBy: "pov",
     cid: "",
-    normalisedScores: false
+    normalisedScores: false,
+    nsfwEnabled: false
 };
 
 class App extends Component {
@@ -61,7 +62,13 @@ class App extends Component {
         } else {
             var words = json["default"];
 
-            return <WordPanel words={words} onClick={w => this.setState({ word: w })} />;
+            return (
+                <WordPanel
+                    nsfwEnabled={this.state.nsfwEnabled}
+                    words={words}
+                    onClick={w => this.setState({ word: w })}
+                />
+            );
         }
     }
 

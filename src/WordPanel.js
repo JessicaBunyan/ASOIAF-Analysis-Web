@@ -9,6 +9,9 @@ class WordPanel extends Component {
             <div className="word-panel clearfix">
                 <h2>Choose a word or phrase</h2>
                 {this.props.words.map(w => {
+                    if (w.IsNSFW && !this.props.nsfwEnabled) {
+                        return null;
+                    }
                     return <WordChoice key={w.word} word={w} onClick={e => this.props.onClick(e)} />;
                 })}
             </div>

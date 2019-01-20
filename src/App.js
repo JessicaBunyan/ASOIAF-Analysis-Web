@@ -59,15 +59,10 @@ class App extends Component {
                 </div>
             );
         } else {
-            var words = this.getWords();
+            var words = json["default"];
 
             return <WordPanel words={words} onClick={w => this.setState({ word: w })} />;
         }
-    }
-
-    getWords() {
-        return _.map(json["default"], t => t.DisplayName);
-        // Object.keys(json["default"]);
     }
 
     getChapterLimits() {

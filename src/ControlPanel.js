@@ -16,8 +16,8 @@ class ControlPanel extends Component {
 
         return (
             <div className="control-panel">
-                {backBtn}
                 {resetBtn}
+                {backBtn}
             </div>
         );
     }

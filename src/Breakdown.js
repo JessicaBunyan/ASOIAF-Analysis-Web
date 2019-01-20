@@ -10,7 +10,7 @@ class Breakdown extends Component {
                     <span className="got-font">{this.props.word}</span>, {this.props.breakdownText}
                 </h3>
                 <h4 className="breakdown ">{this.props.occurrencesText}</h4>
-                <Toggle toggleAction={this.props.toggleNormalise} toggleText={this.getToggleText()} />
+                <Toggle action={this.props.toggleNormalise} text={this.getToggleText()} />
             </div>
         );
     }

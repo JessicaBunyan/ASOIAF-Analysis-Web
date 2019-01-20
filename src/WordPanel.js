@@ -15,7 +15,10 @@ class WordPanel extends Component {
                     }
                     return <WordChoice key={w.word} word={w} onClick={e => this.props.onClick(e)} />;
                 })}
-                <Toggle />
+                <Toggle
+                    action={this.props.toggleNSFWEnabled}
+                    text={this.props.nsfwEnabled ? "hide NSFW words" : "show NSFW words"}
+                />
             </div>
         );
     }

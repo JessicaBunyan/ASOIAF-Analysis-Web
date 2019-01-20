@@ -65,6 +65,7 @@ class App extends Component {
             return (
                 <WordPanel
                     nsfwEnabled={this.state.nsfwEnabled}
+                    toggleNSFWEnabled={() => this.setState({ nsfwEnabled: !this.state.nsfwEnabled })}
                     words={words}
                     onClick={w => this.setState({ word: w })}
                 />

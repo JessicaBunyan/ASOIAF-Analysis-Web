@@ -5,13 +5,17 @@ DEFINITELY DO BEFORE RELEASE
 Bars change colour on hover?
     -If not this then some indication that bars are clickable
 
-NSFW filter
 
-SOMETHING for mobile/tablet. Even if its just a message
+brighten the blood colour a bit I think
+
+re-run the words through backend 
 
 ==========================
 PROBABLY DO BEFORE RELEASE
 ==========================
+
+Donate button lul
+Links to my stuff
 
 stop targ sigil from cropping when the page does expand down (after opening synopsis)
 
@@ -28,6 +32,8 @@ long chapter title forces synopsis titles onto 2 lines. abbreviate book name in 
 =========================
 CAN RELEASE WITHOUT THESE
 =========================
+
+Add descriptor information somewhere
 
 load the references for a word when you click them rather than frontloading everything
 

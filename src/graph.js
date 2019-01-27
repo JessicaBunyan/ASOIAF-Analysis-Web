@@ -78,10 +78,14 @@ class Graph extends Component {
     }
 
     onChartHover(e) {
-        if (this.isMouseOverCanvasElement(e)) {
-            document.querySelector("canvas").style.cursor = "pointer";
+        var canvas = document.querySelector("canvas");
+
+        var hoveredElement = this.isMouseOverCanvasElement(e);
+        if (hoveredElement) {
+            this.drawBar(canvas.getContext("2d"), hoveredElement, "white", "steelblue");
+            canvas.style.cursor = "pointer";
         } else {
-            document.querySelector("canvas").style.cursor = "auto";
+            canvas.style.cursor = "auto";
         }
     }
 
@@ -446,13 +450,17 @@ class Graph extends Component {
             };
             elements.push(el);
 
-            context.fillStyle = "black";
-            context.fillRect(el.left, el.top, el.width, el.height);
-            context.fillStyle = "steelblue";
-            context.fillRect(el.left + 1, el.top + 1, el.width - 2, el.height);
+            this.drawBar(context, el, "black", "steelblue");
         });
 
         console.log(elements);
+    }
+
+    drawBar(context, el, colour, outline) {
+        context.fillStyle = colour;
+        context.fillRect(el.left, el.top, el.width, el.height);
+        context.fillStyle = outline;
+        context.fillRect(el.left + 1, el.top + 1, el.width - 2, el.height);
     }
 
     getBarLeft(x, d) {

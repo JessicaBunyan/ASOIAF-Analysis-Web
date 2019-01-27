@@ -121,112 +121,24 @@ class Canvas extends Component {
         this.drawYAxisLine(context, height);
         this.drawYAxisLabels(context);
 
-        // this.drawBookBoundaries(context, width, height);
+        this.drawBookBoundaries(context, width, height);
         this.drawBars(context);
     }
 
-    drawBookBoundaries(context, x, canvasWidth, height) {
-        if (!this.props.breakdown) {
-            return;
-        }
-
-        var barWidth = x.bandwidth();
-
-        if (barWidth > MaxBarWidth) {
-            // if we're limiting the bar width we need to adjust the left position to account for the difference
-            barWidth = MaxBarWidth;
-        }
-
-        var bookInfo = this.getChaptersPerBook();
-
-        var boundaryChapters = [];
-
-        var first = -1,
-            last = -1;
-        for (var k = 1; k < 6; k++) {
-            console.log(bookInfo[k]);
-            if (bookInfo[k].length) {
-                // if it has chapters
-                first = bookInfo[k][0];
-                last = bookInfo[k][bookInfo[k].length - 1];
-                boundaryChapters.push(first);
-                boundaryChapters.push(last);
-            } else {
-                boundaryChapters.push(last); // if its at the start, we will put -1s in,
-                boundaryChapters.push(last); // otherwise we will repeat previous ones
-            }
-        }
-
-        var barCenters = boundaryChapters.map(c => (c == -1 ? -1 : this.getBarLeft(x, c) + barWidth / 2));
-        var midPoints = [0];
-
-        console.log("boundary chapters");
-        console.log(boundaryChapters);
-        console.log(barCenters);
-
-        for (var i = 1; i < barCenters.length - 1; i += 2) {
-            var endBar = barCenters[i];
-            var startBar = barCenters[i + 1];
-
-            console.log("bars: " + endBar + ", " + startBar);
-            console.log("midpoints so far: ");
-            console.log(midPoints);
-
-            var midPoint = startBar - leftMargin + (endBar - startBar) / 2;
-
-            if (endBar == startBar) {
-                midPoint = -2; // -2 aka missing chapter but not at start
-            }
-            if (barCenters[i] == -1 && barCenters[i - 1] == -1) {
-                midPoint = -1; // -1 aka missing chapter at start
+    drawBookBoundaries(context, canvasWidth, height) {
+        if (this.props.bookBoundaries) {
+            for (var book = 1; book < 6; book++) {
+                this.drawBook(context, this.props.bookBoundaries, book, height + topMargin + 180);
             }
 
-            console.log("new midpoint");
-            console.log(midPoint);
-            midPoints.push(midPoint);
+            context.fillStyle = "black";
+            context.globalAlpha = 1;
         }
-
-        midPoints.push(canvasWidth + 4 * singleBookOffset);
-
-        console.log("boundary chapters");
-        console.log(boundaryChapters);
-        console.log(barCenters);
-        console.log("midpoints");
-        console.log(midPoints);
-
-        // first deal with all the -1s - simply add gaps counting up from 0
-        for (var i = 1; i < midPoints.length - 1; i++) {
-            if (midPoints[i] == -1) {
-                midPoints[i] = midPoints[i - 1] + singleBookOffset;
-            }
-        }
-
-        //deal with all the -2s
-        for (var i = midPoints.length - 1; i >= 0; i--) {
-            if (midPoints[i] == -2) {
-                midPoints[i] = midPoints[i + 1] - singleBookOffset;
-                if (midPoints[midPoints.length - 1] - midPoints[i] >= 41) {
-                    // hacky way of checking if there's books with chapters after this or not
-                    midPoints[i] += singleBookOffset / 2;
-                    midPoints[i + 1] += singleBookOffset / 2;
-                }
-            }
-        }
-        console.log(midPoints);
-
-        for (var book = 1; book < 6; book++) {
-            this.drawBook(context, midPoints, book, height + topMargin + 180);
-        }
-
-        var img = document.getElementById("agot-cover");
-        context.fillStyle = "black";
-
-        context.globalAlpha = 1;
     }
 
-    drawBook(context, midPoints, bookNum, height) {
-        var left = midPoints[bookNum - 1];
-        var width = midPoints[bookNum] - left;
+    drawBook(context, bookBoundaries, bookNum, height) {
+        var left = bookBoundaries[bookNum - 1];
+        var width = bookBoundaries[bookNum] - left;
         left = left + leftMargin;
 
         context.fillStyle = bookColours[bookNum];

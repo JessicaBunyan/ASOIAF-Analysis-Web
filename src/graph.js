@@ -39,6 +39,7 @@ class Graph extends Component {
                     xTickLocations={chart.xAxisTickLocations}
                     bars={chart.bars}
                     xAxisLabels={chart.xAxisLabels}
+                    bookBoundaries={chart.bookBoundaries}
                     onClickCallback={this.props.onClickCallback}
                 />
             </div>
@@ -80,20 +81,13 @@ class Graph extends Component {
 
         console.log("Y TICK COUNT: " + yTickCount);
         var yTicks = y.ticks(yTickCount);
-        // this.drawXAxisTicks(context, x, height);
-        // this.drawXAxisLine(context, height);
-        // this.drawXAxisLabels(context, x, height);
-
-        // this.drawYAxisTicks(context, yTicks, y);
-        // this.drawYAxisLine(context, height);
-        // this.drawYAxisLabels(context, yTicks, y);
-
-        // this.drawBookBoundaries(context, x, width, height);
         var bars = this.calculateBars(x, y, data, height);
 
         var xAxisTickLocations = this.getXAxisTickLocations(x, height);
 
         var xAxisLabels = x.domain().map(e => this.props.lookupXAxisLabel(e));
+
+        var bookBoundaries = this.getBookBoundaries(x, width);
 
         return {
             bars: bars,
@@ -102,8 +96,100 @@ class Graph extends Component {
             yTicks: yTicks,
             xAxisTickLocations: xAxisTickLocations,
             xAxisLabels: xAxisLabels,
+            bookBoundaries: bookBoundaries,
             readyToDraw: true
         };
+    }
+
+    getBookBoundaries(x, canvasWidth) {
+        if (!this.props.breakdown) {
+            return null;
+        }
+
+        var barWidth = x.bandwidth();
+
+        if (barWidth > MaxBarWidth) {
+            // if we're limiting the bar width we need to adjust the left position to account for the difference
+            barWidth = MaxBarWidth;
+        }
+
+        var bookInfo = this.getChaptersPerBook();
+
+        var boundaryChapters = [];
+
+        var first = -1,
+            last = -1;
+        for (var k = 1; k < 6; k++) {
+            console.log(bookInfo[k]);
+            if (bookInfo[k].length) {
+                // if it has chapters
+                first = bookInfo[k][0];
+                last = bookInfo[k][bookInfo[k].length - 1];
+                boundaryChapters.push(first);
+                boundaryChapters.push(last);
+            } else {
+                boundaryChapters.push(last); // if its at the start, we will put -1s in,
+                boundaryChapters.push(last); // otherwise we will repeat previous ones
+            }
+        }
+
+        var barCenters = boundaryChapters.map(c => (c == -1 ? -1 : this.getBarLeft(x, c) + barWidth / 2));
+        var midPoints = [0];
+
+        console.log("boundary chapters");
+        console.log(boundaryChapters);
+        console.log(barCenters);
+
+        for (var i = 1; i < barCenters.length - 1; i += 2) {
+            var endBar = barCenters[i];
+            var startBar = barCenters[i + 1];
+
+            console.log("bars: " + endBar + ", " + startBar);
+            console.log("midpoints so far: ");
+            console.log(midPoints);
+
+            var midPoint = startBar - leftMargin + (endBar - startBar) / 2;
+
+            if (endBar == startBar) {
+                midPoint = -2; // -2 aka missing chapter but not at start
+            }
+            if (barCenters[i] == -1 && barCenters[i - 1] == -1) {
+                midPoint = -1; // -1 aka missing chapter at start
+            }
+
+            console.log("new midpoint");
+            console.log(midPoint);
+            midPoints.push(midPoint);
+        }
+
+        midPoints.push(canvasWidth + 4 * singleBookOffset);
+
+        console.log("boundary chapters");
+        console.log(boundaryChapters);
+        console.log(barCenters);
+        console.log("midpoints");
+        console.log(midPoints);
+
+        // first deal with all the -1s - simply add gaps counting up from 0
+        for (var i = 1; i < midPoints.length - 1; i++) {
+            if (midPoints[i] == -1) {
+                midPoints[i] = midPoints[i - 1] + singleBookOffset;
+            }
+        }
+
+        //deal with all the -2s
+        for (var i = midPoints.length - 1; i >= 0; i--) {
+            if (midPoints[i] == -2) {
+                midPoints[i] = midPoints[i + 1] - singleBookOffset;
+                if (midPoints[midPoints.length - 1] - midPoints[i] >= 41) {
+                    // hacky way of checking if there's books with chapters after this or not
+                    midPoints[i] += singleBookOffset / 2;
+                    midPoints[i + 1] += singleBookOffset / 2;
+                }
+            }
+        }
+        console.log(midPoints);
+        return midPoints;
     }
 
     calculateBars(x, y, data, chartHeight) {

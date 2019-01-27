@@ -2,10 +2,6 @@ DEFINITELY DO BEFORE RELEASE
 ============================
 
 
-Bars change colour on hover?
-    -If not this then some indication that bars are clickable
-
-
 brighten the blood colour a bit I think
 
 crash on clicking "If i look back iam lost"

@@ -65,7 +65,7 @@ class Canvas extends Component {
         var hoveredElement = this.isMouseOverCanvasElement(e);
         if (hoveredElement) {
             this.drawBars(context);
-            this.drawBar(context, hoveredElement, "white", "steelblue");
+            this.drawBar(context, hoveredElement, settings.highlightedBarOutline, settings.highlightedBarColour);
             canvas.style.cursor = "pointer";
         } else {
             this.drawBars(context);
@@ -271,17 +271,12 @@ class Canvas extends Component {
     }
 
     drawBars(context) {
-        context.fillStyle = "steelblue";
-
         this.props.bars.forEach(b => {
-            this.drawBar(context, b, "black", "steelblue");
+            this.drawBar(context, b, settings.barOutlineColour, settings.barColour);
         });
     }
 
     drawBar(context, el, colour, outline) {
-        console.log("DRAWING BAR");
-
-        console.log(el);
         context.fillStyle = colour;
         context.fillRect(el.left, el.top, el.width, el.height);
         context.fillStyle = outline;

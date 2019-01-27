@@ -73,7 +73,7 @@ class Canvas extends Component {
         context.fillStyle = "black";
         this.drawXAxisTicks(context, height);
         this.drawXAxisLine(context, height);
-        // this.drawXAxisLabels(context, height);
+        this.drawXAxisLabels(context, height);
         //
         this.drawYAxisTicks(context);
         this.drawYAxisLine(context, height);
@@ -254,20 +254,23 @@ class Canvas extends Component {
         context.font = axisLabelFontSize + "px Arial";
 
         var x = this.props.x;
-
-        console.log("drawing x axis label");
-        x.domain().forEach(d => {
+        this.props.xTickLocations.forEach(l => {
             context.translate(0, 0); // make sure we're back here before rotating
             context.save();
 
             context.rotate(Math.PI / 2); // turn the paper anticlockwise
-            context.fillText(
-                this.props.lookupXAxisLabel(d),
-                height + topMargin + 8, // our y value for the location we want is now "x" here (will match up when we rotate paper backwards)
-                -(leftMargin + x(d) + this.getBookOffset(d) + axisLabelFontSize / 2 + x.bandwidth() / 2) // the negative of our x value is now our "y"
-            );
+            context.fillText(this.props.lookupXAxisLabel(l), height + topMargin + 8, -l - axisLabelFontSize / 2);
             context.restore();
         });
+        console.log("drawing x axis label");
+        // x.domain().forEach(d => {
+        //     context.translate(0, 0); // make sure we're back here before rotating
+        //     context.save();
+
+        //     context.rotate(Math.PI / 2); // turn the paper anticlockwise
+        //     context.fillText(this.props.lookupXAxisLabel(d));
+        //     context.restore();
+        // });
     }
 
     drawYAxisTicks(context) {

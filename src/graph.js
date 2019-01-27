@@ -44,6 +44,7 @@ class Graph extends Component {
                     yTicks={this.state.yTicks}
                     xTickLocations={this.state.xAxisTickLocations}
                     bars={this.state.bars}
+                    lookupXAxisLabel={this.props.lookupXAxisLabel}
                 />
             </div>
         );

@@ -56,10 +56,6 @@ class Graph extends Component {
         // if we're breaking down by chapter allow room for gaps between books
         width = this.props.breakdown ? width - 4 * singleBookOffset : width;
 
-        console.log(width);
-        console.log(height);
-        console.log(barPadding);
-
         var x = d3
             .scaleBand()
             .rangeRound([0, width])
@@ -69,11 +65,9 @@ class Graph extends Component {
 
         var keys = Object.keys(data);
         var max = _.max(data);
-        console.log(max);
 
         var yAxisLimit = this.getYAxisLimit(max);
 
-        console.log("7axislimit: " + yAxisLimit);
         x.domain(keys);
         y.domain([0, yAxisLimit]);
 
@@ -120,7 +114,6 @@ class Graph extends Component {
         var first = -1,
             last = -1;
         for (var k = 1; k < 6; k++) {
-            console.log(bookInfo[k]);
             if (bookInfo[k].length) {
                 // if it has chapters
                 first = bookInfo[k][0];
@@ -136,17 +129,9 @@ class Graph extends Component {
         var barCenters = boundaryChapters.map(c => (c == -1 ? -1 : this.getBarLeft(x, c) + barWidth / 2));
         var midPoints = [0];
 
-        console.log("boundary chapters");
-        console.log(boundaryChapters);
-        console.log(barCenters);
-
         for (var i = 1; i < barCenters.length - 1; i += 2) {
             var endBar = barCenters[i];
             var startBar = barCenters[i + 1];
-
-            console.log("bars: " + endBar + ", " + startBar);
-            console.log("midpoints so far: ");
-            console.log(midPoints);
 
             var midPoint = startBar - leftMargin + (endBar - startBar) / 2;
 
@@ -156,19 +141,9 @@ class Graph extends Component {
             if (barCenters[i] == -1 && barCenters[i - 1] == -1) {
                 midPoint = -1; // -1 aka missing chapter at start
             }
-
-            console.log("new midpoint");
-            console.log(midPoint);
-            midPoints.push(midPoint);
         }
 
         midPoints.push(canvasWidth + 4 * singleBookOffset);
-
-        console.log("boundary chapters");
-        console.log(boundaryChapters);
-        console.log(barCenters);
-        console.log("midpoints");
-        console.log(midPoints);
 
         // first deal with all the -1s - simply add gaps counting up from 0
         for (var i = 1; i < midPoints.length - 1; i++) {

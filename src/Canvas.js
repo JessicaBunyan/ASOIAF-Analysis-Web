@@ -254,12 +254,12 @@ class Canvas extends Component {
         context.font = axisLabelFontSize + "px Arial";
 
         var x = this.props.x;
-        this.props.xTickLocations.forEach(l => {
+        this.props.xTickLocations.forEach((l, index) => {
             context.translate(0, 0); // make sure we're back here before rotating
             context.save();
 
             context.rotate(Math.PI / 2); // turn the paper anticlockwise
-            context.fillText(this.props.lookupXAxisLabel(l), height + topMargin + 8, -l - axisLabelFontSize / 2);
+            context.fillText(this.props.xAxisLabels[index], height + topMargin + 8, -l - axisLabelFontSize / 2);
             context.restore();
         });
         console.log("drawing x axis label");

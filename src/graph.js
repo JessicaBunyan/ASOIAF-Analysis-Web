@@ -44,7 +44,7 @@ class Graph extends Component {
                     yTicks={this.state.yTicks}
                     xTickLocations={this.state.xAxisTickLocations}
                     bars={this.state.bars}
-                    lookupXAxisLabel={this.props.lookupXAxisLabel}
+                    xAxisLabels={this.state.xAxisLabels}
                 />
             </div>
         );
@@ -145,12 +145,15 @@ class Graph extends Component {
 
         var xAxisTickLocations = this.getXAxisTickLocations(x, height);
 
+        var xAxisLabels = x.domain().map(e => this.props.lookupXAxisLabel(e));
+
         this.setState({
             bars: bars,
             x: x,
             y: y,
             yTicks: yTicks,
             xAxisTickLocations: xAxisTickLocations,
+            xAxisLabels: xAxisLabels,
             readyToDraw: true
         });
     }

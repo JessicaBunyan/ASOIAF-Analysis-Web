@@ -1820,7 +1820,7 @@
             "id": 227,
             "seq": 3,
             "book": "AFFC",
-            "title": "The Captain Of Guards",
+            "title": "The Captain\r\nOf Guards",
             "pov_character": "Areo Hotah",
             "words": 7046
         },
@@ -1892,7 +1892,7 @@
             "id": 236,
             "seq": 12,
             "book": "AFFC",
-            "title": "The Kraken's Daughter",
+            "title": "The Kraken's\r\nDaughter",
             "pov_character": "Asha",
             "words": 5575
         },
@@ -1908,7 +1908,7 @@
             "id": 238,
             "seq": 14,
             "book": "AFFC",
-            "title": "The Soiled Knight",
+            "title": "The Soiled\r\nKnight",
             "pov_character": "Arys Oakheart",
             "words": 6313
         },
@@ -1948,7 +1948,7 @@
             "id": 243,
             "seq": 19,
             "book": "AFFC",
-            "title": "The Iron Captain",
+            "title": "The Iron\r\nCaptain",
             "pov_character": "Victarion",
             "words": 4990
         },
@@ -1956,7 +1956,7 @@
             "id": 244,
             "seq": 20,
             "book": "AFFC",
-            "title": "The Drowned Man",
+            "title": "The Drowned\r\nMan",
             "pov_character": "Aeron",
             "words": 5755
         },
@@ -2076,7 +2076,7 @@
             "id": 259,
             "seq": 35,
             "book": "AFFC",
-            "title": "Cat Of The Canals",
+            "title": "Cat Of\r\nThe Canals",
             "pov_character": "Arya",
             "words": 6847
         },
@@ -2124,7 +2124,7 @@
             "id": 265,
             "seq": 41,
             "book": "AFFC",
-            "title": "The Princess In The Tower",
+            "title": "The Princess\r\nIn The Tower",
             "pov_character": "Arianne",
             "words": 8108
         },
@@ -2220,7 +2220,7 @@
             "id": 277,
             "seq": 7,
             "book": "ADWD",
-            "title": "The Merchant's Man",
+            "title": "The Merchant's\r\nMan",
             "pov_character": "Quentyn",
             "words": 5156
         },
@@ -2380,7 +2380,7 @@
             "id": 297,
             "seq": 27,
             "book": "ADWD",
-            "title": "The Wayward Bride",
+            "title": "The Wayward\r\nBride",
             "pov_character": "Asha",
             "words": 8494
         },
@@ -2468,7 +2468,7 @@
             "id": 308,
             "seq": 38,
             "book": "ADWD",
-            "title": "The Prince of Winterfell",
+            "title": "The Prince of\r\nWinterfell",
             "pov_character": "Theon",
             "words": 7498
         },
@@ -2508,7 +2508,7 @@
             "id": 313,
             "seq": 43,
             "book": "ADWD",
-            "title": "The King's Prize",
+            "title": "The King's\r\nPrize",
             "pov_character": "Asha",
             "words": 6359
         },
@@ -2540,7 +2540,7 @@
             "id": 317,
             "seq": 47,
             "book": "ADWD",
-            "title": "A Ghost in Winterfell",
+            "title": "A Ghost in\r\nWinterfell",
             "pov_character": "Theon",
             "words": 5413
         },
@@ -2644,7 +2644,7 @@
             "id": 330,
             "seq": 60,
             "book": "ADWD",
-            "title": "The Discarded Knight",
+            "title": "The Discarded\r\nKnight",
             "pov_character": "Barristan Selmy",
             "words": 4106
         },
@@ -2652,7 +2652,7 @@
             "id": 331,
             "seq": 61,
             "book": "ADWD",
-            "title": "The Spurned Suitor",
+            "title": "The Spurned\r\nSuitor",
             "pov_character": "Quentyn",
             "words": 3211
         },
@@ -2660,7 +2660,7 @@
             "id": 332,
             "seq": 62,
             "book": "ADWD",
-            "title": "The Griffin Reborn",
+            "title": "The Griffin\r\nReborn",
             "pov_character": "Jon Connington",
             "words": 5483
         },
@@ -2684,7 +2684,7 @@
             "id": 335,
             "seq": 65,
             "book": "ADWD",
-            "title": "The Ugly Little Girl",
+            "title": "The Ugly\r\nLittle Girl",
             "pov_character": "Arya",
             "words": 5757
         },
@@ -2716,7 +2716,7 @@
             "id": 339,
             "seq": 69,
             "book": "ADWD",
-            "title": "The Dragontamer",
+            "title": "The\r\nDragontamer",
             "pov_character": "Quentyn",
             "words": 4931
         },

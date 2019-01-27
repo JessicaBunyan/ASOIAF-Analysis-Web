@@ -72,12 +72,14 @@ class Canvas extends Component {
 
     onChartHover(e) {
         var canvas = document.querySelector("canvas");
-
+        var context = canvas.getContext("2d");
         var hoveredElement = this.isMouseOverCanvasElement(e);
         if (hoveredElement) {
-            // this.drawBar(canvas.getContext("2d"), hoveredElement, "white", "steelblue");
+            this.drawBars(context);
+            this.drawBar(context, hoveredElement, "white", "steelblue");
             canvas.style.cursor = "pointer";
         } else {
+            this.drawBars(context);
             canvas.style.cursor = "auto";
         }
     }

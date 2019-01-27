@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, memo } from "react";
 import * as d3 from "d3";
 import * as _ from "underscore";
 import { capitalise } from "./utils";
@@ -25,9 +25,7 @@ class Graph extends Component {
         this.createBarChart();
     }
     componentDidUpdate() {
-        if (!this.state.readyToDraw) {
-            this.createBarChart();
-        }
+        this.setState({ readyToDraw: false });
     }
 
     render() {
@@ -45,57 +43,11 @@ class Graph extends Component {
                     xTickLocations={this.state.xAxisTickLocations}
                     bars={this.state.bars}
                     xAxisLabels={this.state.xAxisLabels}
+                    onClickCallback={this.props.onClickCallback}
                 />
             </div>
         );
     }
-
-    // /**
-    //  * returns the element the mouse is over, or false if its not over any
-    //  * @param {} e event object
-    //  */
-    // isMouseOverCanvasElement(e) {
-    //     var canvas = document.querySelector("canvas");
-    //     var elemLeft = canvas.offsetLeft;
-    //     var elemTop = canvas.offsetTop;
-
-    //     var x = e.offsetX,
-    //         y = e.offsetY;
-
-    //     // Collision detection between clicked offset and element.
-    //     for (var i = 0; i < elements.length; i++) {
-    //         var element = elements[i];
-    //         if (
-    //             y >= element.top &&
-    //             y <= element.top + element.height &&
-    //             x >= element.left &&
-    //             x <= element.left + element.width
-    //         ) {
-    //             return element;
-    //         }
-    //     }
-
-    //     return false;
-    // }
-
-    // onChartHover(e) {
-    //     var canvas = document.querySelector("canvas");
-
-    //     var hoveredElement = this.isMouseOverCanvasElement(e);
-    //     if (hoveredElement) {
-    //         // this.drawBar(canvas.getContext("2d"), hoveredElement, "white", "steelblue");
-    //         canvas.style.cursor = "pointer";
-    //     } else {
-    //         canvas.style.cursor = "auto";
-    //     }
-    // }
-
-    // onChartClick(e) {
-    //     var element = this.isMouseOverCanvasElement(e);
-    //     if (element) {
-    //         this.props.onClickCallback(element.char);
-    //     }
-    // }
 
     createBarChart() {
         var data = this.props.data;

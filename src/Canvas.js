@@ -29,13 +29,11 @@ class Canvas extends Component {
     componentDidMount() {
         this.drawChart();
         var canvas = document.querySelector("canvas");
-        // var context = canvas.getContext("2d");
-        // canvas.addEventListener("click", e => this.onChartClick(e));
-        // canvas.addEventListener("mousemove", e => this.onChartHover(e));
+        canvas.addEventListener("click", e => this.onChartClick(e));
+        canvas.addEventListener("mousemove", e => this.onChartHover(e));
     }
     componentDidUpdate() {
         this.clearCanvas();
-        var canvas = document.querySelector("canvas");
 
         this.drawChart();
     }
@@ -47,6 +45,48 @@ class Canvas extends Component {
         };
 
         return <canvas width={this.props.width} height={this.props.height} />;
+    }
+
+    /**
+     * returns the element the mouse is over, or false if its not over any
+     * @param {} e event object
+     */
+    isMouseOverCanvasElement(e) {
+        var canvas = document.querySelector("canvas");
+
+        var bars = this.props.bars;
+
+        var x = e.offsetX,
+            y = e.offsetY;
+
+        // Collision detection between clicked offset and bar.
+        for (var i = 0; i < bars.length; i++) {
+            var bar = bars[i];
+            if (y >= bar.top && y <= bar.top + bar.height && x >= bar.left && x <= bar.left + bar.width) {
+                return bar;
+            }
+        }
+
+        return false;
+    }
+
+    onChartHover(e) {
+        var canvas = document.querySelector("canvas");
+
+        var hoveredElement = this.isMouseOverCanvasElement(e);
+        if (hoveredElement) {
+            // this.drawBar(canvas.getContext("2d"), hoveredElement, "white", "steelblue");
+            canvas.style.cursor = "pointer";
+        } else {
+            canvas.style.cursor = "auto";
+        }
+    }
+
+    onChartClick(e) {
+        var element = this.isMouseOverCanvasElement(e);
+        if (element) {
+            this.props.onClickCallback(element.char);
+        }
     }
 
     clearCanvas() {

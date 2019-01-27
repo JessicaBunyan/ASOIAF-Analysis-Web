@@ -74,10 +74,10 @@ class Canvas extends Component {
         // this.drawXAxisTicks(context, height);
         this.drawXAxisLine(context, height);
         // this.drawXAxisLabels(context, height);
-
-        // this.drawYAxisTicks(context);
+        //
+        this.drawYAxisTicks(context);
         this.drawYAxisLine(context, height);
-        // this.drawYAxisLabels(context);
+        this.drawYAxisLabels(context);
 
         // this.drawBookBoundaries(context, width, height);
         this.drawBars(context);
@@ -294,12 +294,14 @@ class Canvas extends Component {
         context.strokeStyle = "black";
         context.stroke();
     }
-    drawYAxisLabels(context, yTicks, y) {
+    drawYAxisLabels(context) {
         // y-axis scale labels
+        var y = this.props.y;
+
         context.textAlign = "right";
         context.textBaseline = "middle";
         context.font = axisLabelFontSize + "px Arial";
-        yTicks.forEach(function(d) {
+        this.props.yTicks.forEach(function(d) {
             context.fillText(d, leftMargin - 10, y(d) + topMargin);
         });
 

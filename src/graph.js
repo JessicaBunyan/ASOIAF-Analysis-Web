@@ -4,18 +4,7 @@ import * as d3 from "d3";
 import * as _ from "underscore";
 import { capitalise } from "./utils";
 import Canvas from "./Canvas";
-
-const singleBookOffset = 20;
-const barPadding = 0.05;
-const MaxBarWidth = 80;
-const leftMargin = 80;
-const topMargin = 10;
-const axisLabelFontSize = 20;
-
-var elements = [];
-
-const CANVAS_WIDTH = 1200;
-const CANVAS_HEIGHT = 800;
+import settings from "./Settings";
 
 class Graph extends Component {
     constructor(props) {
@@ -31,8 +20,8 @@ class Graph extends Component {
         return (
             <div className="canvasWrapper">
                 <Canvas
-                    width={CANVAS_WIDTH}
-                    height={CANVAS_HEIGHT}
+                    width={settings.canvasWidth}
+                    height={settings.canvasHeight}
                     y={chart.y}
                     x={chart.x}
                     yTicks={chart.yTicks}
@@ -50,16 +39,16 @@ class Graph extends Component {
         var data = this.props.data;
 
         var margin = { top: 20, right: 20, bottom: 300, left: 60 },
-            width = CANVAS_WIDTH - margin.left - margin.right,
-            height = CANVAS_HEIGHT - margin.top - margin.bottom;
+            width = settings.canvasWidth - margin.left - margin.right,
+            height = settings.canvasHeight - margin.top - margin.bottom;
 
         // if we're breaking down by chapter allow room for gaps between books
-        width = this.props.breakdown ? width - 4 * singleBookOffset : width;
+        width = this.props.breakdown ? width - 4 * settings.singleBookOffset : width;
 
         var x = d3
             .scaleBand()
             .rangeRound([0, width])
-            .padding(barPadding);
+            .padding(settings.barPadding);
 
         var y = d3.scaleLinear().rangeRound([height, 0]);
 
@@ -101,9 +90,9 @@ class Graph extends Component {
 
         var barWidth = x.bandwidth();
 
-        if (barWidth > MaxBarWidth) {
+        if (barWidth > settings.maxBarWidth) {
             // if we're limiting the bar width we need to adjust the left position to account for the difference
-            barWidth = MaxBarWidth;
+            barWidth = settings.maxBarWidth;
         }
 
         var bookInfo = this.getChaptersPerBook();
@@ -132,7 +121,7 @@ class Graph extends Component {
             var endBar = barCenters[i];
             var startBar = barCenters[i + 1];
 
-            var midPoint = startBar - leftMargin + (endBar - startBar) / 2;
+            var midPoint = startBar - settings.leftMargin + (endBar - startBar) / 2;
 
             if (endBar == startBar) {
                 midPoint = -2; // -2 aka missing chapter but not at start
@@ -143,23 +132,23 @@ class Graph extends Component {
             midPoints.push(midPoint);
         }
 
-        midPoints.push(canvasWidth + 4 * singleBookOffset);
+        midPoints.push(canvasWidth + 4 * settings.singleBookOffset);
 
         // first deal with all the -1s - simply add gaps counting up from 0
         for (var i = 1; i < midPoints.length - 1; i++) {
             if (midPoints[i] == -1) {
-                midPoints[i] = midPoints[i - 1] + singleBookOffset;
+                midPoints[i] = midPoints[i - 1] + settings.singleBookOffset;
             }
         }
 
         //deal with all the -2s
         for (var i = midPoints.length - 1; i >= 0; i--) {
             if (midPoints[i] == -2) {
-                midPoints[i] = midPoints[i + 1] - singleBookOffset;
+                midPoints[i] = midPoints[i + 1] - settings.singleBookOffset;
                 if (midPoints[midPoints.length - 1] - midPoints[i] >= 41) {
                     // hacky way of checking if there's books with chapters after this or not
-                    midPoints[i] += singleBookOffset / 2;
-                    midPoints[i + 1] += singleBookOffset / 2;
+                    midPoints[i] += settings.singleBookOffset / 2;
+                    midPoints[i + 1] += settings.singleBookOffset / 2;
                 }
             }
         }
@@ -168,22 +157,22 @@ class Graph extends Component {
     }
 
     calculateBars(x, y, data, chartHeight) {
-        elements = [];
+        var elements = [];
         // Bars
 
         var width = x.bandwidth();
         var diff = 0;
-        if (width > MaxBarWidth) {
+        if (width > settings.maxBarWidth) {
             // if we're limiting the bar width we need to adjust the left position to account for the difference
-            diff = width - MaxBarWidth;
-            width = MaxBarWidth;
+            diff = width - settings.maxBarWidth;
+            width = settings.maxBarWidth;
         }
 
         Object.keys(data).forEach(d => {
             var el = {
                 char: d,
                 left: this.getBarLeft(x, d, width),
-                top: y(data[d]) + topMargin,
+                top: y(data[d]) + settings.topMargin,
                 width: width,
                 height: chartHeight - y(data[d])
             };
@@ -234,7 +223,7 @@ class Graph extends Component {
             }
             break;
         }
-        return (i - 1) * singleBookOffset;
+        return (i - 1) * settings.singleBookOffset;
     }
 
     getXAxisTickLocations(x, height) {
@@ -242,7 +231,7 @@ class Graph extends Component {
         console.log("drawing x axis label");
         x.domain().forEach(d => {
             var bookOffset = this.getBookOffset(d);
-            var xPos = leftMargin + bookOffset + x(d) + x.bandwidth() / 2;
+            var xPos = settings.leftMargin + bookOffset + x(d) + x.bandwidth() / 2;
             points.push(xPos);
         });
         return points;
@@ -268,13 +257,13 @@ class Graph extends Component {
 
         var width = x.bandwidth();
         var diff = 0;
-        if (width > MaxBarWidth) {
+        if (width > settings.maxBarWidth) {
             // if we're limiting the bar width we need to adjust the left position to account for the difference
-            diff = width - MaxBarWidth;
-            width = MaxBarWidth;
+            diff = width - settings.maxBarWidth;
+            width = settings.maxBarWidth;
         }
 
-        return x(d) + bookOffset + leftMargin + diff / 2;
+        return x(d) + bookOffset + settings.leftMargin + diff / 2;
     }
 }
 

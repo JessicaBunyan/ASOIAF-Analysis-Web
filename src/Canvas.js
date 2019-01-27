@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
+import settings from "./Settings";
 
-const leftMargin = 80;
-const topMargin = 10;
-const MaxBarWidth = 80;
-
-const canvasWidth = 1200;
-const axisLabelFontSize = 20;
-const singleBookOffset = 20;
 const bookColours = [
     "",
     "rgba(0,0,255,0.4)",
@@ -19,11 +13,6 @@ const bookColours = [
 const bookImgIds = ["", "agot-cover", "acok-cover", "asos-cover", "affc-cover", "adwd-cover"];
 const bookImgLeftIds = ["", "agot-left", "acok-left", "asos-left", "affc-left", "adwd-left"];
 const bookImgRightIds = ["", "agot-right", "acok-right", "asos-right", "affc-right", "adwd-right"];
-
-const baseBookImgWidth = 630;
-const baseBookImgHeight = 961;
-
-const bookImgOffsets = [0, 100, 200, 200, 200, 100];
 
 class Canvas extends Component {
     componentDidMount() {
@@ -107,7 +96,7 @@ class Canvas extends Component {
             height = this.props.height - margin.top - margin.bottom;
 
         // if we're breaking down by chapter allow room for gaps between books
-        width = this.props.breakdown ? width - 4 * singleBookOffset : width;
+        width = this.props.breakdown ? width - 4 * settings.singleBookOffset : width;
 
         console.log("HEIGHT");
         console.log(height);
@@ -128,7 +117,7 @@ class Canvas extends Component {
     drawBookBoundaries(context, canvasWidth, height) {
         if (this.props.bookBoundaries) {
             for (var book = 1; book < 6; book++) {
-                this.drawBook(context, this.props.bookBoundaries, book, height + topMargin + 180);
+                this.drawBook(context, this.props.bookBoundaries, book, height + settings.topMargin + 180);
             }
 
             context.fillStyle = "black";
@@ -139,20 +128,30 @@ class Canvas extends Component {
     drawBook(context, bookBoundaries, bookNum, height) {
         var left = bookBoundaries[bookNum - 1];
         var width = bookBoundaries[bookNum] - left;
-        left = left + leftMargin;
+        left = left + settings.leftMargin;
 
         context.fillStyle = bookColours[bookNum];
         var img = document.getElementById(bookImgIds[bookNum]);
         context.globalAlpha = 0.2;
 
-        if (width <= singleBookOffset + 2) {
+        if (width <= settings.singleBookOffset + 2) {
             // If there are no chapters we just draw a coloured line/strip
             context.fillRect(left, 0, width, height);
         } else {
             if (width < 550) {
                 // if its not too wide just draw the image as is
                 context.fillStyle = "black";
-                context.drawImage(img, 0, 0, baseBookImgWidth, baseBookImgHeight, left, 0, width, height);
+                context.drawImage(
+                    img,
+                    0,
+                    0,
+                    settings.baseBookImgWidth,
+                    settings.baseBookImgHeight,
+                    left,
+                    0,
+                    width,
+                    height
+                );
             } else {
                 // if its too wise we draw the image in the middle and "fill in" the sides
                 var fillAreaWidth = (width - 550) / 2;
@@ -162,7 +161,17 @@ class Canvas extends Component {
                 this.fillInBookSide(context, leftImg, left, fillAreaWidth, height);
                 this.fillInBookSide(context, rightImg, left + 550 + fillAreaWidth, fillAreaWidth, height);
 
-                context.drawImage(img, 0, 0, baseBookImgWidth, baseBookImgHeight, left + fillAreaWidth, 0, 550, height);
+                context.drawImage(
+                    img,
+                    0,
+                    0,
+                    settings.baseBookImgWidth,
+                    settings.baseBookImgHeight,
+                    left + fillAreaWidth,
+                    0,
+                    550,
+                    height
+                );
             }
         }
         context.fillStyle = "black";
@@ -187,8 +196,8 @@ class Canvas extends Component {
         context.beginPath();
         xTickPos.forEach(point => {
             console.log(point);
-            context.moveTo(point, height + topMargin);
-            context.lineTo(point, height + 6 + topMargin);
+            context.moveTo(point, height + settings.topMargin);
+            context.lineTo(point, height + 6 + settings.topMargin);
         });
         context.strokeStyle = "black";
         context.stroke();
@@ -196,8 +205,8 @@ class Canvas extends Component {
     drawXAxisLine(context, height) {
         context.lineWidth = 4;
         context.beginPath();
-        context.moveTo(leftMargin, height + topMargin + 2);
-        context.lineTo(canvasWidth, height + topMargin + 2);
+        context.moveTo(settings.leftMargin, height + settings.topMargin + 2);
+        context.lineTo(settings.canvasWidth, height + settings.topMargin + 2);
         context.strokeStyle = "black";
         context.stroke();
     }
@@ -205,7 +214,7 @@ class Canvas extends Component {
         // X-axis labels (character/chapter names)
         context.textAlign = "left";
         context.textBaseline = "top";
-        context.font = axisLabelFontSize + "px Arial";
+        context.font = settings.axisLabelFontSize + "px Arial";
 
         this.props.xTickLocations.forEach((l, index) => {
             var labelText = this.props.xAxisLabels[index];
@@ -213,7 +222,7 @@ class Canvas extends Component {
             context.save();
 
             context.rotate(Math.PI / 2); // turn the paper anticlockwise
-            context.fillText(labelText, height + topMargin + 8, -l - axisLabelFontSize / 2); // use y for x and -x for y due to paper rotation
+            context.fillText(labelText, height + settings.topMargin + 8, -l - settings.axisLabelFontSize / 2); // use y for x and -x for y due to paper rotation
             context.restore();
         });
     }
@@ -227,8 +236,8 @@ class Canvas extends Component {
         console.log("y ticks");
         console.log(yTicks);
         yTicks.forEach(function(d) {
-            context.moveTo(leftMargin, y(d) + 0.5 + topMargin);
-            context.lineTo(leftMargin - 5, y(d) + 0.5 + topMargin);
+            context.moveTo(settings.leftMargin, y(d) + 0.5 + settings.topMargin);
+            context.lineTo(settings.leftMargin - 5, y(d) + 0.5 + settings.topMargin);
         });
         context.strokeStyle = "black";
         context.stroke();
@@ -237,8 +246,8 @@ class Canvas extends Component {
         // Vertical Axis (line)
         context.beginPath();
         context.lineWidth = 4;
-        context.moveTo(leftMargin, topMargin);
-        context.lineTo(leftMargin, height + topMargin + 4); // 4 for linewidth
+        context.moveTo(settings.leftMargin, settings.topMargin);
+        context.lineTo(settings.leftMargin, height + settings.topMargin + 4); // 4 for linewidth
         context.strokeStyle = "black";
         context.stroke();
     }
@@ -248,16 +257,16 @@ class Canvas extends Component {
 
         context.textAlign = "right";
         context.textBaseline = "middle";
-        context.font = axisLabelFontSize + "px Arial";
+        context.font = settings.axisLabelFontSize + "px Arial";
         this.props.yTicks.forEach(function(d) {
-            context.fillText(d, leftMargin - 10, y(d) + topMargin);
+            context.fillText(d, settings.leftMargin - 10, y(d) + settings.topMargin);
         });
 
         //// Occurences label
 
         // context.rotate(Math.PI / 2);
         // context.textAlign = "center";
-        // context.fillText("# Occurrences", topMargin + 200, -10);
+        // context.fillText("# Occurrences", settings.topMargin + 200, -10);
         // context.rotate(-Math.PI / 2);
     }
 

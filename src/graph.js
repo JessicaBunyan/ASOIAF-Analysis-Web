@@ -1,4 +1,5 @@
-import React, { Component, memo } from "react";
+import React, { Component } from "react";
+import memoize from "memoize-one";
 import * as d3 from "d3";
 import * as _ from "underscore";
 import { capitalise } from "./utils";
@@ -19,37 +20,32 @@ const CANVAS_HEIGHT = 800;
 class Graph extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
-    }
-    componentDidMount() {
-        this.createBarChart();
-    }
-    componentDidUpdate() {
-        this.setState({ readyToDraw: false });
+        this.state = { test: 0 };
     }
 
+    getChart = memoize(props => this.createBarChart(props));
+
     render() {
-        if (!this.state.readyToDraw) {
-            return null;
-        }
+        var chart = this.getChart(this.props);
+
         return (
             <div className="canvasWrapper">
                 <Canvas
                     width={CANVAS_WIDTH}
                     height={CANVAS_HEIGHT}
-                    y={this.state.y}
-                    x={this.state.x}
-                    yTicks={this.state.yTicks}
-                    xTickLocations={this.state.xAxisTickLocations}
-                    bars={this.state.bars}
-                    xAxisLabels={this.state.xAxisLabels}
+                    y={chart.y}
+                    x={chart.x}
+                    yTicks={chart.yTicks}
+                    xTickLocations={chart.xAxisTickLocations}
+                    bars={chart.bars}
+                    xAxisLabels={chart.xAxisLabels}
                     onClickCallback={this.props.onClickCallback}
                 />
             </div>
         );
     }
 
-    createBarChart() {
+    createBarChart(props) {
         var data = this.props.data;
 
         var margin = { top: 20, right: 20, bottom: 300, left: 60 },
@@ -99,7 +95,7 @@ class Graph extends Component {
 
         var xAxisLabels = x.domain().map(e => this.props.lookupXAxisLabel(e));
 
-        this.setState({
+        return {
             bars: bars,
             x: x,
             y: y,
@@ -107,7 +103,7 @@ class Graph extends Component {
             xAxisTickLocations: xAxisTickLocations,
             xAxisLabels: xAxisLabels,
             readyToDraw: true
-        });
+        };
     }
 
     calculateBars(x, y, data, chartHeight) {

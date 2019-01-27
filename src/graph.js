@@ -50,12 +50,11 @@ class Graph extends Component {
         var data = this.props.data;
 
         var margin = { top: 20, right: 20, bottom: 300, left: 60 },
-            width = CANVAS_WIDTH - margin.left - margin.right, 
+            width = CANVAS_WIDTH - margin.left - margin.right,
             height = CANVAS_HEIGHT - margin.top - margin.bottom;
 
         // if we're breaking down by chapter allow room for gaps between books
         width = this.props.breakdown ? width - 4 * singleBookOffset : width;
-
 
         var x = d3
             .scaleBand()
@@ -68,17 +67,12 @@ class Graph extends Component {
         var max = _.max(data);
 
         var yAxisLimit = this.getYAxisLimit(max);
-<<<<<<< HEAD
-
-=======
->>>>>>> 2fb7c1f7c40eb12617b32a9e8e6d2e6d6a4e4790
         x.domain(keys);
         y.domain([0, yAxisLimit]);
 
         var yTickCount = this.getYTickCount(max);
 
         console.log("Y TICK COUNT: " + yTickCount);
-        console.log(context);
         var yTicks = y.ticks(yTickCount);
         var bars = this.calculateBars(x, y, data, height);
 

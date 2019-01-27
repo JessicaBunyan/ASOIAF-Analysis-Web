@@ -109,6 +109,11 @@ class Graph extends Component {
         // if we're breaking down by chapter allow room for gaps between books
         width = this.props.breakdown ? width - 4 * singleBookOffset : width;
 
+        console.log("IMPORTANT");
+        console.log("width: " + width);
+        console.log("height: " + height);
+        console.log("barPadding: " + barPadding);
+
         var x = d3
             .scaleBand()
             .rangeRound([0, width])
@@ -120,12 +125,14 @@ class Graph extends Component {
         var max = _.max(data);
 
         var yAxisLimit = this.getYAxisLimit(max);
+        console.log("yAxisLimit: " + yAxisLimit);
         x.domain(keys);
         y.domain([0, yAxisLimit]);
 
         var yTickCount = this.getYTickCount(max);
 
         console.log("Y TICK COUNT: " + yTickCount);
+        console.log(context);
         var yTicks = y.ticks(yTickCount);
 
         context.fillStyle = "black";

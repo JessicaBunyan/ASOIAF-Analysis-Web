@@ -111,7 +111,7 @@ class App extends Component {
     getData() {
         // var refs = json["default"][this.state.word];
 
-        var refs = _.find(json["default"], r => r.Word === this.state.word.toLowerCase()).References;
+        var refs = _.find(json["default"], r => r.Word.toLowerCase() === this.state.word.toLowerCase()).References;
 
         if (this.state.filterByChar) {
             refs = _.where(refs, { pov: this.state.filterByChar });

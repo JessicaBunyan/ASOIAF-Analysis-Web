@@ -27,10 +27,9 @@ const bookImgOffsets = [0, 100, 200, 200, 200, 100];
 
 class Canvas extends Component {
     componentDidMount() {
-        // this.drawChart();
+        this.drawChart();
         var canvas = document.querySelector("canvas");
-        var context = canvas.getContext("2d");
-        context.fillRect(0, 0, 50, 50);
+        // var context = canvas.getContext("2d");
         // canvas.addEventListener("click", e => this.onChartClick(e));
         // canvas.addEventListener("mousemove", e => this.onChartHover(e));
     }
@@ -38,7 +37,7 @@ class Canvas extends Component {
         this.clearCanvas();
         var canvas = document.querySelector("canvas");
 
-        // this.drawChart();
+        this.drawChart();
     }
 
     render() {
@@ -47,7 +46,7 @@ class Canvas extends Component {
             width: this.props.width + "px"
         };
 
-        return <canvas style={canvasStyle} />;
+        return <canvas width={this.props.width} height={this.props.height} />;
     }
 
     clearCanvas() {

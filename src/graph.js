@@ -47,52 +47,52 @@ class Graph extends Component {
         );
     }
 
-    /**
-     * returns the element the mouse is over, or false if its not over any
-     * @param {} e event object
-     */
-    isMouseOverCanvasElement(e) {
-        var canvas = document.querySelector("canvas");
-        var elemLeft = canvas.offsetLeft;
-        var elemTop = canvas.offsetTop;
+    // /**
+    //  * returns the element the mouse is over, or false if its not over any
+    //  * @param {} e event object
+    //  */
+    // isMouseOverCanvasElement(e) {
+    //     var canvas = document.querySelector("canvas");
+    //     var elemLeft = canvas.offsetLeft;
+    //     var elemTop = canvas.offsetTop;
 
-        var x = e.offsetX,
-            y = e.offsetY;
+    //     var x = e.offsetX,
+    //         y = e.offsetY;
 
-        // Collision detection between clicked offset and element.
-        for (var i = 0; i < elements.length; i++) {
-            var element = elements[i];
-            if (
-                y >= element.top &&
-                y <= element.top + element.height &&
-                x >= element.left &&
-                x <= element.left + element.width
-            ) {
-                return element;
-            }
-        }
+    //     // Collision detection between clicked offset and element.
+    //     for (var i = 0; i < elements.length; i++) {
+    //         var element = elements[i];
+    //         if (
+    //             y >= element.top &&
+    //             y <= element.top + element.height &&
+    //             x >= element.left &&
+    //             x <= element.left + element.width
+    //         ) {
+    //             return element;
+    //         }
+    //     }
 
-        return false;
-    }
+    //     return false;
+    // }
 
-    onChartHover(e) {
-        var canvas = document.querySelector("canvas");
+    // onChartHover(e) {
+    //     var canvas = document.querySelector("canvas");
 
-        var hoveredElement = this.isMouseOverCanvasElement(e);
-        if (hoveredElement) {
-            // this.drawBar(canvas.getContext("2d"), hoveredElement, "white", "steelblue");
-            canvas.style.cursor = "pointer";
-        } else {
-            canvas.style.cursor = "auto";
-        }
-    }
+    //     var hoveredElement = this.isMouseOverCanvasElement(e);
+    //     if (hoveredElement) {
+    //         // this.drawBar(canvas.getContext("2d"), hoveredElement, "white", "steelblue");
+    //         canvas.style.cursor = "pointer";
+    //     } else {
+    //         canvas.style.cursor = "auto";
+    //     }
+    // }
 
-    onChartClick(e) {
-        var element = this.isMouseOverCanvasElement(e);
-        if (element) {
-            this.props.onClickCallback(element.char);
-        }
-    }
+    // onChartClick(e) {
+    //     var element = this.isMouseOverCanvasElement(e);
+    //     if (element) {
+    //         this.props.onClickCallback(element.char);
+    //     }
+    // }
 
     createBarChart() {
         var data = this.props.data;
@@ -104,6 +104,10 @@ class Graph extends Component {
         // if we're breaking down by chapter allow room for gaps between books
         width = this.props.breakdown ? width - 4 * singleBookOffset : width;
 
+        console.log(width);
+        console.log(height);
+        console.log(barPadding);
+
         var x = d3
             .scaleBand()
             .rangeRound([0, width])
@@ -113,8 +117,11 @@ class Graph extends Component {
 
         var keys = Object.keys(data);
         var max = _.max(data);
+        console.log(max);
 
         var yAxisLimit = this.getYAxisLimit(max);
+
+        console.log("7axislimit: " + yAxisLimit);
         x.domain(keys);
         y.domain([0, yAxisLimit]);
 
@@ -122,7 +129,6 @@ class Graph extends Component {
 
         console.log("Y TICK COUNT: " + yTickCount);
         var yTicks = y.ticks(yTickCount);
-
         // this.drawXAxisTicks(context, x, height);
         // this.drawXAxisLine(context, height);
         // this.drawXAxisLabels(context, x, height);

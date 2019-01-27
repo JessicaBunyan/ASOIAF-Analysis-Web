@@ -8,6 +8,8 @@ Bars change colour on hover?
 
 brighten the blood colour a bit I think
 
+crash on clicking "If i look back iam lost"
+ 
 re-run the words through backend 
 
 ==========================

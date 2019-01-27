@@ -24,8 +24,9 @@ class Graph extends Component {
         this.createBarChart();
     }
     componentDidUpdate() {
-        this.clearCanvas();
-        this.createBarChart();
+        if (!this.state.readyToDraw) {
+            this.createBarChart();
+        }
     }
 
     render() {
@@ -35,11 +36,12 @@ class Graph extends Component {
         return (
             <div className="canvasWrapper">
                 <Canvas
-                    width={CANVAS_WIDTH + "px"}
-                    height={CANVAS_HEIGHT + "px"}
+                    width={CANVAS_WIDTH}
+                    height={CANVAS_HEIGHT}
                     y={this.state.y}
                     x={this.state.x}
                     yTicks={this.state.yTicks}
+                    bars={this.state.bars}
                 />
             </div>
         );
@@ -78,7 +80,7 @@ class Graph extends Component {
 
         var hoveredElement = this.isMouseOverCanvasElement(e);
         if (hoveredElement) {
-            this.drawBar(canvas.getContext("2d"), hoveredElement, "white", "steelblue");
+            // this.drawBar(canvas.getContext("2d"), hoveredElement, "white", "steelblue");
             canvas.style.cursor = "pointer";
         } else {
             canvas.style.cursor = "auto";

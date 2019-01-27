@@ -27,20 +27,24 @@ const bookImgOffsets = [0, 100, 200, 200, 200, 100];
 
 class Canvas extends Component {
     componentDidMount() {
-        this.drawChart();
+        // this.drawChart();
         var canvas = document.querySelector("canvas");
-        canvas.addEventListener("click", e => this.onChartClick(e));
-        canvas.addEventListener("mousemove", e => this.onChartHover(e));
+        var context = canvas.getContext("2d");
+        context.fillRect(0, 0, 50, 50);
+        // canvas.addEventListener("click", e => this.onChartClick(e));
+        // canvas.addEventListener("mousemove", e => this.onChartHover(e));
     }
     componentDidUpdate() {
         this.clearCanvas();
-        this.drawChart();
+        var canvas = document.querySelector("canvas");
+
+        // this.drawChart();
     }
 
     render() {
         var canvasStyle = {
-            height: this.props.height,
-            width: this.props.width
+            height: this.props.height + "px",
+            width: this.props.width + "px"
         };
 
         return <canvas style={canvasStyle} />;
@@ -58,26 +62,26 @@ class Canvas extends Component {
             context = canvas.getContext("2d");
 
         var margin = { top: 20, right: 20, bottom: 300, left: 60 },
-            width = canvas.width - margin.left - margin.right,
-            height = canvas.height - margin.top - margin.bottom;
+            width = this.props.width - margin.left - margin.right,
+            height = this.props.height - margin.top - margin.bottom;
 
         // if we're breaking down by chapter allow room for gaps between books
         width = this.props.breakdown ? width - 4 * singleBookOffset : width;
 
-        var x = this.props.x;
-        var y = this.props.y;
+        console.log("HEIGHT");
+        console.log(height);
 
         context.fillStyle = "black";
-        this.drawXAxisTicks(context, height);
+        // this.drawXAxisTicks(context, height);
         this.drawXAxisLine(context, height);
-        this.drawXAxisLabels(context, height);
+        // this.drawXAxisLabels(context, height);
 
-        this.drawYAxisTicks(context);
+        // this.drawYAxisTicks(context);
         this.drawYAxisLine(context, height);
-        this.drawYAxisLabels(context);
+        // this.drawYAxisLabels(context);
 
-        this.drawBookBoundaries(context, width, height);
-        this.drawBars(context, this.props.bars, height);
+        // this.drawBookBoundaries(context, width, height);
+        this.drawBars(context);
     }
 
     drawBookBoundaries(context, x, canvasWidth, height) {
@@ -308,30 +312,18 @@ class Canvas extends Component {
         // context.rotate(-Math.PI / 2);
     }
 
-    drawBars(context, bars, chartHeight) {
-        var elements = [];
-        // Bars
+    drawBars(context) {
         context.fillStyle = "steelblue";
 
-        var x = this.props.x;
-        var y = this.props.y;
-
-        var width = x.bandwidth();
-        var diff = 0;
-        if (width > MaxBarWidth) {
-            // if we're limiting the bar width we need to adjust the left position to account for the difference
-            diff = width - MaxBarWidth;
-            width = MaxBarWidth;
-        }
-
-        bars.forEach(b => {
+        this.props.bars.forEach(b => {
             this.drawBar(context, b, "black", "steelblue");
         });
-
-        console.log(elements);
     }
 
     drawBar(context, el, colour, outline) {
+        console.log("DRAWING BAR");
+
+        console.log(el);
         context.fillStyle = colour;
         context.fillRect(el.left, el.top, el.width, el.height);
         context.fillStyle = outline;

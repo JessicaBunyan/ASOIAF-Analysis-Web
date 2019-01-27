@@ -151,11 +151,10 @@ class App extends Component {
         console.log(chapters);
 
         if (this.state.groupBy == "pov") {
-            return x => x;
+            return x => x.split("\r\n");
         }
         if (this.state.groupBy == "cid") {
-            return x => chapters[x].title;
-            return x => x;
+            return x => chapters[x].title.split("\r\n");
         }
     }
 }

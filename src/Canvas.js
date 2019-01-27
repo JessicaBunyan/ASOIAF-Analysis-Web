@@ -18,21 +18,26 @@ class Canvas extends Component {
     componentDidMount() {
         this.drawChart();
         var canvas = document.querySelector("canvas");
+        this.DEBUG_showCanvasBoundaries();
         canvas.addEventListener("click", e => this.onChartClick(e));
         canvas.addEventListener("mousemove", e => this.onChartHover(e));
     }
     componentDidUpdate() {
         this.clearCanvas();
-
+        this.DEBUG_showCanvasBoundaries();
         this.drawChart();
     }
 
-    render() {
-        var canvasStyle = {
-            height: this.props.height + "px",
-            width: this.props.width + "px"
-        };
+    DEBUG_showCanvasBoundaries() {
+        var canvas = document.querySelector("canvas");
+        var context = canvas.getContext("2d");
+        context.globalAlpha = 0.1;
+        context.fillStyle = "red";
+        context.fillRect(0, 0, this.props.width, this.props.height);
+        context.globalAlpha = 1;
+    }
 
+    render() {
         return <canvas width={this.props.width} height={this.props.height} />;
     }
 
@@ -91,7 +96,7 @@ class Canvas extends Component {
         var canvas = document.querySelector("canvas"),
             context = canvas.getContext("2d");
 
-        var margin = { top: 20, right: 20, bottom: 300, left: 60 },
+        var margin = settings.margin,
             width = this.props.width - margin.left - margin.right,
             height = this.props.height - margin.top - margin.bottom;
 
@@ -117,7 +122,12 @@ class Canvas extends Component {
     drawBookBoundaries(context, canvasWidth, height) {
         if (this.props.bookBoundaries) {
             for (var book = 1; book < 6; book++) {
-                this.drawBook(context, this.props.bookBoundaries, book, height + settings.topMargin + 180);
+                this.drawBook(
+                    context,
+                    this.props.bookBoundaries,
+                    book,
+                    height + settings.margin.top + settings.margin.bottom
+                );
             }
 
             context.fillStyle = "black";
@@ -128,7 +138,7 @@ class Canvas extends Component {
     drawBook(context, bookBoundaries, bookNum, height) {
         var left = bookBoundaries[bookNum - 1];
         var width = bookBoundaries[bookNum] - left;
-        left = left + settings.leftMargin;
+        left = left + settings.margin.left;
 
         context.fillStyle = bookColours[bookNum];
         var img = document.getElementById(bookImgIds[bookNum]);
@@ -196,8 +206,8 @@ class Canvas extends Component {
         context.beginPath();
         xTickPos.forEach(point => {
             console.log(point);
-            context.moveTo(point, height + settings.topMargin);
-            context.lineTo(point, height + 6 + settings.topMargin);
+            context.moveTo(point, height + settings.margin.top);
+            context.lineTo(point, height + 6 + settings.margin.top);
         });
         context.strokeStyle = "black";
         context.stroke();
@@ -205,8 +215,8 @@ class Canvas extends Component {
     drawXAxisLine(context, height) {
         context.lineWidth = 4;
         context.beginPath();
-        context.moveTo(settings.leftMargin, height + settings.topMargin + 2);
-        context.lineTo(settings.canvasWidth, height + settings.topMargin + 2);
+        context.moveTo(settings.margin.left, height + settings.margin.top + 2);
+        context.lineTo(settings.canvasWidth, height + settings.margin.top + 2);
         context.strokeStyle = "black";
         context.stroke();
     }
@@ -214,15 +224,30 @@ class Canvas extends Component {
         // X-axis labels (character/chapter names)
         context.textAlign = "left";
         context.textBaseline = "top";
-        context.font = settings.axisLabelFontSize + "px Arial";
 
         this.props.xTickLocations.forEach((l, index) => {
+            context.font = settings.axisLabelFontSize + "px Arial";
             var labelText = this.props.xAxisLabels[index];
+
+            console.log("LABEL TEXT");
+            console.log(labelText);
+            var textHeight = settings.axisLabelFontSize;
+
             context.translate(0, 0); // make sure we're back here before rotating
             context.save();
 
             context.rotate(Math.PI / 2); // turn the paper anticlockwise
-            context.fillText(labelText, height + settings.topMargin + 8, -l - settings.axisLabelFontSize / 2); // use y for x and -x for y due to paper rotation
+
+            if (labelText.length == 1) {
+                context.fillText(labelText[0], height + settings.margin.top + 8, -l - textHeight / 2); // use y for x and -x for y due to paper rotation
+            } else {
+                textHeight = textHeight - 2;
+                console.log("NEW FONT HEIGHT: " + textHeight);
+                context.font = textHeight + "px Arial";
+                context.fillText(labelText[0], height + settings.margin.top + 8, -l - textHeight); // use y for x and -x for y due to paper rotation
+                context.fillText(labelText[1], height + settings.margin.top + 8, -l); // use y for x and -x for y due to paper rotation
+            }
+
             context.restore();
         });
     }
@@ -236,8 +261,8 @@ class Canvas extends Component {
         console.log("y ticks");
         console.log(yTicks);
         yTicks.forEach(function(d) {
-            context.moveTo(settings.leftMargin, y(d) + 0.5 + settings.topMargin);
-            context.lineTo(settings.leftMargin - 5, y(d) + 0.5 + settings.topMargin);
+            context.moveTo(settings.margin.left, y(d) + 0.5 + settings.margin.top);
+            context.lineTo(settings.margin.left - 5, y(d) + 0.5 + settings.margin.top);
         });
         context.strokeStyle = "black";
         context.stroke();
@@ -246,8 +271,8 @@ class Canvas extends Component {
         // Vertical Axis (line)
         context.beginPath();
         context.lineWidth = 4;
-        context.moveTo(settings.leftMargin, settings.topMargin);
-        context.lineTo(settings.leftMargin, height + settings.topMargin + 4); // 4 for linewidth
+        context.moveTo(settings.margin.left, settings.margin.top);
+        context.lineTo(settings.margin.left, height + settings.margin.top + 4); // 4 for linewidth
         context.strokeStyle = "black";
         context.stroke();
     }
@@ -259,15 +284,8 @@ class Canvas extends Component {
         context.textBaseline = "middle";
         context.font = settings.axisLabelFontSize + "px Arial";
         this.props.yTicks.forEach(function(d) {
-            context.fillText(d, settings.leftMargin - 10, y(d) + settings.topMargin);
+            context.fillText(d, settings.margin.left - 10, y(d) + settings.margin.top);
         });
-
-        //// Occurences label
-
-        // context.rotate(Math.PI / 2);
-        // context.textAlign = "center";
-        // context.fillText("# Occurrences", settings.topMargin + 200, -10);
-        // context.rotate(-Math.PI / 2);
     }
 
     drawBars(context) {

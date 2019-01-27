@@ -38,7 +38,7 @@ class Graph extends Component {
     createBarChart(props) {
         var data = this.props.data;
 
-        var margin = { top: 20, right: 20, bottom: 300, left: 60 },
+        var margin = settings.margin,
             width = settings.canvasWidth - margin.left - margin.right,
             height = settings.canvasHeight - margin.top - margin.bottom;
 
@@ -121,7 +121,7 @@ class Graph extends Component {
             var endBar = barCenters[i];
             var startBar = barCenters[i + 1];
 
-            var midPoint = startBar - settings.leftMargin + (endBar - startBar) / 2;
+            var midPoint = startBar - settings.margin.left + (endBar - startBar) / 2;
 
             if (endBar == startBar) {
                 midPoint = -2; // -2 aka missing chapter but not at start
@@ -172,7 +172,7 @@ class Graph extends Component {
             var el = {
                 char: d,
                 left: this.getBarLeft(x, d, width),
-                top: y(data[d]) + settings.topMargin,
+                top: y(data[d]) + settings.margin.top,
                 width: width,
                 height: chartHeight - y(data[d])
             };
@@ -231,7 +231,7 @@ class Graph extends Component {
         console.log("drawing x axis label");
         x.domain().forEach(d => {
             var bookOffset = this.getBookOffset(d);
-            var xPos = settings.leftMargin + bookOffset + x(d) + x.bandwidth() / 2;
+            var xPos = settings.margin.left + bookOffset + x(d) + x.bandwidth() / 2;
             points.push(xPos);
         });
         return points;
@@ -263,7 +263,7 @@ class Graph extends Component {
             width = settings.maxBarWidth;
         }
 
-        return x(d) + bookOffset + settings.leftMargin + diff / 2;
+        return x(d) + bookOffset + settings.margin.left + diff / 2;
     }
 }
 

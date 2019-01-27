@@ -72,11 +72,6 @@ class Graph extends Component {
         var max = _.max(data);
 
         var yAxisLimit = this.getYAxisLimit(max);
-<<<<<<< HEAD
-        console.log("yAxisLimit: " + yAxisLimit);
-=======
-
->>>>>>> hover-bar-colours
         x.domain(keys);
         y.domain([0, yAxisLimit]);
 

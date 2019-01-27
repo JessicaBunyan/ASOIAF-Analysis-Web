@@ -12,7 +12,8 @@ const settings = {
     barColour: "steelblue",
     barOutlineColour: "black",
     highlightedBarColour: "steelblue",
-    highlightedBarOutline: "white"
+    highlightedBarOutline: "white",
+    margin = { top: 20, right: 20, bottom: 250, left: 60 }
 };
 
 export default settings;

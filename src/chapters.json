@@ -2612,7 +2612,7 @@
             "id": 326,
             "seq": 56,
             "book": "ADWD",
-            "title": "The Queensguard",
+            "title": "The\r\nQueensguard",
             "pov_character": "Barristan Selmy",
             "words": 4740
         },
@@ -2732,7 +2732,7 @@
             "id": 341,
             "seq": 71,
             "book": "ADWD",
-            "title": "The Queen's Hand",
+            "title": "The Queen's\r\nHand",
             "pov_character": "Barristan Selmy",
             "words": 6445
         },

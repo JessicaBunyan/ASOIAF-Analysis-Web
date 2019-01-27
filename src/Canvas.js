@@ -18,23 +18,12 @@ class Canvas extends Component {
     componentDidMount() {
         this.drawChart();
         var canvas = document.querySelector("canvas");
-        this.DEBUG_showCanvasBoundaries();
         canvas.addEventListener("click", e => this.onChartClick(e));
         canvas.addEventListener("mousemove", e => this.onChartHover(e));
     }
     componentDidUpdate() {
         this.clearCanvas();
-        this.DEBUG_showCanvasBoundaries();
         this.drawChart();
-    }
-
-    DEBUG_showCanvasBoundaries() {
-        var canvas = document.querySelector("canvas");
-        var context = canvas.getContext("2d");
-        context.globalAlpha = 0.1;
-        context.fillStyle = "red";
-        context.fillRect(0, 0, this.props.width, this.props.height);
-        context.globalAlpha = 1;
     }
 
     render() {

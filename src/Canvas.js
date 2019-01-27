@@ -71,7 +71,7 @@ class Canvas extends Component {
         console.log(height);
 
         context.fillStyle = "black";
-        // this.drawXAxisTicks(context, height);
+        this.drawXAxisTicks(context, height);
         this.drawXAxisLine(context, height);
         // this.drawXAxisLabels(context, height);
         //
@@ -226,15 +226,15 @@ class Canvas extends Component {
     }
 
     drawXAxisTicks(context, height) {
-        var x = this.props.x;
+        var xTickPos = this.props.xTickLocations;
+
         // X-axis "ticks"
         context.lineWidth = 1;
         context.beginPath();
-        x.domain().forEach(d => {
-            var bookOffset = this.getBookOffset(d);
-            var xPos = leftMargin + bookOffset + x(d) + x.bandwidth() / 2;
-            context.moveTo(xPos, height + topMargin);
-            context.lineTo(xPos, height + 6 + topMargin);
+        xTickPos.forEach(point => {
+            console.log(point);
+            context.moveTo(point, height + topMargin);
+            context.lineTo(point, height + 6 + topMargin);
         });
         context.strokeStyle = "black";
         context.stroke();

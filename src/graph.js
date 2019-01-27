@@ -9,6 +9,7 @@ const barPadding = 0.05;
 const MaxBarWidth = 80;
 const leftMargin = 80;
 const topMargin = 10;
+const axisLabelFontSize = 20;
 
 var elements = [];
 
@@ -41,6 +42,7 @@ class Graph extends Component {
                     y={this.state.y}
                     x={this.state.x}
                     yTicks={this.state.yTicks}
+                    xTickLocations={this.state.xAxisTickLocations}
                     bars={this.state.bars}
                 />
             </div>
@@ -140,11 +142,14 @@ class Graph extends Component {
         // this.drawBookBoundaries(context, x, width, height);
         var bars = this.calculateBars(x, y, data, height);
 
+        var xAxisTickLocations = this.getXAxisTickLocations(x, height);
+
         this.setState({
             bars: bars,
             x: x,
             y: y,
             yTicks: yTicks,
+            xAxisTickLocations: xAxisTickLocations,
             readyToDraw: true
         });
     }
@@ -217,6 +222,17 @@ class Graph extends Component {
             break;
         }
         return (i - 1) * singleBookOffset;
+    }
+
+    getXAxisTickLocations(x, height) {
+        var points = [];
+        console.log("drawing x axis label");
+        x.domain().forEach(d => {
+            var bookOffset = this.getBookOffset(d);
+            var xPos = leftMargin + bookOffset + x(d) + x.bandwidth() / 2;
+            points.push(xPos);
+        });
+        return points;
     }
 
     getYAxisLimit(max) {
